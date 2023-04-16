@@ -10,4 +10,3 @@
 @endforeach
 
 
-<a href="/profile/{{$user->id}}/edit">Edit</a>
