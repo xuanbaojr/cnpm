@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="app">
-        
     </div>
+    <div id="follow_button"></div>
 </body>
 </html>
