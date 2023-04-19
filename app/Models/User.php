@@ -11,6 +11,15 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    
+    protected static function boot(){
+        parent :: boot();
+        static :: created(function($user){
+            $user->profile()->create([
+                'fullname'=> $user->username,
+            ]);
+        });
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -50,6 +59,8 @@ class User extends Authenticatable
     public function posts(){
         return $this ->hasMany(\App\Models\Post::class)->orderBy('created_at', 'DESC');
     }
+
+    
 
     
 

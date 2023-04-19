@@ -14,6 +14,11 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
+    protected $fillable = [
+        'fullname',
+        
+    ];
+
     /* 
     protected $primaryKey = 'profile_id';
     protected $incrementing = false;
