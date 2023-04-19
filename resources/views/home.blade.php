@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <a href = "/profile/{{ auth()-> user() ->id }}">Profile</a>
 <div class="container">
@@ -22,3 +21,6 @@
     </div>
 </div>
 @endsection
+
+<div id="app"></div>
+<script src="{{ mix('js/app.js') }}"></script>
