@@ -1,14 +1,179 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   
-
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/profile.css">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css'])
 </head>
 <body>
-    <div id="app">
+   <header>
+    <ul id="nav" class="light-blue">
+        <li>
+          <p>Roommate.vn</p>
+        </li>
+        <li>
+          <a href="#">Trang chủ</a>
+        </li>
+        <li>
+          <a href="#">BLOG</a>
+        </li>
+        <li>
+          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hoạt động </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">Cho thuê phòng trọ</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Nhà cho thuê</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Cho thuê căn hộ</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Tìm người ở ghép</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hỗ trợ </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">Nạp tiền</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Bảng giá</a>
+            </li>
+          </ul>
+        </li>
+
+    </ul>
+   </header> 
+   <main >
+   <div class="row">
+    <div class="col-lg-2 sidebar">
+        <div class="user-info">
+            <div class="user_avatar"><img src="./assets/img/avatar1.jpg"></div>
+            <div class="user_meta">
+                <div class="inner">					
+                    <div class="user_name">Phùng Lê Anh Quân</div>
+                    <div class="user_number">0843325687</div>
+                </div>
+            </div>
+            <button class="btn btn-danger">Đăng tin</button>
+        </div> 
+        <ul class="nav-sidebar">
+            <li class="nav-item">
+                <a href="managePost.html" class="nav-link">Quản lý bài đăng</a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html" class="nav-link">Chỉnh sửa thông tin</a>
+            </li>
+            <li class="nav-item">
+                <a href="changepass.html" class="nav-link">Đổi mật khẩu</a>
+            </li>
+            <li class="nav-item">
+                <a href="moneyHistory.html" class="nav-link">Lịch sử nạp tiền</a>
+            </li>
+            <li class="nav-item">
+                <a href="payHistory.html" class="nav-link">Lịch sử thanh toán</a>
+            </li>
+            <li class="nav-item">
+                <a href="login-signup.html" class="nav-link">Đăng xuất</a>
+            </li>
+        </ul>
     </div>
-    <div id="follow_button"></div>
+    <div class="col-lg-10 change-info">
+        <div class="title">
+            <h2>Cập nhật thông tin cá nhân</h2>
+        </div>
+        <div class="main-info">
+
+            <div class="row">
+                <div class="col-lg-1" ></div>
+                <div class="col-lg-1 input-title">Mã khách hàng</div>
+                <div class="col-lg-2 input-size">
+                    <input type="text" readonly="" class="form-control disable valid" id="user_id" value="#129268" aria-invalid="false">
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-1 input-title">Số điện thoại</div>
+                <div class="col-lg-2 input-size">
+                    <input type="text" readonly="" class="form-control disable valid" id="user_id" value="0843325687" aria-invalid="false">
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-2  input-size">
+                    <a href="#" class="change-number">Đổi số điện thoại</a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="more-info">
+
+            
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-1 input-title">Tên hiển thị</div>
+                <div class="col-lg-2 input-size">
+                    <input type="text">
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-1 input-title">Email</div>
+                <div class="col-lg-2 input-size">
+                    <input type="text">
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-1 input-title">Số zalo</div>
+                <div class="col-lg-2 input-size">
+                    <input type="text">
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-1 input-title">Facebook</div>
+                <div class="col-lg-2 input-size">
+                    <input type="text">
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-1 input-title">Ảnh đại diện</div>
+                <div class="col-lg-2 input-avatar-size">
+                    <img src="" alt="avatar" id="demo-ava">
+                    <input type="file" name="Choose file" id="file-avatar">
+                </div>
+                
+            </div>   
+            
+            
+        </div>    
+        <button class="btn btn-primary save-button">Lưu & Cập nhật</button>
+
+    </div>
+   </div>
+   </main>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/profile.js"></script>
 </body>
 </html>
+
