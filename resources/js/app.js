@@ -5,5 +5,5 @@ createApp(App).mount('#app');
 
 import follow_button from './components/follow_button.vue';
 
-createApp(follow_button).mount('#app');
+createApp(follow_button).mount('#follow_button');
 

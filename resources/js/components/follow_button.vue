@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="btn btn-primary">Follow</div>
+      <div class="btn btn-primary">follow</div>
     </div>
   </template>
   
