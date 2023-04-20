@@ -1,13 +1,8 @@
+
 @extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="vi-VN" itemscope itemtype="http://schema.org/WebPage" class="user_active">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css',
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css', 'resources/js/bootstrap.js',
     'resources/css/swiper-bundle.min.css',
     'resources/css/index.css',
     'resources/css/animation.css',
@@ -15,138 +10,13 @@
     'resources/css/slider.css',
     'resources/css/sidebar.css',
     'resources/css/searchbar.css',
-    'resources/css/pagination.css'])
-    <title>Roommate - Website tìm bạn trọ số 1 Việt Nam</title>
-  </head>
-  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
-    <div id="main">
-      <!-- Begin: Header -->
-      <div id="header">
-        <!-- Logo -->
-        <div class="row">
-          <div class="col" style="transform: translateX(-12%)">
-            <div class="row">
-              <a id="top-logo" class="col" href="#" title="tìm bạn trọ" style="margin-right: 0px;padding-right: 0px;width: 40px;">Tìm bạn trọ</a>
-              <div class="col" style="margin-left: 0px; padding-left: 20px;padding-top: 2%;">
-                <h1>Roommate.vn</h1>
-                <h5>Web kiếm phòng trọ số 1 VN</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col"></div>
-          <div class="col" style="width: 70%">
-            <div class="user-welcome clearfix">
-              <a rel="nofollow" class="header-add-post light-red" href="uppost.html">
-                <i class='bx bxs-plus-circle mr-4'></i>Đăng tin mới</a>
-                <div class="header-btn " data-bs-toggle="dropdown">
-                  <i class='bx bx-bell mr-4'></i> Thông báo </div>
-                  <ul class="dropdown-menu user-notice">
-                    <li>
-                      <p class="dropdown-item head-notice" >Thông báo của bạn</p>
-                    </li>
-                    
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <div class="notice">
-                          <img src="./assets/img/room1-3.jpg" alt="" width="50px" height="50px" style="display: inline-block">
-                          <div class="ntice-content"><p>Bạn đã thích phòng trọ thành thái</p></div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <div class="notice">
-                          <img src="./assets/img/room1-3.jpg" alt="" width="50px" height="50px" style="display: inline-block">
-                          <div class="ntice-content"><p>Bạn đã thích phòng trọ thành thái</p></div>
-                        </div>
-                      </a>
-                    </li>
-                    
-                    <li>
-                      <a class="dropdown-item more-notice" href="Notification.html">Xem chi tiết<i class='bx bx-right-arrow-alt' style="margin-left: 4px"></i></a>
-                    </li>
-                  </ul>
-                <a rel="nofollow" class="header-btn" href="/profile/{{auth()->user()->id}}">
-                <i class='bx bx-user mr-4'></i>Quản lý tài khoản </a>
-              
-            </div>
-          </div>
-        </div>
-        <!-- Begin: Nav -->
-        <ul id="nav" class="light-blue">
-          <li>
-            <i class="bx bx-menu menu-icon outline-icon menu-button"></i>
-          </li>
-          <li class="header-nav-item">
-            <a href="#">Trang chủ</a>
-          </li>
-          <li class="header-nav-item">
-            <a type="button" class="dropdown-toggle " data-bs-toggle="dropdown"> Hoạt động </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">Cho thuê phòng trọ</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Nhà cho thuê</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Cho thuê căn hộ</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Tìm người ở ghép</a>
-              </li>
-            </ul>
-          </li>
-          <li class="header-nav-item">
-            <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hỗ trợ </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">Nạp tiền</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Bảng giá</a>
-              </li>
-            </ul>
-          </li>
-          <li class="header-nav-item">
-            <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Điều hướng </a>
-            <ul class="dropdown-menu" style="color: #000">
-              <li class="nav-item">
-                <a class="dropdown-item" href="#section1">Thành phố lớn</a>
-              </li>
-              <li class="nav-item">
-                <a class="dropdown-item" href="#section2">Danh sách tin</a>
-              </li>
-              <li class="nav-item">
-                <a class="dropdown-item" href="#section3">Về trang web</a>
-              </li>
-              <li class="nav-item">
-                <a class="dropdown-item" href="#section4">Điều khoản và dịch vụ</a>
-              </li>
-            </ul>
-          </li>
-          <li class="header-nav-item">
-            <a href="aboutUs.html">ABOUT US</a>
-          </li>
-          <!-- Filter -->
-          <div id="filter-top" class="row">
-            <div class="col input-box">
-              <input type="text" placeholder="Search...">
-              <span class="icon-search">
-                <i class="uil uil-search search-icon"></i>
-              </span>
-              <i class="uil uil-times close-icon"></i>
-            </div>
-          </div>
-        </ul>
-        <!-- End: Nav -->
-      </div>
-      <!-- End: Header -->
-      <!-- Begin: Content -->
-      <div class="content">
+    'resources/css/pagination.css',
+    'resources/css/bootstrap.min.css'])
+    <title>Room</title>
+    
+    @section('content')
+   
+    <div class="content">
         <section class="intro-header container" id="section1" style="margin-bottom: 20px">
           <h2 style="padding-top: 20px;">Kênh thông tin Phòng Trọ số 1 Việt Nam</h2>
           <p>Kênh thông tin Phòng Trọ số 1 Việt Nam - Website đăng tin cho thuê phòng trọ, nhà nguyên căn, căn hộ, ở ghép nhanh, hiệu quả với 100.000+ tin đăng và 2.500.000 lượt xem mỗi tháng.</p>
@@ -559,61 +429,7 @@
           <p>Copyright &#169; 2023 <a href="#">QuanPhung</a> All rights reserved </p>
         </div>
       </footer>
-      <div class="side_bar">
-        <div class="sidebar">
-          <div class="logo-sidebar">
-            <i class="bx bx-menu menu-icon"></i>
-            <span class="logo-name">Roommate</span>
-          </div>
-          <div class="sidebar-content">
-            <ul class="lists">
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class="bx bx-home-alt icon"></i>
-                  <span class="link">Trang chủ</span>
-                </a>
-              </li>
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class='bx bx-check-shield icon'></i>
-                  <span class="link">Đổi mật khẩu</span>
-                </a>
-              </li>
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class="bx bx-bell icon"></i>
-                  <span class="link">Thông báo</span>
-                </a>
-              </li>
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class='bx bx-history icon'></i>
-                  <span class="link">Lịch sử thuê phòng</span>
-                </a>
-              </li>
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class='bx bx-user-circle icon'></i>
-                  <span class="link">Quản lý tài khoản</span>
-                </a>
-              </li>
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class='bx bx-support icon'></i>
-                  <span class="link">Hỗ trợ khách hàng</span>
-                </a>
-              </li>
-            </ul>
-            <div class="bottom-cotent" style="margin-left: 25px">
-              <li class="list">
-                <a href="#" class="nav-link">
-                  <i class="bx bx-log-out icon"></i>
-                  <span class="link">Logout</span>
-                </a>
-              </li>
-            </div>
-          </div>
-        </div>
+
       </div>
       <section class="overlay"></section>
       <div class="modal-contact">
@@ -686,13 +502,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/close.js"></script>
-    <script src="js/modal.js"></script>
-    <script src="js/slider.js"></script>
-  </body>
-</html>
+   
+
+@endsection

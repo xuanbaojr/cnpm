@@ -1,6 +1,7 @@
+@extends('layouts.app')
 <!DOCTYPE html>
-<html lang="en">
-<head>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,54 +9,11 @@
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
    
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css'])
-</head>
-<body>
-   <header>
-    
-    <ul id="nav" class="light-blue">
-        <li>
-          <p>Roommate.vn</p>
-        </li>
-        <li>
-          <a href="#">Trang chủ</a>
-        </li>
-        <li>
-          <a href="#">BLOG</a>
-        </li>
-        <li>
-          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hoạt động </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="#">Cho thuê phòng trọ</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Nhà cho thuê</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Cho thuê căn hộ</a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Tìm người ở ghép</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hỗ trợ </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="#">Nạp tiền</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Bảng giá</a>
-            </li>
-          </ul>
-        </li>
 
-    </ul>
-   </header> 
+
+   
+    @section('content')
+    
    <main >
    <div class="row">
     <div class="col-lg-2 sidebar">
@@ -176,6 +134,8 @@
    </main>
    <script src="js/bootstrap.bundle.min.js"></script>
    <script src="js/profile.js"></script>
-</body>
-</html>
 
+
+
+   @endsection
+   
