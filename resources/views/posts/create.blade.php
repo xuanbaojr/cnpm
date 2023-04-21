@@ -11,18 +11,31 @@
                     <form method="POST" enctype="multipart/form-data" action="/post">
                         @csrf
 
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title"  required autocomplete="title">
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                               
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Địa Chỉ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dia_chi" type="text" class="form-control @error('email') is-invalid @enderror" name="dia_chi"  required autocomplete="email">
-
-                                @error('email')
+                                <input id="dia_chi" type="text" class="form-control @error('dia_chi') is-invalid @enderror" name="dia_chi"  required autocomplete="dia_chi">
+                                @error('dia_chi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                               
                             </div>
                         </div>
 

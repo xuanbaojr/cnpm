@@ -23,6 +23,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -55,6 +56,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                  <a class="dropdown-item" href="/profile/{{auth()->user()->id}}"
+                                       onclick="event.preventDefault();
+                                                    return redirect()->to(); ">
+                                        {{ __('Thông tin tài khoản') }}
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -66,8 +74,12 @@
                                     </form>
                                 </div>
                             </li>
+                            <a class="navbar-brand" href="/post/create" >
+                        <button class="btn btn-primary">Post</button>
+                    </a>
                         @endguest
                     </ul>
+                    
                 </div>
             </div>
         </nav>

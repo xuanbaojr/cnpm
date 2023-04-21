@@ -23,6 +23,7 @@ class PostsController extends Controller
 
     public function store(){
         $data = request()->validate([
+            'title'=>'required',
             'dia_chi' =>'required',
             'image'=>'required|image',
             'dien_tich' => 'required',
@@ -34,6 +35,7 @@ class PostsController extends Controller
         $imagePath = (request('image')->store('uploads','public'));
 
         auth()->user()->posts()->create([
+            'title' =>$data['title'],
             'dia_chi' =>$data['dia_chi'],
             'image'=> $imagePath,
             'dien_tich' => $data['dien_tich'],

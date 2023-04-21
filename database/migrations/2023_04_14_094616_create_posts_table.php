@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('title')->nullable(true);
             $table->string('dia_chi')->nullable();
             $table->string('dien_tich')->nullabe(true);
             $table->string('gia_phong')->nullable(true);

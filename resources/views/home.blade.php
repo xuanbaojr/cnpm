@@ -15,7 +15,7 @@
     <title>Room</title>
     
     @section('content')
-    <a href="/profile/{{auth()->user()->id}}">Profile</a>
+   
     <div class="content">
         <section class="intro-header container" id="section1" style="margin-bottom: 20px">
           <h2 style="padding-top: 20px;">Kênh thông tin Phòng Trọ số 1 Việt Nam</h2>
@@ -87,10 +87,11 @@
               </div>
               <!-- Sort -->
               <div class="post-listing">
+                @foreach($posts as $posts)
                 <div class="post-item clearfix">
                   <div class="info-img">
                     <div class="mainimg">
-                      <img src="./assets/img/room1-1.jpg" alt="" width="100%" height="100%">
+                      <img src="/storage/{{$posts->image}}" alt="" width="100%" height="100%">
                     </div>
                     <div class="sideimg">
                       <img src="./assets/img/room1-2.jpg" alt="" width="100%" height="100%" style="width: 100%;">
@@ -106,65 +107,31 @@
                   </div>
                   <div class="post-meta">
                     <h2 class="post-title">
-                      <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">Phòng trọ Thành Thái</a>
+                      <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">{{$posts->title}}</a>
                     </h2>
                     <div class="meta-row clearfix">
-                      <span class="post-price">5 triệu/tháng</span>
-                      <span class="post-acreage">25m²</span>
+                      <span class="post-price">{{$posts->gia_phong}} / tháng</span>
+                      <span class="post-acreage">{{$posts->dien_tich}}</span>
                       <span class="post-location">
-                        <a style="color: #000" href="#">Quận Phú Nhuận, Hồ Chí Minh</a>
+                        <a style="color: #000" href="#">{{$posts->dia_chi}}</a>
                       </span>
-                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023">Hôm nay</time>
-                      <p class="post-summary">Phòng đẹp nằm ngay trung tâm quận Phú Nhuận (xem hình thật). View trước là đối diện Khách Sạn 3* Tân Sơn Nhất, View sau là đường Nguyễn Văn Trỗi.</p>
+                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023">{{$posts->updated_at}}</time>
+                      <p class="post-summary">{{$posts->description}}</p>
                     </div>
                     <div class="contact-info">
                       <div class="post-author">
                         <img src="./assets/img/slider/slider1.jpg" alt="member-item" class="">
-                        <span class="">phungquan2003</span>
+                        <a href="/profile/{{$posts->user->id}}">
+                        <span class="">{{$posts->user->username}}</span>
+                        </a>
+                        
                       </div>
-                      <a rel="nofollow" href="#" class="btn-quick-zalo">Nhắn Zalo</a>
+                      <a rel="nofollow" href="/post/post_show/{{$posts->id}}" class="btn-quick-zalo">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
-                <div class="post-item clearfix">
-                  <div class="info-img">
-                    <div class="mainimg">
-                      <img src="./assets/img/slider/slider1.jpg" alt="" width="100%" height="100%">
-                    </div>
-                    <div class="sideimg">
-                      <img src="./assets/img/slider/slider1.jpg" alt="" width="100%" height="100%" style="width: 100%;">
-                      <div class="img-child row" style="margin:0px !important">
-                        <div class="col" style="padding: 0px !important">
-                          <img src="./assets/img/slider/slider1.jpg" alt="">
-                        </div>
-                        <div class="col" style="padding: 0px !important">
-                          <img src="./assets/img/slider/slider1.jpg" alt="">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="post-meta">
-                    <h2 class="post-title">
-                      <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">Phòng trọ Thành Thái</a>
-                    </h2>
-                    <div class="meta-row clearfix">
-                      <span class="post-price">5 triệu/tháng</span>
-                      <span class="post-acreage">25m²</span>
-                      <span class="post-location">
-                        <a style="color: #000" href="#">Quận Phú Nhuận, Hồ Chí Minh</a>
-                      </span>
-                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023">Hôm nay</time>
-                      <p class="post-summary">Phòng đẹp nằm ngay trung tâm quận Phú Nhuận (xem hình thật). View trước là đối diện Khách Sạn 3* Tân Sơn Nhất, View sau là đường Nguyễn Văn Trỗi.</p>
-                    </div>
-                    <div class="contact-info">
-                      <div class="post-author">
-                        <img src="./assets/img/slider/slider1.jpg" alt="member-item" class="">
-                        <span class="">phungquan2003</span>
-                      </div>
-                      <a rel="nofollow" href="#" class="btn-quick-zalo">Nhắn Zalo</a>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
+               
               </div>
             </div>
             <!-- End: Main content -->
