@@ -10,7 +10,14 @@
    
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css'])
 
+    
 
+    <script>
+    window.vueData = {
+        userId: '{{$user->id}}'
+        
+    };
+</script>
    
     @section('content')
     
@@ -30,7 +37,7 @@
             
                
                 <div id="follow_button">
-                    <follow_button :user = "'{{$user->id}}'"></follow_button>
+                    <follow_button></follow_button>
                 </div>
 `          
 

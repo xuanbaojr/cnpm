@@ -2,21 +2,22 @@
 <template>
   <div>
     <button class="btn" @click="follow">Follow</button>
-    {{ user }}
   </div>
 </template>
 
 <script setup>
 import axios from 'axios';
+import { ref } from 'vue';
 
-import { defineProps } from 'vue';
+const userId = ref(window.vueData.userId);
 
-const props = defineProps(['user']);
-
-function follow() {
-  axios.post('/follow/1')
-    .then(response => {
-      alert(response.data);
-    });
+async function follow() {
+  try {
+    const response = await axios.post('/follow/' + userId.value);
+    alert(response.data);
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while following.');
+  }
 }
 </script>

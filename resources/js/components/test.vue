@@ -1,9 +1,7 @@
 <!-- resources/js/components/ExampleComponent.vue -->
 <template>
-  <div>
-    <p>Prop 1: {{ prop1 }}</p>
-    <p>Prop 2: {{ prop2 }}</p>
-  </div>
+   <button class="btn" @click="follow">Follow</button>
+  {{prop1}}
 </template>
 
 <script setup>
