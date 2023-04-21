@@ -29,7 +29,9 @@
 
             
                
-                <div id="follow_button"></div>
+                <div id="follow_button">
+                    <follow_button :user = "'{{$user->id}}'"></follow_button>
+                </div>
 `          
 
 

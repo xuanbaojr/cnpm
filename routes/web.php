@@ -54,7 +54,6 @@ Route::get('/test', [App\Http\Controllers\TestsController::class, 'index'])->nam
 //follow
 
 
-Route::post('/follow/{user}', function() {
-    return ['success'];
-});
+Route::post('/follow/{user}', [App\Http\Controllers\followsController::class, 'store'])->name('name');
+
 
