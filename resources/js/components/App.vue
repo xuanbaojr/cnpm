@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <h6>XuanBao !</h6>
-  </div>
+  <p>{{ title }}</p>
+  <button class="btn" @click="$emit('larger')">Larger</button>
+ 
 </template>
 
-<script>
-export default {
-  name: 'App',
-};
+<script setup>
+  defineProps(['title'])
 </script>

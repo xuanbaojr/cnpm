@@ -52,6 +52,9 @@ Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::cla
 Route::get('/test', [App\Http\Controllers\TestsController::class, 'index'])->name('name');
 
 //follow
-Route::post('/profile/{user}', function(){
+
+
+Route::post('/follow/{user}', function() {
     return ['success'];
 });
+

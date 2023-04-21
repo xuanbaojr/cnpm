@@ -1,21 +1,19 @@
+<!-- resources/js/components/ExampleComponent.vue -->
 <template>
-    <div>
-      <div class="btn btn-primary" @click="followUser">follow</div>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'follow_button',
+  <div>
+    <button class="btn" @click="follow">Follow</button>
+  </div>
+</template>
 
-    methods: {
-      followUser(){
-        axios.post('/profile/2')
-          .then(response => {
-              alert('response');
-          });
-      }
-    }
-  };
-  </script>
-  
+<script setup>
+import axios from 'axios';
+
+function follow() {
+  axios.post('/follow/1')
+    .then(response => {
+      alert(response.data);
+    });
+
+
+}
+</script>

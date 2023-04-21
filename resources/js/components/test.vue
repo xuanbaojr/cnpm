@@ -1,19 +1,29 @@
+<!-- resources/js/components/ExampleComponent.vue -->
 <template>
-    <button class="btn" @click="test">Count: {{ count }}</button>
-
-    <p>Using text interpolation: {{ rawHtml }}</p>
-    <p>Using v-html directive: <span v-html="rawHtml"></span></p>
-    <div v-bind:id="dynamicId"></div>
-
+  <div>
+    
+    <pre>{{ fetchedData }}</pre>
+  </div>
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
-const count = ref(0)
-function test(){
-    count.value++
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+const prop1 = ref(window.vueData.prop1);
+const prop2 = ref(window.vueData.prop2);
+const fetchedData = ref(null);
+
+async function fetchData() {
+  const response = await axios.get('/api/example', {
+    params: {
+      prop1: prop1.value,
+      prop2: prop2.value
+    }
+  });
+
+  fetchedData.value = response.data;
 }
-onMounted(()=>{
-    console.log('xuanbao01')
-})
+
+onMounted(fetchData);
 </script>

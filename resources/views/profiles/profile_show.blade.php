@@ -25,7 +25,14 @@
                     <div class="user_number">0843325687</div>
                 </div>
             </div>
-            <div id="follow_button"></div>
+
+
+            
+               
+                <div id="follow_button"></div>
+`          
+
+
             <button class="btn btn-danger">Đăng tin</button>
         </div> 
         <ul class="nav-sidebar">
