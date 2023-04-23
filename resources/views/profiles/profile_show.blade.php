@@ -30,7 +30,7 @@
     <script>
     window.vueData = {
         userId: '{{$user->id}}',
-        isfollowed: '{{$isfollowed}}'
+        isfollowed: '{{$followShow}}'
     };
     </script>
    

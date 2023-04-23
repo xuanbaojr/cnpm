@@ -11,7 +11,9 @@ class ProfilesController extends Controller
     public function index(\App\Models\User $user)
     {   
         $isfollowed = auth()->user() ? auth()->user()->following->contains($user->id) : false;
-        return view('profiles.profile_show',compact('user','isfollowed'));
+        $followShow = $isfollowed ? 'Unfollow' : 'Follow';
+
+        return view('profiles.profile_show',compact('user','followShow'));
     }
 
     public function edit(\App\Models\User $user){
