@@ -24,4 +24,8 @@ class Profile extends Model
     protected $incrementing = false;
     protected $keyType = 'string';
     */
+
+    public function follower(){
+        return $this->belongsToMany(User::class);
+    }
 }

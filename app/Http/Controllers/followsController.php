@@ -8,8 +8,7 @@ class followsController extends Controller
 {
     //
     public function store(\App\Models\User $user){
-        return $user->username;
+        return auth()->user()->following()->toggle($user->profile->id);
     }
 
-    
 }

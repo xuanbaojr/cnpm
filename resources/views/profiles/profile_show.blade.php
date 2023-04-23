@@ -7,151 +7,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
    
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css'])
-
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css', 'resources/js/bootstrap.js',
+    'resources/css/swiper-bundle.min.css',
+    'resources/css/index.css',
+    'resources/css/animation.css',
+    'resources/css/modal.css',
+    'resources/css/slider.css',
+    'resources/css/sidebar.css',
+    'resources/css/searchbar.css',
+    'resources/css/pagination.css',
+    'resources/css/bootstrap.min.css',
+    'resources/css/user-detail.css',
+    'resources/js/profile.js',
+    'resources/js/bootstrap.bundle.min.js',
+    'resources/js/script.js'])
     
 
     <script>
     window.vueData = {
-        userId: '{{$user->id}}'
-        
+        userId: '{{$user->id}}',
+        isfollowed: '{{$isfollowed}}'
     };
-</script>
+    </script>
    
     @section('content')
-    
-   <main >
-   <div class="row">
-    <div class="col-lg-2 sidebar">
-        <div class="user-info">
-            <div class="user_avatar"><img src="./assets/img/avatar1.jpg"></div>
-            <div class="user_meta">
-                <div class="inner">					
-                    <div class="user_name">Phùng Lê Anh Quân</div>
-                    <div class="user_number">0843325687</div>
-                </div>
-            </div>
-
-
-            
-               
-                <div id="follow_button">
-                    <follow_button></follow_button>
-                </div>
-`          
-
-
-            <button class="btn btn-danger">Đăng tin</button>
-        </div> 
-        <ul class="nav-sidebar">
-            <li class="nav-item">
-                <a href="managePost.html" class="nav-link">Quản lý bài đăng</a>
-            </li>
-            <li class="nav-item">
-                <a href="profile.html" class="nav-link">Chỉnh sửa thông tin</a>
-            </li>
-            <li class="nav-item">
-                <a href="changepass.html" class="nav-link">Đổi mật khẩu</a>
-            </li>
-            <li class="nav-item">
-                <a href="moneyHistory.html" class="nav-link">Lịch sử nạp tiền</a>
-            </li>
-            <li class="nav-item">
-                <a href="payHistory.html" class="nav-link">Lịch sử thanh toán</a>
-            </li>
-            <li class="nav-item">
-                <a href="login-signup.html" class="nav-link">Đăng xuất</a>
-            </li>
-        </ul>
-    </div>
-    <div class="col-lg-10 change-info">
-        <div class="title">
-            <h2>Cập nhật thông tin cá nhân</h2>
+   
+    <div class="content" style="margin: 0 15%">
+        <div class="user-bg">
+          <img src="./assets/img/background-user.jpg" alt="" width="100%" height="100%" style="border-radius: 30px;">
         </div>
-        <div class="main-info">
-
-            <div class="row">
-                <div class="col-lg-1" ></div>
-                <div class="col-lg-1 input-title">Mã khách hàng</div>
-                <div class="col-lg-2 input-size">
-                    <input type="text" readonly="" class="form-control disable valid" id="user_id" value="#129268" aria-invalid="false">
-                </div>
-                
+        <div class="head-user">
+            <div class="ava-detail">
+                <img src="./assets/img/avatar1.jpg" alt="" height="100%" width="100%" style="border-radius: 50%;">
             </div>
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1 input-title">Số điện thoại</div>
-                <div class="col-lg-2 input-size">
-                    <input type="text" readonly="" class="form-control disable valid" id="user_id" value="0843325687" aria-invalid="false">
-                </div>
-                
+            <div class="user-info-profile">
+                <h1 class="user-name">Quân Phùng</h1>
+                <h5 class="user-follow" style="margin-left:10px">52K followers</h5>
             </div>
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-2  input-size">
-                    <a href="#" class="change-number">Đổi số điện thoại</a>
-                </div>
-                
+            <div class="func-btn">
+              
+              <button class="flw-btn">
+                <div id="follow_button"></div>
+              </button>
+              <button class="sp-btn">Tư vấn</button>
             </div>
         </div>
-        <div class="more-info">
+        <div class="user-content-post">
+          <div class="side-infomation">
+            <div class="side-title">
+              <h3>Giới thiệu</h3>
+            </div>
+            <ul class="info-user-list">
+              <li class="info-items">Họ và Tên: {{$user->profile->fullname}}</li>
+              <li class="info-items">Ngày sinh:  {{$user->profile->birth}}</li>
+              <li class="info-items">Giới tính:  {{$user->profile->gioi_tinh}}</li>
+              <li class="info-items">Nghề nghiệp:  {{$user->profile->univer}}</li>
+              <li class="info-items">------------------------------------------------</li>
+              <li class="info-items">Description:  {{$user->profile->description}}</li>
+              <li class="info-items"><a href="profile.html">Chỉnh sửa thông tin chi tiết</a></li>
+            </ul>
+          </div>
+          <div class="main-post-list">
+            <div class="section">
+              <!-- Title -->
+              <div class="section-header" style="background-color: transparent;box-shadow: none;border-bottom:solid 2px #ccc ;margin-bottom: 10px;">
+                <span class="section-title" style="font-size: 25px;">Danh sách tin của bạn</span>
+              </div>
+              <!-- Sort -->
+              <div class="post-listing">
+                @foreach($user->posts as $post)
 
-            
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1 input-title">Tên hiển thị</div>
-                <div class="col-lg-2 input-size">
-                    <input type="text">
+                <div class="post-item clearfix">
+                  <div class="info-img">
+                    <div class="mainimg">
+                      <img src="/storage/{{$post->image}}" alt="" width="100%" height="100%">
+                    </div>
+                    <div class="sideimg">
+                      <img src="./assets/img/room1-2.jpg" alt="" width="100%" height="100%" style="width: 100%;">
+                      <div class="img-child row" style="margin:0px !important">
+                        <div class="col" style="padding: 0px !important; height: 100%;width: 100%;">
+                          <img src="./assets/img/room1-3.jpg" alt="">
+                        </div>
+                        <div class="col" style="padding: 0px !important;height: 100%;width: 100%;">
+                          <img src="./assets/img/room1-4.jpg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="post-meta">
+                    <h2 class="post-title">
+                      <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">{{$post->title}}</a>
+                    </h2>
+                    <div class="meta-row clearfix">
+                      <span class="post-price">{{$post->gia_phong}}</span>
+                      <span class="post-acreage">{{$post->dien_tich}}</span>
+                      <span class="post-location">
+                        <a style="color: #000" href="#">{{$post->dia_chi}}</a>
+                      </span>
+                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023">{{$post->updated_at}}</time>
+                      <p class="post-summary">{{$post->description}}</p>
+                    </div>
+                    <div class="contact-info">
+                      <div class="post-author">
+                        <img src="./assets/img/slider/slider1.jpg" alt="member-item" class="">
+                        <span class="">{{$post->user->username}}</span>
+                      </div>
+                      <a rel="nofollow" href="#" class="btn-quick-zalo">Nhắn Zalo</a>
+                    </div>
+                  </div>
                 </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1 input-title">Email</div>
-                <div class="col-lg-2 input-size">
-                    <input type="text">
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1 input-title">Số zalo</div>
-                <div class="col-lg-2 input-size">
-                    <input type="text">
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1 input-title">Facebook</div>
-                <div class="col-lg-2 input-size">
-                    <input type="text">
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-1 input-title">Ảnh đại diện</div>
-                <div class="col-lg-2 input-avatar-size">
-                    <img src="" alt="avatar" id="demo-ava">
-                    <input type="file" name="Choose file" id="file-avatar">
-                </div>
-                
-            </div>   
-            
-            
-        </div>    
-        <button class="btn btn-primary save-button">Lưu & Cập nhật</button>
+                @endforeach
 
+                
+              </div>
+            </div>
+            <!-- End: Main content -->
+            <div class="pagination">
+              <button class="button" id="startBtn" disabled>
+                <i class="fa-solid fa-angles-left"></i>
+              </button>
+              <button class="button prevNext" id="prev" disabled>
+                <i class="fa-solid fa-angle-left"></i>
+              </button>
+              <div class="links">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">4</a>
+                <a href="#" class="page-link">5</a>
+              </div>
+              <button class="button prevNext" id="next">
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+              <button class="button" id="endBtn">
+                <i class="fa-solid fa-angles-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
     </div>
-   </div>
-   </main>
-   <script src="js/bootstrap.bundle.min.js"></script>
-   <script src="js/profile.js"></script>
-
-
 
    @endsection
    
