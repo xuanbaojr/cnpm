@@ -10,3 +10,5 @@ createApp(follow_button).mount('#follow_button');
 import test from './components/test.vue';
 createApp(test).mount('#test');
 
+import dia_chi from './components/dia_chi.vue';
+createApp(dia_chi).mount('#dia_chi');

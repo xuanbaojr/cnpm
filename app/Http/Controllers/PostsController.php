@@ -9,7 +9,7 @@ class PostsController extends Controller
 {
     //
     
-   
+    
 
     public function __construct()
     {
@@ -17,7 +17,8 @@ class PostsController extends Controller
     }
 
     public function create(){
-        return view('posts.create');
+        $cars = array("Volvo", "BMW", "Toyota",);
+        return view('posts.create',compact('cars'));
     }
     
 

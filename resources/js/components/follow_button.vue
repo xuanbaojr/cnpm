@@ -13,8 +13,6 @@ import { ref } from 'vue';
 const userId = ref(window.vueData.userId);
 const isfollowed = ref(window.vueData.isfollowed)
 
-const message = ref('Follow');
-
 async function follow() {
   try {
     const response = await axios.post('/follow/' + userId.value);
