@@ -1,67 +1,35 @@
 <template>
-  <div class="row">
-    <div class="col">
-      <select class="form-select" v-model="checkCity">
-      <option>Tỉnh / Thành Phố</option>
-      <option v-for="city in cities"
-              :key="city.Id"
-              :value="city.Id">
-              {{ city.Name }}
-      </option>
-    </select>
-    </div>
-
-
-    <div class="col">
-      <select class="form-select" v-model="checkDistrict">.
-      <option>Quận / Huyện</option>
-      <option v-for="district  in districts"
-              :key="district.Id"
-              :value="district.Id">
-              {{ district.Name }}
-      </option>
-    </select>
-    </div>
-
-
-    <div class="col">
-      <select class="form-select">.
-      <option>Phường / Xã</option>
-      <option v-for="ward in wards"
-              :key="ward.Id">
-              {{ ward.Name }}
-      </option>
-    </select>
-    </div>
-
-  </div>
-    
+  <form @submit.prevent="login">
+    <input type="text" placeholder="username" v-model.trim="username">
+    <input type="text" placeholder="email" v-model.trim="email">
+    <input type="password" placeholder="password" v-model.trim="password">
+    <button type="submit" class="btn">Submit</button>
+  </form>
 </template>
+
 <script setup>
-import {ref} from 'vue';
-import {computed} from 'vue';
+import axios from 'axios';
+import { ref } from 'vue';
 
-const cities = ref(null)
-fetch("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json")
-.then(response => response.text())
-.then(text => JSON.parse(text))
-.then(data => (cities.value = data))
-.catch(
-  error => {
-    alert('error');
-});
+const username = ref('');
+const email = ref('');
+const password = ref('');
 
-const checkCity = ref(null)
-const districts = computed(()=> {
-    if(!checkCity.value) return [];
-    const city1 = cities.value.find((city) => city.Id === checkCity.value)
-    return  city1 ? city1.Districts : []
-});
+async function login() {
+  try {
+    const response = await axios.post('http://127.0.0.1:8000/api/login', {
+      username: username.value,
+      email: email.value,
+      password: password.value,
+    });
 
-const checkDistrict = ref(null)
-const wards = computed(()=>{
-    if(!checkDistrict.value) return [];
-    const district1 = districts.value.find((district) => district.Id === checkDistrict.value)
-    return district1 ? district1.Wards :[]
-});
+    const apiToken = response.data.api_token;
+    localStorage.setItem('apiToken', apiToken);
+    alert(apiToken);
+
+    // Save the API token, e.g., in the Vuex store or localStorage.
+  } catch (error) {
+    // Handle the error, e.g., show an error message.
+  }
+}
 </script>

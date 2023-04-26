@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title')->nullable(true);
-            $table->string('dia_chi')->nullable();
+            $table->string('city')->nullable(true);
+            $table->string('district')->nullable(true);
+            $table->string('ward')->nullable(true);
             $table->string('dien_tich')->nullabe(true);
             $table->string('gia_phong')->nullable(true);
             $table->text('description')->nullable(true);

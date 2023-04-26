@@ -12,3 +12,6 @@ createApp(test).mount('#test');
 
 import dia_chi from './components/dia_chi.vue';
 createApp(dia_chi).mount('#dia_chi');
+
+import test_create from './components/test_create.vue';
+createApp(test_create).mount('#test_create');

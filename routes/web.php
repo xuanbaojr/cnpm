@@ -49,7 +49,7 @@ Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::cla
 
 
 //test
-Route::get('/test', [App\Http\Controllers\TestsController::class, 'index'])->name('name');
+Route::get('/test', [App\Http\Controllers\TestController::class, 'index'])->name('name');
 
 //follow
 
