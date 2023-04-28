@@ -57,3 +57,7 @@ Route::get('/test', [App\Http\Controllers\TestController::class, 'index'])->name
 Route::post('/follow/{user}', [App\Http\Controllers\followsController::class, 'store'])->name('name');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
