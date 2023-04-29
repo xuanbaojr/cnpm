@@ -5,7 +5,6 @@ import App from './components/App.vue';
 import Login from './components/Login.vue';
 import Create from './components/Create.vue';
 import FollowButton from './components/FollowButton.vue';
-import Test from './components/Test.vue';
 import DiaChi from './components/DiaChi.vue';
 
 const routes = [
@@ -25,11 +24,6 @@ const routes = [
     component: FollowButton,
   },
   {
-    path: '/test',
-    name: 'test',
-    component: Test,
-  },
-  {
     path: '/dia_chi',
     name: 'dia_chi',
     component: DiaChi,
@@ -44,14 +38,3 @@ const router = createRouter({
 const app = createApp(App);
 app.use(router);
 app.mount('#app');
-
-
-// api.js
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api',
-  withCredentials: true,
-});
-
-export default api;
