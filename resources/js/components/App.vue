@@ -1,9 +1,10 @@
 <template>
-  <p>{{ title }}</p>
-  <button class="btn" @click="$emit('larger')">Larger</button>
- 
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>
-  defineProps(['title'])
+// You don't need to export anything here since the script setup syntax
+// automatically exposes everything to the template
 </script>

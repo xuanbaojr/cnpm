@@ -1,4 +1,5 @@
 <template>
+  <h1>a</h1>
   <div class="row">
     
     <div class="col">
@@ -66,16 +67,6 @@ const wards = computed(()=>{
     return district1 ? district1.Wards :[]
 });
 
-async function follow() {
-  try {
-    const response = await axios.post('api/post/' + userId.value);
-    isfollowed.value =  isfollowed.value !== 'Follow' ? 'Follow' : 'Unfollow';
-   // alert(response.data);
-  } catch (error) {
-    console.error('Error:', error);
-    alert('An error occurred while following.');
-  }
-}
 
 
 </script>

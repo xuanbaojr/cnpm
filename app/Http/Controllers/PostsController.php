@@ -24,24 +24,24 @@ class PostsController extends Controller
 
     public function store(){
         $data = request()->validate([
-            'title'=>'required',
-            'dia_chi' =>'required',
-            'image'=>'required|image',
+          //  'title'=>'required',
+        //    'dia_chi' =>'required',
+            //'image'=>'required|image',
             'dien_tich' => 'required',
             'gia_phong' => 'required',
-            'description' => 'required',
+          //  'description' => 'required',
         ]);
 
         //?
-        $imagePath = (request('image')->store('uploads','public'));
+     //   $imagePath = (request('image')->store('uploads','public'));
 
         auth()->user()->posts()->create([
-            'title' =>$data['title'],
-            'dia_chi' =>$data['dia_chi'],
-            'image'=> $imagePath,
+       //     'title' =>$data['title'],
+          //  'dia_chi' =>$data['dia_chi'],
+         //   'image'=> $imagePath,
             'dien_tich' => $data['dien_tich'],
             'gia_phong' => $data['gia_phong'],
-            'description' => $data['description'],
+          //  'description' => $data['description'],
         ]);
 
        // \App\Models\Post::create($data);

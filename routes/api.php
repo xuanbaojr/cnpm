@@ -21,7 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::post('/login', [AuthController::class, 'login']);
 Route::post('/test', [App\Http\Controllers\TestController::class, 'store'])->middleware('auth');
+// Route::post('/post', [App\Http\Controllers\PostsController::class, 'store'])->name('home');
 
-Route::post('/post', [App\Http\Controllers\PostsController::class, 'store'])->name('home');
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('home');
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::post('/post', 'App\Http\Controllers\PostsController@store');
+});
