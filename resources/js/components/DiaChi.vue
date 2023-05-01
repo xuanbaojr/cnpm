@@ -1,9 +1,9 @@
 <template>
-  <h1>a</h1>
+
   <div class="row">
     
     <div class="col">
-      <select class="form-select" v-model="checkCity">
+      <select class="form-select" v-model="checkCity" >
       <option>Tỉnh / Thành Phố</option>
       <option v-for="city in cities"
               :key="city.Id"

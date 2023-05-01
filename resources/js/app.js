@@ -11,7 +11,8 @@ import Login from './components/Login.vue';
 import Create from './components/Create.vue';
 import FollowButton from './components/FollowButton.vue';
 import DiaChi from './components/DiaChi.vue';
-import Home from './components/Home.vue'
+import Home from './components/Home.vue';
+import Menu from './components/Menu.vue';
 
 const routes = [
   {
@@ -40,6 +41,11 @@ const routes = [
     component: Home,
     meta: { requiresAuth: false },
   },
+  {
+    path: '/menu',
+    name: 'menu',
+    component: Menu,
+  },
 ];
 
 const router = createRouter({
@@ -62,3 +68,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
+

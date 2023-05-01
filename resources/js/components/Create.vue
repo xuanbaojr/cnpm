@@ -1,8 +1,10 @@
 <template>
     <form @submit.prevent="create">
+        <input type="text" placeholder="title" v-model.trim="title">
         <input type="text" placeholder="dien_tich" v-model.trim="dien_tich">
         <input type="text" placeholder="gia_phong" v-model.trim="gia_phong">
-        
+        <input type="text" placeholder="description" v-model.trim="description">
+        <DiaChi/>
         <button type="submit" class="btn">Submit</button>
       </form>
 </template>
@@ -10,6 +12,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
+import DiaChi from './DiaChi.vue';
 import { useRouter } from 'vue-router';
 
 
