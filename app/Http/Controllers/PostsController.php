@@ -29,6 +29,9 @@ class PostsController extends Controller
             //'image'=>'required|image',
             'dien_tich' => 'required',
             'gia_phong' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'ward' => 'required',
           //  'description' => 'required',
         ]);
 
@@ -41,6 +44,9 @@ class PostsController extends Controller
          //   'image'=> $imagePath,
             'dien_tich' => $data['dien_tich'],
             'gia_phong' => $data['gia_phong'],
+            'city' => $data['city'],
+            'district' => $data['district'],
+            'ward' => $data['ward'],
           //  'description' => $data['description'],
         ]);
 

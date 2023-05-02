@@ -3,7 +3,50 @@
   <div v-else>
     <Menu/>
   
-    <DiaChi/>
+    <!--FILTER DIA CHI-->>
+    {{ checkCity }}
+    <div class="row">
+    
+    <div class="col">
+      <select class="form-select" v-model="checkCity" >
+      <option>Tỉnh / Thành Phố</option>
+      <option v-for="city in cities"
+              :key="city.Id"
+              :value="city.Name">
+              {{ city.Name }}
+      </option>
+    </select>
+    </div>
+
+
+    <div class="col">
+      <select class="form-select" v-model="checkDistrict">.
+      <option>Quận / Huyện</option>
+      <option v-for="district  in districts"
+              :key="district.Id"
+              :value="district.Name">
+              {{ district.Name }}
+      </option>
+    </select>
+    </div>
+
+
+    <div class="col">
+      <select class="form-select" v-model ="checkWard">.
+      <option>Phường / Xã</option>
+      <option v-for="ward in wards"
+              :key="ward.Id"
+              :value="ward.Name">
+              {{ ward.Name }}
+      </option>
+    </select>
+    </div>
+
+  </div>
+
+
+
+
     <div class="content">
       <!--
         <section class="intro-header container" id="section1" style="margin-bottom: 20px">
@@ -326,9 +369,8 @@ import '../../css/swiper-bundle.min.css';
 import '../../css/detail.css';
 
 import Menu from './Menu.vue';
-import DiaChi from './DiaChi.vue';
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 
 const users = ref([]);
@@ -350,7 +392,11 @@ onMounted(async () => {
   }
 });
 
-//PRICE FILTER
+
+
+// FILTER
+
+
 
 function price(begin,end) {
   results.value = posts.value.filter((item) => begin < item.gia_phong && item.gia_phong < end);
@@ -360,6 +406,51 @@ function dien_tich(begin,end) {
   results.value = posts.value.filter((item) => begin < item.dien_tich && item.dien_tich < end);
 }
 
+
+
+
+// DIA CHI
+import {computed} from 'vue';
+
+const cities = ref(null)
+fetch("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json")
+.then(response => response.text())
+.then(text => JSON.parse(text))
+.then(data => (cities.value = data))
+.catch(
+  error => {
+    alert('error');
+});
+
+const checkCity = ref(null)
+const districts = computed(()=> {
+    if(!checkCity.value) return [];
+    const city1 = cities.value.find((city) => city.Name === checkCity.value)
+    return  city1 ? city1.Districts : []
+});
+
+const checkDistrict = ref(null)
+const wards = computed(()=>{
+    if(!checkDistrict.value) return [];
+    const district1 = districts.value.find((district) => district.Name === checkDistrict.value)
+    return district1 ? district1.Wards :[]
+});
+
+const checkWard = ref(null)
+
+
+watch(checkCity, dia_chiC)
+function dia_chiC(newCity, oldCity){
+  results.value = posts.value.filter((item) => item.city == newCity);
+  watch(checkDistrict, dia_chiD)
+  function dia_chiD(newCity, oldCity){
+  results.value = posts.value.filter((item) => item.district == newCity);
+  watch(checkWard, dia_chiW)
+  function dia_chiW(newCity, oldCity){
+  results.value = posts.value.filter((item) => item.ward == newCity);
+}
+}
+}
 
 </script>
 
@@ -378,3 +469,4 @@ function dien_tich(begin,end) {
  */
 
  </style>
+ 
