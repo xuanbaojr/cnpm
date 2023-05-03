@@ -5,6 +5,18 @@ import { BootstrapVue3 } from 'bootstrap-vue-3';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css';
 
+import '../css/bootstrap.min.css';
+import '../css/detail.css';
+import '../css/index.css';
+import '../css/modal.css';
+import '../css/pagination.css';
+import '../css/profile.css';
+import '../css/searchbar.css';
+import '../css/slider.css';
+import '../css/style.css';
+import '../css/swiper-bundle.min.css';
+import '../css/user-detail.css';
+
 
 import App from './components/App.vue';
 import Login from './components/Login.vue';
@@ -13,6 +25,7 @@ import FollowButton from './components/FollowButton.vue';
 import DiaChi from './components/DiaChi.vue';
 import Home from './components/Home.vue';
 import Menu from './components/Menu.vue';
+
 
 const routes = [
   {
@@ -46,6 +59,8 @@ const routes = [
     name: 'menu',
     component: Menu,
   },
+  
+
 ];
 
 const router = createRouter({

@@ -31,3 +31,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/post', 'App\Http\Controllers\PostsController@store');
 });
 
+
+

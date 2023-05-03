@@ -4,7 +4,7 @@
         <input type="text" placeholder="dien_tich" v-model.trim="dien_tich">
         <input type="text" placeholder="gia_phong" v-model.trim="gia_phong">
         <input type="text" placeholder="description" v-model.trim="description">
-        
+        <input type="file" ref="fileInput" @change="handleFileSelect" multiple />
         {{ checkCity }}
     <div class="row">
     
@@ -60,6 +60,7 @@ const router = useRouter();
 
 const dien_tich = ref('')
 const gia_phong = ref('')
+const images = ref([]);
 
 
 const apiToken = ref(localStorage.getItem('apiToken'));
@@ -116,6 +117,8 @@ const wards = computed(()=>{
 });
 
 const checkWard = ref(null)
+
+
 
 
 </script>

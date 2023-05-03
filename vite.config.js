@@ -8,6 +8,17 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/js/bootstrap.bundle.min.js',
+                'resources/js/bootstrap.js',
+                'resources/js/slider.js',
+                'resources/js/modal.js',
+                'resources/js/profile.js',
+                'resources/js/script.js',
+                'resources/js/appcopy.js',
+
+
+
+                
             ],
             refresh: true,
         }),

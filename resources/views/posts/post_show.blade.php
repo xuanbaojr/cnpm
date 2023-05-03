@@ -1,4 +1,5 @@
-@extends('layouts.app')
+<html>
+  <head>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css', 'resources/js/bootstrap.js',
     'resources/css/swiper-bundle.min.css',
@@ -12,7 +13,8 @@
     'resources/css/bootstrap.min.css',
     'resources/css/detail.css',])
     <title>Room</title>
-
+</head>
+<body>
     <div id="main">
       
       <!-- Begin: Content -->
@@ -376,4 +378,5 @@
         </div>
       </div>
     </div>
-    @endsection
+</body>
+  

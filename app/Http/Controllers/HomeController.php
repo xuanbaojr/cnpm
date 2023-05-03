@@ -23,8 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = \App\Models\Post::all();
-        return response()->json($data);
-       
+        $data = \App\Models\Post::with('user')->get();
+        return response()->json($data);    
     }
 }

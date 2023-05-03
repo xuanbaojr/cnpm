@@ -153,7 +153,7 @@
                     <div class="contact-info">
                       <div class="post-author">
                         <img src="" alt="member-item" class="">
-                        <span class="">phungquan2003</span>
+                        <a :href="`/profile/${result.user.id}`">{{result.user.username}}</a>
                       </div>
                       <a rel="nofollow" href="#" class="btn-quick-zalo">Xem Chi Tiết</a>
                     </div>
@@ -399,11 +399,11 @@ onMounted(async () => {
 
 
 function price(begin,end) {
-  results.value = posts.value.filter((item) => begin < item.gia_phong && item.gia_phong < end);
+  results.value = posts.value.filter((item) => begin <= item.gia_phong && item.gia_phong <= end);
 }
 
 function dien_tich(begin,end) {
-  results.value = posts.value.filter((item) => begin < item.dien_tich && item.dien_tich < end);
+  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
 }
 
 
@@ -442,15 +442,18 @@ const checkWard = ref(null)
 watch(checkCity, dia_chiC)
 function dia_chiC(newCity, oldCity){
   results.value = posts.value.filter((item) => item.city == newCity);
-  watch(checkDistrict, dia_chiD)
-  function dia_chiD(newCity, oldCity){
+}
+
+watch(checkDistrict, dia_chiD)
+function dia_chiD(newCity, oldCity){
   results.value = posts.value.filter((item) => item.district == newCity);
-  watch(checkWard, dia_chiW)
-  function dia_chiW(newCity, oldCity){
+}
+
+watch(checkWard, dia_chiW)
+function dia_chiW(newCity, oldCity){
   results.value = posts.value.filter((item) => item.ward == newCity);
 }
-}
-}
+
 
 </script>
 

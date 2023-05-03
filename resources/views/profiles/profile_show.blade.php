@@ -1,41 +1,57 @@
-@extends('layouts.app')
 <!DOCTYPE html>
-
-
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
    
-    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/profile.css', 'resources/js/bootstrap.js',
-    'resources/css/swiper-bundle.min.css',
-    'resources/css/index.css',
-    'resources/css/animation.css',
-    'resources/css/modal.css',
-    'resources/css/slider.css',
-    'resources/css/sidebar.css',
-    'resources/css/searchbar.css',
-    'resources/css/pagination.css',
-    'resources/css/bootstrap.min.css',
-    'resources/css/user-detail.css',
-    'resources/js/profile.js',
-    'resources/js/bootstrap.bundle.min.js',
-    'resources/js/script.js'])
-    
+    @vite(['resources/js/appcopy.js','resources/js/bootstrap.bundle.min.js','resources/js/script.js'])
+</head>
+<body>
+   <header>
+    <ul id="nav" class="light-blue">
+        <li>
+          <a href="#">Trang chủ</a>
+        </li>
+        <li>
+          <a href="#">BLOG</a>
+        </li>
+        <li>
+          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hoạt động </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">Cho thuê phòng trọ</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Nhà cho thuê</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Cho thuê căn hộ</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Tìm người ở ghép</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hỗ trợ </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">Nạp tiền</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Bảng giá</a>
+            </li>
+          </ul>
+        </li>
 
-    <script>
-    window.vueData = {
-        userId: '{{$user->id}}',
-        isfollowed: '{{$followShow}}'
-    };
-    </script>
-   
-    @section('content')
-   
+    </ul>
+   </header> 
+   <main >
     <div class="content" style="margin: 0 15%">
         <div class="user-bg">
           <img src="./assets/img/background-user.jpg" alt="" width="100%" height="100%" style="border-radius: 30px;">
@@ -49,10 +65,7 @@
                 <h5 class="user-follow" style="margin-left:10px">52K followers</h5>
             </div>
             <div class="func-btn">
-              
-              <button class="flw-btn">
-                <div id="follow_button"></div>
-              </button>
+              <button class="flw-btn">Follow</button>
               <button class="sp-btn">Tư vấn</button>
             </div>
         </div>
@@ -62,12 +75,10 @@
               <h3>Giới thiệu</h3>
             </div>
             <ul class="info-user-list">
-              <li class="info-items">Họ và Tên: {{$user->profile->fullname}}</li>
-              <li class="info-items">Ngày sinh:  {{$user->profile->birth}}</li>
-              <li class="info-items">Giới tính:  {{$user->profile->gioi_tinh}}</li>
-              <li class="info-items">Nghề nghiệp:  {{$user->profile->univer}}</li>
-              <li class="info-items">------------------------------------------------</li>
-              <li class="info-items">Description:  {{$user->profile->description}}</li>
+              <li class="info-items">Họ và Tên: Phùng Lê Anh Quân</li>
+              <li class="info-items">Ngày sinh: 27/05/2003</li>
+              <li class="info-items">Giới tính: Nam</li>
+              <li class="info-items">Nghề nghiệp: Sinh viên</li>
               <li class="info-items"><a href="profile.html">Chỉnh sửa thông tin chi tiết</a></li>
             </ul>
           </div>
@@ -79,12 +90,10 @@
               </div>
               <!-- Sort -->
               <div class="post-listing">
-                @foreach($user->posts as $post)
-
                 <div class="post-item clearfix">
                   <div class="info-img">
                     <div class="mainimg">
-                      <img src="/storage/{{$post->image}}" alt="" width="100%" height="100%">
+                      <img src="./assets/img/room1-1.jpg" alt="" width="100%" height="100%">
                     </div>
                     <div class="sideimg">
                       <img src="./assets/img/room1-2.jpg" alt="" width="100%" height="100%" style="width: 100%;">
@@ -100,29 +109,65 @@
                   </div>
                   <div class="post-meta">
                     <h2 class="post-title">
-                      <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">{{$post->title}}</a>
+                      <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">Phòng trọ Thành Thái</a>
                     </h2>
                     <div class="meta-row clearfix">
-                      <span class="post-price">{{$post->gia_phong}}</span>
-                      <span class="post-acreage">{{$post->dien_tich}}</span>
+                      <span class="post-price">5 triệu/tháng</span>
+                      <span class="post-acreage">25m²</span>
                       <span class="post-location">
-                        <a style="color: #000" href="#">{{$post->dia_chi}}</a>
+                        <a style="color: #000" href="#">Quận Phú Nhuận, Hồ Chí Minh</a>
                       </span>
-                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023">{{$post->updated_at}}</time>
-                      <p class="post-summary">{{$post->description}}</p>
+                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023">Hôm nay</time>
+                      <p class="post-summary">Phòng đẹp nằm ngay trung tâm quận Phú Nhuận (xem hình thật). View trước là đối diện Khách Sạn 3* Tân Sơn Nhất, View sau là đường Nguyễn Văn Trỗi.</p>
                     </div>
                     <div class="contact-info">
                       <div class="post-author">
                         <img src="./assets/img/slider/slider1.jpg" alt="member-item" class="">
-                        <span class="">{{$post->user->username}}</span>
+                        <span class="">phungquan2003</span>
                       </div>
                       <a rel="nofollow" href="#" class="btn-quick-zalo">Nhắn Zalo</a>
                     </div>
                   </div>
                 </div>
-                @endforeach
-
-                
+                <div class="post-item clearfix">
+                  <div class="info-img">
+                    <div class="mainimg">
+                      <img src="./assets/img/slider/slider1.jpg" alt="" width="100%" height="100%">
+                    </div>
+                    <div class="sideimg">
+                      <img src="./assets/img/slider/slider1.jpg" alt="" width="100%" height="100%" style="width: 100%;">
+                      <div class="img-child row" style="margin:0px !important">
+                        <div class="col" style="padding: 0px !important">
+                          <img src="./assets/img/slider/slider1.jpg" alt="">
+                        </div>
+                        <div class="col" style="padding: 0px !important">
+                          <img src="./assets/img/slider/slider1.jpg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="post-meta">
+                    <h2 class="post-title">
+                      <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">Phòng trọ Thành Thái</a>
+                    </h2>
+                    <div class="meta-row clearfix">
+                      <span class="post-price">5 triệu/tháng</span>
+                      <span class="post-acreage">25m²</span>
+                      <span class="post-location">
+                        <a style="color: #000" href="#">Quận Phú Nhuận, Hồ Chí Minh</a>
+                      </span>
+                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023">Hôm nay</time>
+                      <p class="post-summary">Phòng đẹp nằm ngay trung tâm quận Phú Nhuận (xem hình thật). View trước là đối diện Khách Sạn 3* Tân Sơn Nhất, View sau là đường Nguyễn Văn Trỗi.</p>
+                    </div>
+                    <div class="contact-info">
+                      <div class="post-author">
+                        <img src="./assets/img/slider/slider1.jpg" alt="member-item" class="">
+                        <span class="">phungquan2003</span>
+                      </div>
+                      <a rel="nofollow" href="#" class="btn-quick-zalo">Nhắn Zalo</a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- End: Main content -->
@@ -150,6 +195,8 @@
           </div>
         </div>
     </div>
+   </main>
 
-   @endsection
    
+</body>
+</html>
