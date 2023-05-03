@@ -10,6 +10,7 @@
 </head>
 <body>
    <header>
+
     <ul id="nav" class="light-blue">
         <li>
           <a href="#">Trang chủ</a>

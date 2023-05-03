@@ -22,41 +22,40 @@ class PostsController extends Controller
     }
     
 
-    public function store(){
-        $data = request()->validate([
-          //  'title'=>'required',
-        //    'dia_chi' =>'required',
-            //'image'=>'required|image',
-            'dien_tich' => 'required',
-            'gia_phong' => 'required',
-            'city' => 'required',
-            'district' => 'required',
-            'ward' => 'required',
-          //  'description' => 'required',
-        ]);
+    public function store()
+{
+    $data = request()->validate([
+        'images.0' => 'required|image',
+        'images.1' => 'required|image',
+        'images.2' => 'required|image',
+        'images.3' => 'required|image',
+        'dien_tich' => 'required',
+        'gia_phong' => 'required',
+        'city' => 'required',
+        'district' => 'required',
+        'ward' => 'required',
+    ]);
 
-        //?
-     //   $imagePath = (request('image')->store('uploads','public'));
+    $imagePath_01 = request('images.0')->store('uploads', 'public');
+    $imagePath_02 = request('images.1')->store('uploads', 'public');
+    $imagePath_03 = request('images.2')->store('uploads', 'public');
+    $imagePath_04 = request('images.3')->store('uploads', 'public');
 
-        auth()->user()->posts()->create([
-       //     'title' =>$data['title'],
-          //  'dia_chi' =>$data['dia_chi'],
-         //   'image'=> $imagePath,
-            'dien_tich' => $data['dien_tich'],
-            'gia_phong' => $data['gia_phong'],
-            'city' => $data['city'],
-            'district' => $data['district'],
-            'ward' => $data['ward'],
-          //  'description' => $data['description'],
-        ]);
+    auth()->user()->posts()->create([
+        'image_01' => $imagePath_01,
+        'image_02' => $imagePath_02,
+        'image_03' => $imagePath_03,
+        'image_04' => $imagePath_04,
+        'dien_tich' => $data['dien_tich'],
+        'gia_phong' => $data['gia_phong'],
+        'city' => $data['city'],
+        'district' => $data['district'],
+        'ward' => $data['ward'],
+    ]);
 
-       // \App\Models\Post::create($data);
+   // return redirect('/profile/' . auth()->user()->id);
+}
 
-        // dd(request()->all());
-        
-        return redirect('/profile/' . auth()->user()->id);
-    
-    }
 
     public function index(\App\Models\Post $post){
         return view('posts.post_show',['post'=> $post]);

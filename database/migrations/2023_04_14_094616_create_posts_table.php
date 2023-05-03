@@ -21,7 +21,10 @@ return new class extends Migration
             $table->string('dien_tich')->nullabe(true);
             $table->string('gia_phong')->nullable(true);
             $table->text('description')->nullable(true);
-            $table->string('image')->nullable();
+            $table->string('image_01')->nullable();
+            $table->string('image_02')->nullable();
+            $table->string('image_03')->nullable();
+            $table->string('image_04')->nullable();
             $table->timestamps();
 
             $table->index('user_id');

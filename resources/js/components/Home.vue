@@ -1,6 +1,7 @@
 <template>
   <div v-if="isLoading">Loading...</div>
   <div v-else>
+    
     <Menu/>
   
     <!--FILTER DIA CHI-->>
@@ -121,18 +122,20 @@
               <!-- Sort -->
               <div class="post-listing">
                 <div class="post-item clearfix"  v-for="result in results" :key="result.id">
+                  
                   <div class="info-img">
-                    <div class="mainimg">
-                      <img src="" alt="" width="100%" height="100%">
+                    <div class="mainimg" >
+                      <img :src="'/storage/'+ result.image_04" alt="" style="width: 60%;">
+
                     </div>
                     <div class="sideimg">
-                      <img src="" alt="" width="100%" height="100%" style="width: 100%;">
+                      <img :src="'/storage/'+ result.image_03" alt="" width="100%" height="100%" style="width: 100%;">
                       <div class="img-child row" style="margin:0px !important">
                         <div class="col" style="padding: 0px !important; height: 100%;width: 100%;">
-                          <img src="" alt="">
+                          <img :src="'/storage/'+ result.image_03" alt="">
                         </div>
                         <div class="col" style="padding: 0px !important;height: 100%;width: 100%;">
-                          <img src="" alt="">
+                          <img :src="'/storage/'+ result.image_01" alt="">
                         </div>
                       </div>
                     </div>
