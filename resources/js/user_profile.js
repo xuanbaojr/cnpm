@@ -1,20 +1,13 @@
+
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 //import { BootstrapVue3 } from 'bootstrap-vue-3';
 
 
-
-//import '../css/bootstrap.min.css';
-//import '../css/detail.css';
-//import '../css/index.css';
-//import '../css/modal.css';
-//import '../css/pagination.css';
-//import '../css/profile.css';
-//import '../css/searchbar.css';
-//import '../css/slider.css';
-//import '../css/style.css';
-//import '../css/swiper-bundle.min.css';
-//import '../css/user-detail.css';
+import '../css/index.css';
+import '../css/pagination.css';
+import '../css/user-detail.css';
+import '../css/bootstrap.min.css';
 
 
 import App from './components/App.vue';
@@ -53,11 +46,7 @@ const routes = [
     component: Home,
     meta: { requiresAuth: false },
   },
-  {
-    path: '/menu',
-    name: 'menu',
-    component: Menu,
-  },
+ 
   
 
 ];
@@ -67,10 +56,7 @@ const router = createRouter({
   routes,
 });
 
-const app = createApp(App);
-app.use(router);
-//app.use(BootstrapVue3);
-app.mount('#app');
+
 
 const menu = createApp(Menu);
 menu.use(router);

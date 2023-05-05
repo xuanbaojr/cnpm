@@ -6,52 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
    
-    @vite(['resources/js/appcopy.js','resources/js/bootstrap.bundle.min.js','resources/js/script.js'])
+    @vite(['resources/js/user_profile.js','resources/js/bootstrap.bundle.min.js','resources/js/script.js'])
 </head>
 <body>
-   <header>
-
-    <ul id="nav" class="light-blue">
-        <li>
-          <a href="#">Trang chủ</a>
-        </li>
-        <li>
-          <a href="#">BLOG</a>
-        </li>
-        <li>
-          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hoạt động </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="#">Cho thuê phòng trọ</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Nhà cho thuê</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Cho thuê căn hộ</a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Tìm người ở ghép</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a type="button" class="dropdown-toggle" data-bs-toggle="dropdown"> Hỗ trợ </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item" href="#">Nạp tiền</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Bảng giá</a>
-            </li>
-          </ul>
-        </li>
-
-    </ul>
-   </header> 
+  <div id="menu">
+  </div>
+  
    <main >
     <div class="content" style="margin: 0 15%">
         <div class="user-bg">
@@ -197,7 +157,9 @@
         </div>
     </div>
    </main>
-
+<footer>
+  <p>hghjghghgh</p>
+</footer>
    
 </body>
 </html>

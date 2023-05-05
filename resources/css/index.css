@@ -529,6 +529,12 @@ ol {
   float: right;
 }
 
+.responsive-image {
+  width: auto;
+  height: auto;
+}
+
+
 .post-listing .post-item .post-summary {
   color: var(--text-color);
   margin: 10px 0 0;

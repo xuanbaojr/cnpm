@@ -49,66 +49,7 @@
 
 
     <div class="content">
-      <!--
-        <section class="intro-header container" id="section1" style="margin-bottom: 20px">
-          <h2 style="padding-top: 20px;">Kênh thông tin Phòng Trọ số 1 Việt Nam</h2>
-          <p>Kênh thông tin Phòng Trọ số 1 Việt Nam - Website đăng tin cho thuê phòng trọ, nhà nguyên căn, căn hộ, ở ghép nhanh, hiệu quả với 100.000+ tin đăng và 2.500.000 lượt xem mỗi tháng.</p>
-          <div class="container-wrapper swiper span-place card-list">
-            <div class="slide-container">
-              <div class="card-wrapper swiper-wrapper">
-                <div class="card swiper-slide">
-                  <div class="card card-item">
-                    <img src="" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">Hà Nội</h4>
-                      <a href="#" class="btn btn-primary">Tìm phòng</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card swiper-slide">
-                  <div class="card card-item">
-                    <img src="" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">TP Hồ Chí Minh</h4>
-                      <a href="#" class="btn btn-primary">Tìm phòng</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card swiper-slide">
-                  <div class="card card-item">
-                    <img src="" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">Đà Nẵng</h4>
-                      <a href="#" class="btn btn-primary">Tìm phòng</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card swiper-slide">
-                  <div class="card">
-                    <img src="" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">Nha Trang</h4>
-                      <a href="#" class="btn btn-primary">Tìm phòng</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card swiper-slide">
-                  <div class="card">
-                    <img src="" alt="Card image" style="width:100%">
-                    <div class="card-body">
-                      <h4 class="card-title">Nha Trang</h4>
-                      <a href="#" class="btn btn-primary">Tìm phòng</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </section>
-        -->
+     
         <section class="e-column" id="section2">
           <!-- Begin: Left sidebar -->
           <!-- End: Left sidebar -->
@@ -125,7 +66,7 @@
                   
                   <div class="info-img">
                     <div class="mainimg" >
-                      <img :src="'/storage/'+ result.image_04" alt="" style="width: 60%;">
+                      <img :src="'/storage/' + result.image_04" alt="" width="100%" height="100%" style = "height: 214px;">
 
                     </div>
                     <div class="sideimg">
@@ -158,7 +99,8 @@
                         <img src="" alt="member-item" class="">
                         <a :href="`/profile/${result.user.id}`">{{result.user.username}}</a>
                       </div>
-                      <a rel="nofollow" href="#" class="btn-quick-zalo">Xem Chi Tiết</a>
+                      <a :href="'/post/post_show/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+
                     </div>
                   </div>
                 </div>
@@ -262,7 +204,7 @@
         </section>
         <section class="intro" id="section3">
           <div class="review container border border-5">
-            <h4> Tại sao lại chọn Find roomate?</h4>
+            <h5> Tại sao lại chọn Find roomate?</h5>
             <p>Chúng tôi biết bạn có rất nhiều lựa chọn, nhưng Phongtro123.com tự hào là trang web đứng top google về các từ khóa: cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, cho thuê căn hộ, tìm người ở ghép, cho thuê mặt bằng... Vì vậy tin của bạn đăng trên website sẽ tiếp cận được với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn </p>
             <div class="row">
               <div class="col">
@@ -359,22 +301,14 @@
 </template>
 
 <script setup>
-import '../../css/bootstrap.min.css';
-import '../../css/detail.css';
-import '../../css/index.css';
-import '../../css/modal.css';
-import '../../css/pagination.css';
-import '../../css/searchbar.css';
-import '../../css/sidebar.css';
-import '../../css/slider.css';
-import '../../css/style.css';
-import '../../css/swiper-bundle.min.css';
-import '../../css/detail.css';
+
 
 import Menu from './Menu.vue';
 
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
+
+
 
 const users = ref([]);
 
@@ -473,6 +407,19 @@ function dia_chiW(newCity, oldCity){
  *
  * Released on: October 12, 2022
  */
+
+
+@import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
+@import url('https://unicons.iconscout.com/release/v4.0.0/css/line.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
+ @import '../../css/bootstrap.min.css';
+ @import '../../css/swiper-bundle.min.css';
+ @import '../../css/index.css';
+ @import '../../css/modal.css';
+ @import '../../css/slider.css';
+ @import '../../css/sidebar.css';
+ @import '../../css/searchbar.css';
+ @import '../../css/pagination.css';
 
  </style>
  

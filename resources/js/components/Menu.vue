@@ -1,4 +1,5 @@
 <template>
+    <router-view></router-view>
     <div class="row">
         <div class="col col-8">
             <button class="btn" @click="home">Logo</button>
@@ -6,7 +7,9 @@
             <button class="btn" @click="login">Login</button>
         </div>
         <div class="col">
+            <a href="http://127.0.0.1:8000/register">
             <button class="btn" @click="register">Register</button>
+            </a>
         </div>
         <div class="col">
             <button class="btn" @click="message">Message</button>
