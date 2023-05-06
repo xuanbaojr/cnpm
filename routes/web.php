@@ -57,9 +57,6 @@ Route::get('/test', [App\Http\Controllers\TestController::class, 'index'])->name
 Route::post('/follow/{user}', [App\Http\Controllers\followsController::class, 'store'])->name('name');
 
 
-// web.php
-
-
 Route::get('/{any}', function () {
     return view('welcome');
 })->where('any', '.*');

@@ -1,8 +1,9 @@
 <template>
   <div v-if="isLoading">Loading...</div>
   <div v-else>
-    
     <Menu/>
+
+    
   
     <!--FILTER DIA CHI-->>
     {{ checkCity }}
@@ -322,6 +323,7 @@ onMounted(async () => {
     results.value = response.data;
     posts.value = response.data
     console.log(response.data);
+    console.log(localStorage.getItem('apiToken'))
   } catch (error) {
     console.error('Error fetching data:', error);
   } finally {

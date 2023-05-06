@@ -19,11 +19,13 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import App from './components/App.vue';
 import Login from './components/Login.vue';
-import Create from './components/Create.vue';
+import CreatePost from './components/CreatePost.vue';
 import FollowButton from './components/FollowButton.vue';
 import DiaChi from './components/DiaChi.vue';
 import Home from './components/Home.vue';
 import Menu from './components/Menu.vue';
+import Logout from './components/Logout.vue';
+import Post from './components/Post.vue';
 
 
 const routes = [
@@ -33,9 +35,14 @@ const routes = [
     component: Login,
   },
   {
+    path: '/logout',
+    name: 'logout',
+    component: Logout,
+  },
+  {
     path: '/create',
     name: 'create',
-    component: Create,
+    component: CreatePost,
   },
   {
     path: '/follow_button',
@@ -57,6 +64,11 @@ const routes = [
     path: '/menu',
     name: 'menu',
     component: Menu,
+  },
+  {
+    path: '/post/:id',
+    name: 'post',
+    component: Post,
   },
   
 
@@ -86,5 +98,4 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
 
