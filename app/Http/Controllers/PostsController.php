@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+
 use App\Providers\RouteServiceProvider;
 
 class PostsController extends Controller
@@ -92,7 +94,12 @@ class PostsController extends Controller
     }
 
     
-
+    public function dashboard(){
+        $posts = \App\Models\Post::all();
+        return Inertia::render('Dashboard',[
+            'posts' => $posts
+        ]);
+    }
     
 
     

@@ -1,6 +1,10 @@
 <?php
-
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostsController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -8,55 +12,26 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
-
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
+Route::get('/dashboard', [PostsController::class ,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Auth::routes();
-
-
-
-
-Route::get('/welcome/{name}', function ($name) {
-    return 'hello ' . $name;
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
-//post
-//Route::get('/post', [App\Http\Controllers\PostsController::class, 'create'])->name('post.create');
-Route::get('/post/create', [App\Http\Controllers\PostsController::class, 'create'])->name('home');
-Route::post('/post', [App\Http\Controllers\PostsController::class, 'store'])->name('home');
-Route::get('/post/post_show/{post}', [App\Http\Controllers\PostsController::class, 'index'])->name('index');
-Route::get('/post/{post}/edit', [App\Http\Controllers\PostsController::class, 'edit'])->name('post.edit');
-Route::patch('/post/{post}', [App\Http\Controllers\PostsController::class, 'update'])->name('post.update');
-
-
-
-
-//Profile
-//Route::resource('profile', 'ProfilesController');
-Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('name');
-Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('name');
-
-
-
-
-//test
-Route::get('/test', [App\Http\Controllers\TestController::class, 'index'])->name('name');
-
-//follow
-
-
-Route::post('/follow/{user}', [App\Http\Controllers\followsController::class, 'store'])->name('name');
-
-
-Route::get('/{any}', function () {
-    return view('welcome');
-})->where('any', '.*');
+require __DIR__.'/auth.php';

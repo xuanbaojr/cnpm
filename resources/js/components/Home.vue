@@ -1,7 +1,6 @@
 <template>
   <div v-if="isLoading">Loading...</div>
   <div v-else>
-    <Menu/>
 
     
   
@@ -63,7 +62,7 @@
               </div>
               <!-- Sort -->
               <div class="post-listing">
-                <div class="post-item clearfix"  v-for="result in results" :key="result.id">
+                <div class="post-item clearfix"  v-for="result in posts" :key="result.id">
                   
                   <div class="info-img">
                     <div class="mainimg" >
@@ -304,12 +303,12 @@
 <script setup>
 
 
-import Menu from './Menu.vue';
-
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 
-
+const props = defineProps({
+    posts: Array,
+});
 
 const users = ref([]);
 
