@@ -1,6 +1,6 @@
 <template>  
 
-
+afdsfsdf
     <!--FILTER DIA CHI-->>
     <div class="row">
     
@@ -198,7 +198,7 @@
             </div>
           </div>
         </section>
-        <section class="intro" id="section3">
+      <!--  <section class="intro" id="section3">
           <div class="review container border border-5">
             <h5> Tại sao lại chọn Find roomate?</h5>
             <p>Chúng tôi biết bạn có rất nhiều lựa chọn, nhưng Phongtro123.com tự hào là trang web đứng top google về các từ khóa: cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, cho thuê căn hộ, tìm người ở ghép, cho thuê mặt bằng... Vì vậy tin của bạn đăng trên website sẽ tiếp cận được với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn </p>
@@ -231,6 +231,7 @@
             </button>
           </div>
         </section>
+      
         <section class="care container" style="background-color: #fffcf5;border: 7px dashed #e8eefc;padding: 30px;margin-top: 30px;margin-bottom: 50px;">
           <img src="" alt="Cinque Terre" style="width: 600px;height: 400px;">
           <p style="font-size: 1.2rem;margin-bottom: 20px;color: #233762; font-weight: 450;">Liên hệ với chúng tôi nếu bạn cần hỗ trợ:</p>
@@ -291,6 +292,7 @@
           </section>
           <button class="button-animation js-sbtn" style="margin-bottom:35px;font-weight: 700;padding: 10px 30px;margin-left: 50%;transform: translateX(-50%);">Gửi đánh giá</button>
         </section>
+      -->
       </div>
 
  
