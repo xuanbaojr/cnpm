@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models;
 
 class ProfileController extends Controller
 {
@@ -59,5 +60,15 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function index(\App\Models\User $user){
+        $profile = $user->profile;
+        $posts = $user->posts;
+        return Inertia::render('Profile/Show',[
+            'user' => $user,
+            'profile'=> $profile,
+            'posts' => $posts
+        ]);
     }
 }

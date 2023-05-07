@@ -1,11 +1,7 @@
-<template>
-  <div v-if="isLoading">Loading...</div>
-  <div v-else>
+<template>  
 
-    
-  
+
     <!--FILTER DIA CHI-->>
-    {{ checkCity }}
     <div class="row">
     
     <div class="col">
@@ -62,7 +58,7 @@
               </div>
               <!-- Sort -->
               <div class="post-listing">
-                <div class="post-item clearfix"  v-for="result in posts" :key="result.id">
+                <div class="post-item clearfix"  v-for="result in results" :key="result.id">
                   
                   <div class="info-img">
                     <div class="mainimg" >
@@ -99,7 +95,7 @@
                         <img src="" alt="member-item" class="">
                         <a :href="`/profile/${result.user.id}`">{{result.user.username}}</a>
                       </div>
-                      <a :href="'/post/post_show/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+                      <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
 
                     </div>
                   </div>
@@ -297,7 +293,7 @@
         </section>
       </div>
 
-  </div>
+ 
 </template>
 
 <script setup>

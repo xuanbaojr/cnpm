@@ -19,18 +19,16 @@ class PostsController extends Controller
     }
 
     public function create(){
-        $cars = array("Volvo", "BMW", "Toyota",);
-        return view('posts.create',compact('cars'));
+       return Inertia::render('Post/Post_Create');
     }
     
 
-    public function store()
-{
+ public function store(){
     $data = request()->validate([
-        'images.0' => 'required|image',
-        'images.1' => 'required|image',
-        'images.2' => 'required|image',
-        'images.3' => 'required|image',
+        'images[0]' => 'required|image',
+        'images[1]' => 'required|image',
+        'images[2]' => 'required|image',
+        'images[3]' => 'required|image',
         'dien_tich' => 'required',
         'gia_phong' => 'required',
         'city' => 'required',
@@ -38,10 +36,11 @@ class PostsController extends Controller
         'ward' => 'required',
     ]);
 
-    $imagePath_01 = request('images.0')->store('uploads', 'public');
-    $imagePath_02 = request('images.1')->store('uploads', 'public');
-    $imagePath_03 = request('images.2')->store('uploads', 'public');
-    $imagePath_04 = request('images.3')->store('uploads', 'public');
+    $imagePath_01 = request('images[0]')->store('uploads', 'public');
+    $imagePath_02 = request('images[1]')->store('uploads', 'public');
+    $imagePath_03 = request('images[2]')->store('uploads', 'public');
+    $imagePath_04 = request('images[3]')->store('uploads', 'public');
+
 
     auth()->user()->posts()->create([
         'image_01' => $imagePath_01,
@@ -101,6 +100,11 @@ class PostsController extends Controller
         ]);
     }
     
+    public function show(\App\Models\Post $post){
+        return Inertia::render('Post/Post_Show',[
+            'post' => $post
+        ]);
+    }
 
     
 }
