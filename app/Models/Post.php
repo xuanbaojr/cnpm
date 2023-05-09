@@ -14,4 +14,16 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    protected $fillable = [
+        'image_01',
+        'image_02',
+        'image_03',
+        'image_04',
+        'dien_tich',
+        'gia_phong',
+        'city',
+        'district',
+        'ward',
+    ];
 }

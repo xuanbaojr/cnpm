@@ -38,8 +38,12 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/post/create', [PostsController::class, 'create'])->name('post.create');
     Route::post('/post', [PostsController::class, 'store']) ->name('post.store');
+    Route::put('/post1/{post}', [PostsController::class, 'update1']) ->name('post1.update');
+
 });
 Route::get('/post/{post}', [PostsController::class, 'show'])->name('post.show');
+Route::get('/post/{post}/edit', [PostsController::class, 'edit'])->name('post.edit');
+
 
 
 Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
