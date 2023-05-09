@@ -12,12 +12,11 @@ import '../css/bootstrap.min.css';
 
 import App from './components/App.vue';
 import Login from './components/Login.vue';
-import CreatePost from './components/CreatePost.vue';
+import Create from './components/Create.vue';
 import FollowButton from './components/FollowButton.vue';
 import DiaChi from './components/DiaChi.vue';
 import Home from './components/Home.vue';
 import Menu from './components/Menu.vue';
-import Logout from './components/Logout.vue';
 
 
 const routes = [
@@ -27,14 +26,9 @@ const routes = [
     component: Login,
   },
   {
-    path: '/logout',
-    name: 'logout',
-    component: Logout,
-  },
-  {
     path: '/create',
     name: 'create',
-    component: CreatePost,
+    component: Create,
   },
   {
     path: '/follow_button',
@@ -78,4 +72,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
+
 

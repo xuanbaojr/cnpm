@@ -1,4 +1,3 @@
-@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +13,6 @@
   </div>
   
    <main >
-   
-
     <div class="content" style="margin: 0 15%">
         <div class="user-bg">
           <img src="./assets/img/background-user.jpg" alt="" width="100%" height="100%" style="border-radius: 30px;">

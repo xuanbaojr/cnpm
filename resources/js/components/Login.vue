@@ -1,5 +1,4 @@
 <template>
-   
     <form @submit.prevent="submit">
         <input type="email" v-model="email">
         <input type="password" v-model="password">
@@ -10,7 +9,6 @@
 <script setup>
 import {ref} from 'vue';
 import axios from 'axios';
-
 
 import { useRouter } from 'vue-router';
 
@@ -28,10 +26,9 @@ async function submit() {
         });
 
         const apiToken = response.data.api_token;
-        console.log(apiToken)
         localStorage.setItem('apiToken', apiToken);
-        router.push({ path: '/', replace: true })
-        console.log(response.data);
+        router.push({ path: '/create', replace: true })
+        console.log(apiToken);
 
     } catch (error) {
         console.log(error);

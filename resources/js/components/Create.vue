@@ -51,7 +51,11 @@
 
 <script setup>
 import { ref } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
+import axios from 'axios';
+
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const title = ref('');
 const dien_tich = ref('');
@@ -63,6 +67,9 @@ const handleFileSelect = (event) => {
   images.value = Array.from(event.target.files);
   event.target.value = null;
 };
+
+const apiToken = ref(localStorage.getItem('apiToken'));
+console.log(apiToken);
 
 async function create() {
   const formData = new FormData();
@@ -79,12 +86,13 @@ async function create() {
   }
 
   try {
-    const response = Inertia.post('/post', formData, {
+    const response = await axios.post('http://127.0.0.1:8000/api/post', formData, {
       headers: {
+        Authorization: `Bearer ${apiToken.value}`,
         'Content-Type': 'multipart/form-data',
       },
     });
-    
+    router.push({ path: '/dia_chi', replace: true });
   } catch (error) {
     // Handle the error, e.g., show an error message
   }
