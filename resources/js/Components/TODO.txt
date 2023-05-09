@@ -1,0 +1,2 @@
+// lay user hien tai
+// kiem tra dang nhap
