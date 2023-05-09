@@ -1,7 +1,7 @@
 <template>  
 
 
-    <!--FILTER DIA CH jkjkI-->>
+    <!--FILTER DIA CH kjk-->>
     <div class="row">
     
     <div class="col">
