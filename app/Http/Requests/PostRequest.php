@@ -23,7 +23,14 @@ class PostRequest extends FormRequest
     {
         return [
             //
+            'title' => 'required',
+            'dien_tich' => 'required',
             'gia_phong' => 'required',
+            'description' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'ward' => 'required',
+            
         ];
     }
 }
