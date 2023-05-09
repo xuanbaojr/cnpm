@@ -1,11 +1,7 @@
 <template>  
 
 
-<<<<<<< HEAD:resources/js/components/Home.vue
-    <!--FILTER IA CHI-->
-=======
-    <!--FILTER DIA CH-->
->>>>>>> Quan-git:resources/js/Components/Home.vue
+    <!--FILTER IA CHI main quan-->
     <div class="row">
     
     <div class="col">
