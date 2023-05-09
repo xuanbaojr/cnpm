@@ -1,0 +1,151 @@
+.container-report {
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fffcf5;
+  }
+  .testimonial {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    padding: 40px 0;
+    overflow: hidden;
+  }
+  .testimonial .image {
+    height: 170px;
+    width: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .testimonial .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 30px;
+    height: 100%;
+    width: 100%;
+  }
+  .slide p {
+    text-align: center;
+    padding: 0 160px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+  }
+  .slide .quote-icon {
+    font-size: 30px;
+    color: #4070f4;
+  }
+  .slide .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .details .name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+  .details .job {
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+  }
+  /* swiper button css */
+  .nav-btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    transform: translateY(30px);
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+    z-index: 0 !important; 
+  }
+  .nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  .nav-btn::after,
+  .nav-btn::before {
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .slide p {
+      padding: 0 20px;
+    }
+    .nav-btn {
+      display: none;
+    }
+  }
+  
+  
+  .container-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 40px 0;
+    z-index: 0 !important;
+  }
+  .slide-container {
+    margin: 0 30px;
+    overflow: hidden;
+  }
+  .card {
+    background: #fff;
+    border-radius: 8px;
+  }
+  .card .image-box {
+    height: 180px;
+  }
+  .card .image-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 8px 0 0;
+  }
+  .card .profile-details {
+    display: flex;
+    align-items: center;
+    column-gap: 11px;
+    padding: 14px;
+  }
+  .card .profile-details img {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+  }
+  .profile-details .name {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .profile-details .job {
+    font-size: 11px;
+    font-weight: 500;
+    color: #4d4d4d;
+  }
+  
+  .swiper-navBtn {
+    color: #000;
+    height: 36px;
+    width: 36px;
+    background: #fff;
+    border-radius: 50%;
+  }
+  .swiper-navBtn::before,
+  .swiper-navBtn::after {
+    font-size: 16px;
+  }
+  
+  .swiper-pagination-bullet {
+    background-color: #000;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .swiper-navBtn {
+      display: none;
+    }
+  }
