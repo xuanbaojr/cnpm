@@ -1,74 +1,37 @@
 <template>
     <router-view></router-view>
-            
+    <div class="row">
+        <div class="col col-8">
+            <button class="btn" @click="home">Logo</button>
+        </div>        
         <div v-if="!loggedIn" >
-    
-            <div class="user-welcome clearfix">
-                
-                  <div class="header-btn "> 
-                    <a rel="nofollow" class="header-btn" href="uppost.html">
-                        <i class='bx bx-log-in mr-4'></i>
-                          <a href="http://127.0.0.1:8000/register">
-                          <button @click="register" style="border:none; background:transparent">Đăng kí</button>
-                          </a>
-                      </a>
-                  </div>
-                    
-                  <div class="header-btn">
-                  <i class='bx bx-user mr-4'></i><button @click="login" style="border:none; background:transparent">Đăng nhập</button>
-                  </div>
-                  
+            <div class="col">
+            <button class="btn" @click="login">Login</button>
+            </div>
+            <div class="col">
+            <a href="http://127.0.0.1:8000/register">
+            <button class="btn" @click="register">Register</button>
+            </a>
             </div>
         </div>
         <div v-else>
-            <div class="user-welcome clearfix">
-                <a rel="nofollow" class="header-add-post light-red" href="uppost.html">
-                  <i class='bx bxs-plus-circle mr-4'></i>Đăng tin mới
-                </a>
-                  <div class="header-btn " data-bs-toggle="dropdown">
-                    <i class='bx bx-bell mr-4'></i> Thông báo
-                  </div>
-                    <ul class="dropdown-menu user-notice">
-                      <li>
-                        <p class="dropdown-item head-notice" >Thông báo của bạn</p>
-                      </li>
-                      
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <div class="notice">
-                            <img src="" alt="" width="50px" height="50px" style="display: inline-block">
-                            <div class="ntice-content"><p>Bạn đã thích phòng trọ thành thái</p></div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <div class="notice">
-                            <img src="" alt="" width="50px" height="50px" style="display: inline-block">
-                            <div class="ntice-content"><p>Bạn đã thích phòng trọ thành thái</p></div>
-                          </div>
-                        </a>
-                      </li>
-                      
-                      <li>
-                        <a class="dropdown-item more-notice" href="Notification.html">Xem chi tiết<i class='bx bx-right-arrow-alt' style="margin-left: 4px"></i></a>
-                      </li>
-                    </ul>
-                  <div class="header-btn" data-bs-toggle="dropdown">
-                  <i class='bx bx-user mr-4'></i>Tài khoản
-                  </div>
-                  <ul class="dropdown-menu">
-                    <li class="acc-btn"><a>Quản lý tài khoản</a></li>
-                    <li class="acc-btn"><button @click="logout" style="background: transparent; border: none">Logout</button></li>
-                  </ul>
+            <div class="col">
+            <button class="btn" @click="logout">Logout</button>
             </div>
-            
         </div>
        
         
-        
+        <div class="col">
+            <button class="btn" @click="message">Message</button>
+        </div>
+        <div class="col">
+            <button class="btn" @click="notification">Notification</button>
+        </div>
+        <div class="col">
+            <button class="btn" @click="post">Post</button>
+        </div>
 
-
+    </div>
 </template>
 
 <script setup>
@@ -114,16 +77,4 @@ function post() {
 
 <style scoped>
 
-@import '../../css/bootstrap.min.css';
-@import '../../css/index.css';
-.acc-btn{
-    border: none;
-    background: transparent;
-    text-decoration: none;
-    color: black ;
-    padding: 15px 15px;
-}
-.acc-btn:hover{
-    background: #cecece;
-}
 </style>

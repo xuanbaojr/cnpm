@@ -27,9 +27,6 @@ Route::post('/test', [App\Http\Controllers\TestController::class, 'store'])->mid
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth:sanctum'])->group(function () {
-    Route::post('/post', 'App\Http\Controllers\PostsController@store');
-});
 
 
 

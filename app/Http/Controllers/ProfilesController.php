@@ -20,5 +20,7 @@ class ProfilesController extends Controller
         return view('profiles.profile_edit',compact('user'));
     }
 
+    
+
 }
 
