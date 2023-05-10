@@ -25,7 +25,7 @@
             <Post_Box :user="user" :profile="profile" :posts="posts">
 
             </Post_Box>
-            <!-- End: Main content -->
+            <!-- End: Main content 
             <div class="pagination">
               <button class="button" id="startBtn" disabled>
                 <i class="fa-solid fa-angles-left"></i>
@@ -47,6 +47,7 @@
                 <i class="fa-solid fa-angles-right"></i>
               </button>
             </div>
+          -->
           </div>
         </div>
     </div>

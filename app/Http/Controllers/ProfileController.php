@@ -18,6 +18,8 @@ class ProfileController extends Controller
 {
     return Inertia::render('Profile/Show_me', [
         'user' => Auth::user(),
+        'profile' => Auth::user()->profile,
+        'post' => Auth::user()->posts,
     ]);
 }
 
