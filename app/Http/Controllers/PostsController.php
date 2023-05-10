@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Log;
 
 use Inertia\Inertia;
 
@@ -69,19 +71,35 @@ class PostsController extends Controller
         ]);
     }
 
-    public function update1(\App\Models\Post $post, PostRequest $request )
-    {
-        
-        $post->fill($request->validated());
-        $post->save();
+    public function update1(\App\Models\Post $post, PostRequest $request)
+{
+    $data = $request->validated();
+\Log::info('Data after validation:', ['data' => $data]);
+
+
+    if ($request->hasFile('image_01')) {
+        ;
+        // Debug: Check if the request contains the image file
+        \Log::info('Image file found in request');
+
+        // Delete the old image if it exists
+        if ($post->image_01) {
+            Storage::disk('public')->delete($post->image_01);
+        }
+
+        // Store the new image
+        $image_01 = $request->file('image_01');
+        $imagePath_01 = $image_01->store('uploads', 'public');
+        $data['image_01'] = $imagePath_01;
+
+        // Debug: Check the new image path
+        \Log::info('New image path:', ['imagePath_01' => $imagePath_01]);
     }
-    
-    public function dashboard(){
-        $posts = \App\Models\Post::all();
-        return Inertia::render('Dashboard',[
-            'posts' => $posts
-        ]);
-    }
+
+    $post->fill($data);
+    $post->save();
+}
+
     
     public function show(\App\Models\Post $post){
         return Inertia::render('Post/Post_Show',[

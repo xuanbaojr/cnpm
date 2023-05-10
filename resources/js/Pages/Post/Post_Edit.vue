@@ -5,7 +5,8 @@
          <input type="text" placeholder="dien_tich" v-model.trim="form.dien_tich">
          <input type="text" placeholder="gia_phong" v-model.trim="form.gia_phong">
          <input type="text" placeholder="description" v-model.trim="form.description">
-         
+         <input type="file" @input="onImageChange($event)">
+
          <div class="row">
    
    <div class="col">
@@ -41,6 +42,7 @@
      </option>
    </select>
    </div>
+   
 
  </div>
          <button type="submit" class="btn">Submit</button>
@@ -78,6 +80,15 @@ const wards = computed(() => {
  return district1 ? district1.Wards : [];
 });
 
+const onImageChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    form.image_01 = file;
+
+    console.log(form.image_01);
+  }
+};
+
 
   const form = useForm({
     title: '',
@@ -87,6 +98,7 @@ const wards = computed(() => {
     city:'',
     district:'',
     ward:'',
+ 
 
   });
 

@@ -21,8 +21,7 @@ class PostRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+        $rules = [
             'title' => 'required',
             'dien_tich' => 'required',
             'gia_phong' => 'required',
@@ -30,7 +29,11 @@ class PostRequest extends FormRequest
             'city' => 'required',
             'district' => 'required',
             'ward' => 'required',
-            
+            'image_01' => 'sometimes|required|image'
         ];
+    
+        return $rules;
     }
+    
+    
 }
