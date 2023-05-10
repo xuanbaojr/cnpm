@@ -49,7 +49,14 @@
  </div>
          <button type="submit" class="btn">Submit</button>
        </form>
+
+       <form @submit.prevent="form1.delete(route('post.destroy','1'))">
+        <p>Tôi muốn xóa post</p>
+        <button class="btn btn-primary" type="submit">Xác Nhận</button>
+    </form>
     </template>
+
+   
   </AuthenticatedLayout>
   
   </template>
@@ -104,7 +111,9 @@ const onImageChange = (event) => {
     city:'',
     district:'',
     ward:'',
- 
+  });
+
+  const form1 = useForm({
 
   });
 

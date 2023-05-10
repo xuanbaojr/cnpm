@@ -30,11 +30,13 @@ class PostsController extends Controller
     public function store(){
         
         $data = request()->validate([
+            'title' => 'required',
             'dien_tich' => 'required',
             'gia_phong' => 'required',
             'city' => 'required',
             'district' => 'required',
             'ward' => 'required',
+            'description' => 'required',
         ]);
     
         $imagePaths = [];
@@ -47,11 +49,13 @@ class PostsController extends Controller
             'image_02' => $imagePaths[1],
             'image_03' => $imagePaths[2],
             'image_04' => $imagePaths[3],
+            'title' => $data['title'],
             'dien_tich' => $data['dien_tich'],
             'gia_phong' => $data['gia_phong'],
             'city' => $data['city'],
             'district' => $data['district'],
             'ward' => $data['ward'],
+            'description' => $data['description'],
         ]);
     
        // return redirect('/profile/' . auth()->user()->id);
@@ -115,6 +119,10 @@ class PostsController extends Controller
         ]);
     }
 
+    public function destroy(\App\Models\Post $post){
+        ;
+        $post->delete();
+    }
     
 }
 /*
