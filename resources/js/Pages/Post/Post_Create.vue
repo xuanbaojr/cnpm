@@ -21,8 +21,8 @@
                     {{ city.Name }}
             </option>
           </select>
-          <label class="des-tilte">Quận/Huyệnmnb</label>
-          <select class="form-select" id="test" :class="s" v-model="form.district">.
+          <label class="des-tilte">Quận/Huyện</label>
+          <select class="form-select" id="test" v-model="form.district">.
             <option>Quận / Huyện</option>
             <option v-for="district  in districts"
                     :key="district.Id"
