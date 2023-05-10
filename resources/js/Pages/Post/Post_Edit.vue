@@ -1,5 +1,7 @@
 <template>
-  
+  <AuthenticatedLayout>
+    <template #default>
+        
      <form @submit.prevent="form.put(route('post1.update','1'))" enctype="multipart/form-data">
          <input type="text" placeholder="title" v-model.trim="form.title">
          <input type="text" placeholder="dien_tich" v-model.trim="form.dien_tich">
@@ -47,11 +49,15 @@
  </div>
          <button type="submit" class="btn">Submit</button>
        </form>
+    </template>
+  </AuthenticatedLayout>
+  
   </template>
   
   <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 
 // DIA CHI
 import { computed } from 'vue';

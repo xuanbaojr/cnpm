@@ -1,6 +1,7 @@
 <template>
-  <main>
-    <div class="change-info">
+  <AuthenticatedLayout>
+    <template #default>
+      <div class="change-info">
       <div class="row up-post-main">
 
         <form @submit.prevent="create" enctype="multipart/form-data" class="more-info col-lg-8" >
@@ -74,8 +75,10 @@
         </div>
         </div>
       </div>
-    </div>  
-  </main>
+    </div>
+    </template>
+  </AuthenticatedLayout>
+
 </template>
 <style scoped>
   @import '../../../css/profile.css';
@@ -88,6 +91,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 
 // DIA CHI
 import { computed } from 'vue';
