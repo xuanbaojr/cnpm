@@ -14,6 +14,14 @@ use App\Models;
 
 class ProfileController extends Controller
 {
+    public function show()
+{
+    return Inertia::render('Profile/Show_me', [
+        'user' => Auth::user(),
+    ]);
+}
+
+
     /**
      * Display the user's profile form.
      */

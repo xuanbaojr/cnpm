@@ -108,6 +108,13 @@ class PostsController extends Controller
         ]);
     }
 
+    public function dashboard() {
+        $post = \App\Models\Post :: all();
+        return Inertia::render('Dashboard',[
+            'post' => $post
+        ]);
+    }
+
     
 }
 /*

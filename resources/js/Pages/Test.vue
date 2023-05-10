@@ -1,5 +1,6 @@
 <template>
-    <p>{{user.email}}</p>
+ 
+    ABC
 </template>
 
 <script setup>
