@@ -4,7 +4,7 @@
       <div class="change-info">
       <div class="row up-post-main">
 
-        <form @submit.prevent="create" enctype="multipart/form-data" class="more-info col-lg-8" >
+        <form style="box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;" @submit.prevent="create" enctype="multipart/form-data" class="more-info col-lg-8" >
           <div class="up-description">
             <h3>Đăng tin mới</h3>
           </div>
