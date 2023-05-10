@@ -21,7 +21,7 @@ class ProfileController extends Controller
     return Inertia::render('Profile/Show_me', [
         'user' => Auth::user(),
         'profile' => Auth::user()->profile,
-        'post' => Auth::user()->posts,
+        'posts' => Auth::user()->posts,
     ]);
 }
 
@@ -73,7 +73,7 @@ class ProfileController extends Controller
 
         Auth::user()->delete();
         Auth::user()->profile->delete();
-        foreach( $post as Auth::user()->posts){
+        foreach(  Auth::user()->posts as $post){
             $post->delete();
        }
        // Auth::logout();

@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/create', [PostsController::class, 'create'])->name('post.create');
     Route::post('/post', [PostsController::class, 'store']) ->name('post.store');
     Route::put('/post1/{post}', [PostsController::class, 'update1']) ->name('post1.update');
+    Route::delete('/post/{post}', [PostsController::class, 'destroy']) ->name('post.destroy');
+
 
 });
 Route::get('/post/{post}', [PostsController::class, 'show'])->name('post.show');
