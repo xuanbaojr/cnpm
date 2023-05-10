@@ -39,8 +39,8 @@ defineProps({
 @import url('https://unicons.iconscout.com/release/v4.0.0/css/line.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
 
- @import '../../2804/cnpm/resources/css/user-detail.css';
+ @import '../../../css/user-detail.css';
 
- @import '../../2804/cnpm/resources/css/pagination.css';
+ @import '../../../css/pagination.css';
 
 </style>
