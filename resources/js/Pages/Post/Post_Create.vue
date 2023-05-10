@@ -14,7 +14,7 @@
           </div>
           <label class="des-tilte">Tỉnh/Thành phố</label>
           <select class="form-select" v-model="form.city" >
-            <option>Tỉnh/Thành Phố</option>
+            <option>Tỉnh/Thành Phốmnj=</option>
             <option v-for="city in cities"
                     :key="city.Id"
                     :value="city.Name">
@@ -38,7 +38,7 @@
                     {{ ward.Name }}
             </option>
           </select>
-       
+
           <label class="des-tilte">Diện tích</label>
           <div class="input-group mb-3 box-size">
             <input id="post_acreage" v-model.trim="form.dien_tich" type="number" attern="[0-9.]+" name="dien_tich" max="1000" class="form-control" data-msg-required="Bạn chưa nhập diện tích" >
@@ -57,19 +57,19 @@
           <label class="des-tilte">Nội dung mô tả</label>
           <textarea id="des-content" cols="30" rows="6" v-model.trim="form.description"></textarea>
           <label class="des-tilte">Tải hình ảnh</label>
-          <input type="file" @input="form.images = $event.target.files" multiple @change="onImageChange($event)" >
+          <input style="margin-left: 10px" type="file" @input="form.images = $event.target.files" multiple @change="onImageChange($event)" >
           <button class="btn btn-primary save-button" style="width: 100%;margin-top: 20px;margin-left: 0px;" type="submit">Xác nhận đăng tin</button>
         </form>
         <div class="col-lg-4" style="padding-left: 30px; padding-top: 20px;">
-          <div class="card" style="color: #856404; background-color: #fff3cd; border-color: #ffeeba;">
+          <div class="card" style="color: #856404; background-color: transparent; border-color: #ffeeba;">
             <div class="card-body">
                 <h4 class="card-title">Lưu ý khi đăng tin</h4>
-                <ul>
+                <ul style="padding-left: 0px;">
                     <li style="list-style-type: square; margin-left: 15px;">Nội dung phải viết bằng tiếng Việt có dấu</li>
                     <li style="list-style-type: square; margin-left: 15px;">Tiêu đề tin không dài quá 100 kí tự</li>
                     <li style="list-style-type: square; margin-left: 15px;">Các bạn nên điền đầy đủ thông tin vào các mục để tin đăng có hiệu quả hơn.</li>
-                    <li style="list-style-type: square; margin-left: 15px;">Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo icon tới đúng vị trí của tin rao.</li>
-                    <li style="list-style-type: square; margin-left: 15px;">Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng!</li>
+                    <li style="list-style-type: square; margin-left: 15px;">Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn.</li>
+                    <li style="list-style-type: square; margin-left: 15px;">Hãy đăng ảnh để được giao dịch nhanh chóng!</li>
                 </ul>
             </div>
         </div>
@@ -137,9 +137,9 @@ const form = useForm({
 
 // Create post
 const create = () => {
-  
+
   form.post(route('post.store'));
-  
+
 };
 
 </script>
