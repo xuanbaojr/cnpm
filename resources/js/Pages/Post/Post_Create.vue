@@ -8,7 +8,7 @@
           <div class="up-description">
             <h3>Đăng tin mới</h3>
           </div>
-          <label class="des-tilte">Tiêu đề</label>
+          <label class="des-tilte">Tiêu đề 01</label>
           <div class="col-lg-2 input-size input-tilte-size">
             <input type="text" v-model.trim="form.title">
           </div>
