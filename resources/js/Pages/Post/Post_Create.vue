@@ -1,7 +1,7 @@
 <template>
   <AuthenticatedLayout>
     <template #default>
-      <div class="change-info">
+      <div class="change-info" >
       <div class="row up-post-main">
 
         <form style="box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;" @submit.prevent="create" enctype="multipart/form-data" class="more-info col-lg-8" >
