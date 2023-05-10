@@ -18,7 +18,7 @@
 
     <div class="col">
       <select class="form-select" v-model="checkDistrict">.
-      <option>Quận / Huyện</option>
+      <option>Quận / Huyện 01</option>
       <option v-for="district  in districts"
               :key="district.Id"
               :value="district.Name">
