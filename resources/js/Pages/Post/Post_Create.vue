@@ -14,15 +14,15 @@
           </div>
           <label class="des-tilte">Tỉnh/Thành phố</label>
           <select class="form-select" v-model="form.city" >
-            <option>Tỉnh/Thành Phốmnịuijijijij=</option>
+            <option>Tỉnh/Thành Phố</option>
             <option v-for="city in cities"
                     :key="city.Id"
                     :value="city.Name">
                     {{ city.Name }}
             </option>
           </select>
-          <label class="des-tilte">Quận/Huyệnabc</label>
-          <select class="form-select" v-model="form.district">.
+          <label class="des-tilte">Quận/Huyệnmnb</label>
+          <select class="form-select" id="test" v-model="form.district">.
             <option>Quận / Huyện</option>
             <option v-for="district  in districts"
                     :key="district.Id"
