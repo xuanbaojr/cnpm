@@ -18,6 +18,10 @@ class User extends Authenticatable
         static :: created(function($user){
             $user->profile()->create([
                 'fullname'=> $user->username,
+                'birth' => 'unknowns',
+                'univer' => 'unknowns',
+                'gioi_tinh' => 'unknowns',
+                'description' => 'unknowns',
             ]);
         });
     }

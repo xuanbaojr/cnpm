@@ -12,6 +12,8 @@ use Inertia\Inertia;
 use Inertia\Response;
 use App\Models;
 
+
+
 class ProfileController extends Controller
 {
     public function show()
@@ -40,13 +42,17 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        
+        $profile = Auth::user ()->profile;
+        $profile->update($request->validated());
+        
 
+       /*
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-
-        $request->user()->save();
+    */
+        $profile->save();
 
         return Redirect::route('profile.edit');
     }
@@ -56,18 +62,24 @@ class ProfileController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        $request->validate([
-            'password' => ['required', 'current_password'],
-        ]);
+      
+        // $request->validate([
+        //     'password' => ['required', 'current_password'],
+        // ]);
 
-        $user = $request->user();
+        // $user = $request->user();
+            
+        
 
-        Auth::logout();
+        Auth::user()->delete();
+        Auth::user()->profile->delete();
+        foreach( $post as Auth::user()->posts){
+            $post->delete();
+       }
+       // Auth::logout();
 
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+         $request->session()->invalidate();
+         $request->session()->regenerateToken();
 
         return Redirect::to('/');
     }

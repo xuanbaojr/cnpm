@@ -9,16 +9,16 @@
                 <div class="post-item clearfix" v-for="post in posts" :key="post.id">
                   <div class="info-img">
                     <div class="mainimg">
-                      <img src="" alt="" width="100%" height="100%">
+                      <img :src="'/storage/' + post.image_01" alt="" width="100%" height="100%" style = "height: 214px;">
                     </div>
                     <div class="sideimg">
-                      <img src="" alt="" width="100%" height="100%" style="width: 100%;">
+                      <img :src="'/storage/'+ post.image_03" alt="" width="100%" height="100%" style="width: 100%;">
                       <div class="img-child row" style="margin:0px !important">
                         <div class="col" style="padding: 0px !important; height: 100%;width: 100%;">
-                          <img src="" alt="">
+                          <img :src="'/storage/'+ post.image_03" alt="">
                         </div>
                         <div class="col" style="padding: 0px !important;height: 100%;width: 100%;">
-                          <img src="" alt="">
+                          <img :src="'/storage/'+ post.image_01" alt="">
                         </div>
                       </div>
                     </div>
@@ -50,6 +50,29 @@
                
               </div>
             </div>
+             <!-- End: Main content 
+            <div class="pagination">
+              <button class="button" id="startBtn" disabled>
+                <i class="fa-solid fa-angles-left"></i>
+              </button>
+              <button class="button prevNext" id="prev" disabled>
+                <i class="fa-solid fa-angle-left"></i>
+              </button>
+              <div class="links">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">4</a>
+                <a href="#" class="page-link">5</a>
+              </div>
+              <button class="button prevNext" id="next">
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+              <button class="button" id="endBtn">
+                <i class="fa-solid fa-angles-right"></i>
+              </button>
+            </div>
+          -->
 </template>
 <script setup>
 
