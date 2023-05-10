@@ -14,7 +14,7 @@
           </div>
           <label class="des-tilte">Tỉnh/Thành phố</label>
           <select class="form-select" v-model="form.city" >
-            <option>Tỉnh/Thành Phốmnj=</option>
+            <option>Tỉnh/Thành Phốmnịuijijijij=</option>
             <option v-for="city in cities"
                     :key="city.Id"
                     :value="city.Name">
