@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redirect;
 
 use Inertia\Inertia;
 
@@ -58,7 +59,7 @@ class PostsController extends Controller
             'description' => $data['description'],
         ]);
     
-       // return redirect('/profile/' . auth()->user()->id);
+       return Redirect::to('/profile/me');
     }
     
 
@@ -120,8 +121,9 @@ class PostsController extends Controller
     }
 
     public function destroy(\App\Models\Post $post){
-        ;
+        
         $post->delete();
+        return Inertia::render('Profile/Show');
     }
     
 }

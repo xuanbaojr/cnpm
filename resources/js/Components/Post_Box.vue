@@ -44,7 +44,10 @@
                         <span class="">{{profile.fullname}}</span>
                       </div>
                       <a rel="nofollow" :href="'/post/' + post.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+                      <a rel="nofollow" :href="'/post/' + post.id + '/edit'" class="btn-quick-zalo">Edit Post</a>
+
                     </div>
+                    
                   </div>
                 </div>
                
