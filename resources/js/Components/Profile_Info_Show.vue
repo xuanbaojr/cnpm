@@ -10,7 +10,7 @@
               <li class="info-items">Nghề nghiệp: Sinh viên</li>
               <li class="info-items"><Link :href="route('dashboard')">Chỉnh sửa thông tin chi tiết</Link></li>
             </ul>
-          </div>
+</div>
 </template>
 <script setup>
 import { Link } from '@inertiajs/vue3';
@@ -31,8 +31,7 @@ const props = defineProps({
 @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
 @import url('https://unicons.iconscout.com/release/v4.0.0/css/line.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
- @import '../../2804/cnpm/resources/css/user-detail.css';
-
-@import '../../2804/cnpm/resources/css/bootstrap.min.css';
- @import '../../2804/cnpm/resources/css/index.css';
+@import '../../css/bootstrap.min.css';
+@import '../../css/user-detail.css';
+@import '../../css/index.css';
 </style>

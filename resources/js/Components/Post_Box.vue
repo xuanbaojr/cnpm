@@ -47,13 +47,13 @@
                       <a rel="nofollow" :href="'/post/' + post.id + '/edit'" class="btn-quick-zalo">Edit Post</a>
 
                     </div>
-                    
+
                   </div>
                 </div>
-               
+
               </div>
-            </div>
-             <!-- End: Main content 
+      </div>
+             <!-- End: Main content
             <div class="pagination">
               <button class="button" id="startBtn" disabled>
                 <i class="fa-solid fa-angles-left"></i>
@@ -99,6 +99,8 @@ const props = defineProps({
 @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
 @import url('https://unicons.iconscout.com/release/v4.0.0/css/line.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
- @import '../../2804/cnpm/resources/css/bootstrap.min.css';
- @import '../../2804/cnpm/resources/css/index.css';
+ @import '../../css/bootstrap.min.css';
+ @import '../../css/user-detail.css';
+ @import '../../css/index.css'
+
 </style>
