@@ -11,11 +11,12 @@
                 <h5 class="user-follow" style="margin-left:10px">52K followers</h5>
             </div>
             <div class="func-btn">
-              <button class="flw-btn">
-                <Link href="/profile" method="get">
-                    EditProfile
+              
+                <Link href="/profile" method="get" style="color: rgb(40, 144, 241);">
+                    <button class="flw-btn">Edit Profile</button>
+                    
                 </Link>
-              </button>
+              
               <button class="sp-btn">Tư vấn</button>
             </div>
         </div>
@@ -35,3 +36,7 @@ const props = defineProps({
     },
 });
 </script>
+<style scoped>
+    @import '../../css/user-detail.css'
+    
+</style>
