@@ -77,21 +77,21 @@ class PostsController extends Controller
     }
 
     public function update1(\App\Models\Post $post, PostRequest $request)
-{
-    $data = [];
-    $data = $request->validated();
+ {
+//     $data = [];
+//     $data = $request->validated();
 
-    $data['title'] = $post-> title;
-    $data['dien_tich'] = $post-> dien_tich;
-    $data['gia_phong'] = $post-> gia_phong;
-    $data['description'] = $post-> description;
-    $data['city'] = $post-> city;
-    $data['district'] = $post-> district;
-    $data['ward'] = $post-> ward;
-    if($request->hasFile('title')){
-        ;
-    }
-  //  $data = $request->validated();
+//     $data['title'] = $post-> title;
+//     $data['dien_tich'] = $post-> dien_tich;
+//     $data['gia_phong'] = $post-> gia_phong;
+//     $data['description'] = $post-> description;
+//     $data['city'] = $post-> city;
+//     $data['district'] = $post-> district;
+//     $data['ward'] = $post-> ward;
+//     if($request->hasFile('title')){
+//         ;
+//     }
+    $data = $request->validated();
 
 
 // \Log::info('Data after validation:', ['data' => $data]);

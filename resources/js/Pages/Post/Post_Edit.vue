@@ -3,7 +3,7 @@
     <template #default>
         
      <form @submit.prevent="form.put(route('post1.update', post.id ))" enctype="multipart/form-data">
-         <input type="text" placeholder="title" v-model.trim="form.title">
+         <input type="text" placeholder="title"  v-model.trim="form.title">
          <input type="text" placeholder="dien_tich" v-model.trim="form.dien_tich">
          <input type="text" placeholder="gia_phong" v-model.trim="form.gia_phong">
          <input type="text" placeholder="description" v-model.trim="form.description">
@@ -68,9 +68,11 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 
 // DIA CHI
 import { computed } from 'vue';
-defineProps({
+const props = defineProps({
   post:Object
 })
+
+
   
 
   const cities = ref(null);
@@ -83,18 +85,18 @@ fetch("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/dat
      alert('error');
    });
 
-const districts = computed(() => {
- if (!form.city) return [];
- const city1 = cities.value.find((city) => city.Name == form.city);
- return city1 ? city1.Districts : [];
+   const districts = computed(() => {
+  if (!form.city || !cities.value) return [];
+  const city1 = cities.value.find((city) => city.Name == form.city);
+  return city1 ? city1.Districts : [];
 });
-
 
 const wards = computed(() => {
- if (!form.district) return [];
- const district1 = districts.value.find((district) => district.Name == form.district);
- return district1 ? district1.Wards : [];
+  if (!form.district || !districts.value) return [];
+  const district1 = districts.value.find((district) => district.Name == form.district);
+  return district1 ? district1.Wards : [];
 });
+
 
 const onImageChange = (event) => {
   const file = event.target.files[0];
@@ -107,13 +109,13 @@ const onImageChange = (event) => {
 
 
   const form = useForm({
-    title: '',
-    dien_tich:'',
-    gia_phong:'',
-    description:'',
-    city:'',
-    district:'',
-    ward:'',
+    title: props.post.title,
+    dien_tich: props.post.dien_tich,
+    gia_phong: props.post.gia_phong,
+    description: props.post.description,
+    city: props.post.city,
+    district: props.post.district,
+    ward: props.post.ward,
   });
 
   const form1 = useForm({
