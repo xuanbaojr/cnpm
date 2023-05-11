@@ -2,6 +2,8 @@
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\AdminController;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -50,5 +52,15 @@ Route::get('/post/{post}/edit', [PostsController::class, 'edit'])->name('post.ed
 
 
 Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.index');
+
+// Admin
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/{user}/posts', [AdminController::class, 'showPosts']) ->name('admin.showPosts');
+    Route::delete('/user/{user}', [AdminController::class, 'destroy']) ->name('user.destroy');
+
+
+});
+
 
 require __DIR__.'/auth.php';
