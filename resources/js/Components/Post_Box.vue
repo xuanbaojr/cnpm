@@ -1,4 +1,5 @@
 <template>
+  
     <div class="section" >
               <!-- Title -->
               <div class="section-header" style="background-color: transparent;box-shadow: none;border-bottom:solid 2px #ccc ;margin-bottom: 10px;">
@@ -42,9 +43,13 @@
                       <div class="post-author">
                         <img src="" alt="member-item" class="">
                         <span class="">{{profile.fullname}}</span>
+                        
                       </div>
+                      
+                      <div v-if="user.id === user_me.id">
                       <a rel="nofollow" :href="'/post/' + post.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                       <a rel="nofollow" :href="'/post/' + post.id + '/edit'" class="btn-quick-zalo">Edit Post</a>
+                    </div>
 
                     </div>
 
@@ -90,6 +95,9 @@ const props = defineProps({
     posts: {
         type: Object,
     },
+    user_me: {
+      type:Object,
+    }
 });
 </script>
 

@@ -86,7 +86,7 @@
               <a style="color: #000" href="#">{{result.ward }} - {{result.district}} - {{result.city}}</a>
             </span>
                                 <span>{{ result.updated_at }}</span>
-                                <p class="post-summary">{{result.desciption}}</p>
+                                <p class="post-summary">{{result.description}}</p>
                             </div>
                             <div class="contact-info">
                                 <div class="post-author">
