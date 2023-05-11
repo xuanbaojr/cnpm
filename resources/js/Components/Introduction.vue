@@ -1,5 +1,5 @@
 <template>
-    <div class="review container border border-5">
+    <div class="review container border border-5" style="background:#fff; border-radius:30px;">
         <h5> Tại sao lại chọn Find roomate?</h5>
         <p>Chúng tôi biết bạn có rất nhiều lựa chọn, nhưng Phongtro123.com tự hào là trang web đứng top google về các từ khóa: cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, cho thuê căn hộ, tìm người ở ghép, cho thuê mặt bằng... Vì vậy tin của bạn đăng trên website sẽ tiếp cận được với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn </p>
         <div class="row">

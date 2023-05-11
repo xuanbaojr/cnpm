@@ -8,9 +8,12 @@
           </Profile_BG>
         </div>
 
-        <div class="user-content-post">
-          <Profile_Info_Show :user="user" :profile="profile">
-          </Profile_Info_Show >
+        <div class="user-content-post"  style="transform: translateY(-100px);">
+
+            <Profile_Info_Show :user="user" :profile="profile">
+            </Profile_Info_Show >
+
+
           <div class="main-post-list">
             <Post_Box :user="user" :profile="profile" :posts="posts" :user_me="user_me">
             </Post_Box>

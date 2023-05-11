@@ -1,5 +1,5 @@
 <template>
-  
+
     <div class="section" >
               <!-- Title -->
               <div class="section-header" style="background-color: #fff ;margin-bottom: 15px;">
@@ -43,10 +43,10 @@
                       <div class="post-author">
                         <img src="" alt="member-item" class="">
                         <span class="">{{profile.fullname}}</span>
-                        
+
                       </div>
-                      
-                      <div v-if="user.id === user_me.id">
+
+                    <div v-if="user.id === user_me.id" class="contact-btn">
                       <a rel="nofollow" :href="'/post/' + post.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                       <a rel="nofollow" :href="'/post/' + post.id + '/edit'" class="btn-quick-zalo">Edit Post</a>
                     </div>
@@ -57,10 +57,10 @@
                 </div>
 
               </div>
-      </div>
-             
-            <Pagination />
-          
+    </div>
+
+    <Pagination />
+
 </template>
 <script setup>
 import Pagination from '@/Components/Pagination.vue';
@@ -89,6 +89,11 @@ const props = defineProps({
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
  @import '../../css/bootstrap.min.css';
  @import '../../css/user-detail.css';
- @import '../../css/index.css'
+ @import '../../css/index.css';
+ .contact-btn{
+  width: 300px;
+    display: inline-block;
+    float: right;
+ }
 
 </style>

@@ -8,21 +8,21 @@
             </div>
             <div class="user-info-profile">
                 <h1 class="user-name">{{user.username}}</h1>
-                <h5 class="user-follow" style="margin-left:10px">{{user.email}}</h5>
+                <h5 class="user-follow">{{user.email}}</h5>
             </div>
             <div class="func-btn">
                <div v-if="user.id === user_me.id">
                 <Link href="/profile" method="get" style="color: rgb(40, 144, 241);">
                     <button class="flw-btn">Edit Profile</button>
-                    
+
                 </Link>
-              
-             
+
+
                 <Link href="/post/create" method="get" style="color: rgb(40, 144, 241);">
                     <button class="flw-btn">New Post</button>
                 </Link>
             </div>
-              
+
             </div>
         </div>
 </template>
@@ -44,5 +44,5 @@ const props = defineProps({
 </script>
 <style scoped>
     @import '../../css/user-detail.css'
-    
+
 </style>
