@@ -22,6 +22,7 @@ class User extends Authenticatable
                 'univer' => 'unknowns',
                 'gioi_tinh' => 'unknowns',
                 'description' => 'unknowns',
+                'sdt' => 'unknows'
             ]);
         });
     }

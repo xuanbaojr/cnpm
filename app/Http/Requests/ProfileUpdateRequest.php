@@ -23,6 +23,7 @@ class ProfileUpdateRequest extends FormRequest
             'univer' => ['string', 'max:255'],
             'gioi_tinh' => ['string', 'max:255'],
             'description' => ['string', 'max:255'],
+            'sdt' => ['string'],
             
         ];
     }

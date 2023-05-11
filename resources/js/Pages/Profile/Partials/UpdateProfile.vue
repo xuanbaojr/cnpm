@@ -5,6 +5,7 @@
         <input type="text" placeholder="nghe_nghiep" v-model="form.univer">
         <input type="text" placeholder="gioi_tinh" v-model="form.gioi_tinh">
         <input type="text" placeholder="description" v-model="form.description">
+        <input type="text" placeholder="sdt" v-model="form.sdt">
         <button type="submit">Submit</button>
     </form>
 </template>
@@ -20,5 +21,6 @@ const form = useForm({
     univer:props.profile.univer,
     gioi_tinh:props.profile.gioi_tinh,
     description:props.profile.description,
+    sdt:props.profile.sdt,
 })
 </script>
