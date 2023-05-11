@@ -26,3 +26,8 @@ const props = defineProps({
     },
 });
 </script>
+<style scoped>
+@import '../../../css/bootstrap.min.css';
+@import '../../../css/index.css';
+@import '../../../css/detail.css';
+</style>
