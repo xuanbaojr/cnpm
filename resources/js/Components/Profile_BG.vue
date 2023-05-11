@@ -11,7 +11,7 @@
                 <h5 class="user-follow" style="margin-left:10px">{{user.email}}</h5>
             </div>
             <div class="func-btn">
-              
+               <div v-if="user.id === user_me.id">
                 <Link href="/profile" method="get" style="color: rgb(40, 144, 241);">
                     <button class="flw-btn">Edit Profile</button>
                     
@@ -21,6 +21,7 @@
                 <Link href="/post/create" method="get" style="color: rgb(40, 144, 241);">
                     <button class="flw-btn">New Post</button>
                 </Link>
+            </div>
               
             </div>
         </div>
@@ -38,6 +39,7 @@ const props = defineProps({
     posts: {
         type: Object,
     },
+    user_me : Object
 });
 </script>
 <style scoped>

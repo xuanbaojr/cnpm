@@ -60,16 +60,16 @@
                     <div class="post-item clearfix" v-for="result in results" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
-                                <img :src="'/storage/' + result.image_04" alt="" width="100%" height="100%" style="height: 214px;">
+                                <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
                             </div>
                             <div class="sideimg">
-                                <img :src="'/storage/'+ result.image_03" alt="" width="100%" height="100%" style="width: 100%;">
+                                <img :src="'/storage/'+ result.image_02" alt="" width="100%" height="100%" style="width: 100%;">
                                 <div class="img-child row" style="margin:0px !important">
                                     <div class="col" style="padding: 0px !important; height: 100%;width: 100%;">
                                         <img :src="'/storage/'+ result.image_03" alt="">
                                     </div>
                                     <div class="col" style="padding: 0px !important;height: 100%;width: 100%;">
-                                        <img :src="'/storage/'+ result.image_01" alt="">
+                                        <img :src="'/storage/'+ result.image_04" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
               <a style="color: #000" href="#">{{result.ward }} - {{result.district}} - {{result.city}}</a>
             </span>
                                 <span>{{ result.updated_at }}</span>
-                                <p class="post-summary">{{result.desciption}}</p>
+                                <p class="post-summary">{{result.description}}</p>
                             </div>
                             <div class="contact-info">
                                 <div class="post-author">

@@ -1,6 +1,6 @@
 <template>
-   
-    
+
+
           <div id="demo" class="carousel slide " data-bs-ride="carousel">
 
                 <!-- Indicators/dots -->
@@ -9,7 +9,7 @@
                   <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                   <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                 </div>
-              
+
                 <!-- The slideshow/carousel -->
                 <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -22,7 +22,7 @@
                     <img src="" alt="New York" class="d-block w-100">
                   </div>
                 </div>
-              
+
                 <!-- Left and right controls/icons -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon"></span>
@@ -46,7 +46,7 @@
               </div>
             </section>
             <section class="section post-contact">
-              <div class="section-header">
+              <div class="section-header" style="box-shadow: none;">
                 <h3 class="section-title">Thông tin liên hệ</h3>
               </div>
               <div class="section-content">
@@ -69,8 +69,8 @@
               </div>
             </section>
           </div>
-              
-        
+
+
 </template>
 <script setup>
 
@@ -87,3 +87,9 @@ const props = defineProps({
     },
 });
 </script>
+
+<style scoped>
+  @import '../../../css/bootstrap.min.css';
+  @import '../../../css/index.css';
+  @import '../../../css/detail.css';
+</style>

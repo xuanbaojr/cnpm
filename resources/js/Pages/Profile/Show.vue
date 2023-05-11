@@ -4,7 +4,7 @@
       <div class="content" style="margin: 0 15%">
 
         <div class="user-bg">
-         <Profile_BG :user="user" :profile="profile" :posts="posts">
+         <Profile_BG :user="user" :profile="profile" :posts="posts" :user_me="user_me" >
           </Profile_BG>
         </div>
 
@@ -12,7 +12,7 @@
           <Profile_Info_Show :user="user" :profile="profile">
           </Profile_Info_Show >
           <div class="main-post-list">
-            <Post_Box :user="user" :profile="profile" :posts="posts">
+            <Post_Box :user="user" :profile="profile" :posts="posts" :user_me="user_me">
             </Post_Box>
           </div>
         </div>
@@ -35,6 +35,7 @@ defineProps({
     user:Object,
     profile:Object,
     posts:Object,
+    user_me:Object,
 })
 
 </script>

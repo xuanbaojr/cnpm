@@ -22,6 +22,7 @@ class ProfileController extends Controller
         'user' => Auth::user(),
         'profile' => Auth::user()->profile,
         'posts' => Auth::user()->posts,
+        'user_me' => Auth::user(),
     ]);
 }
 
@@ -89,6 +90,7 @@ class ProfileController extends Controller
         $profile = $user->profile;
         $posts = $user->posts;
         return Inertia::render('Profile/Show',[
+            'user_me' => auth()->user(),
             'user' => $user,
             'profile'=> $profile,
             'posts' => $posts
