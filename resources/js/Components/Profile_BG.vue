@@ -39,7 +39,7 @@ const props = defineProps({
     posts: {
         type: Object,
     },
-    user_me : Object
+    user_me : Object,
 });
 </script>
 <style scoped>

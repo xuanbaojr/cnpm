@@ -3,7 +3,7 @@
         <template #default>
             <div class="content" style="margin: 0 15%">
             <div class="user-bg">
-             <Profile_BG :user="user" :profile="profile" :posts="posts">
+             <Profile_BG :user="user" :profile="profile" :posts="posts" :user_me="user_me">
              </Profile_BG>
             </div>
             <div class="user-content-post">
