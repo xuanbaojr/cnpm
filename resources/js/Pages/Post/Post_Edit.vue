@@ -50,7 +50,7 @@
          <button type="submit" class="btn">Submit</button>
        </form>
 
-       <form @submit.prevent="form1.delete(route('post.destroy','1'))">
+       <form @submit.prevent="form1.delete(route('post.destroy',post.id))">
         <p>Tôi muốn xóa post</p>
         <button class="btn btn-primary" type="submit">Xác Nhận</button>
     </form>

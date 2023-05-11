@@ -118,7 +118,7 @@ class PostsController extends Controller
 
     $post->fill($data);
     $post->save();
-   // return Redirect::to('/profile/me');
+    return Redirect::to('/profile/me');
 }
 
     
