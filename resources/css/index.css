@@ -399,24 +399,20 @@ ol {
 
 /* Main content */
 .section {
-  padding: 30px;
   border-radius: 8px;
   margin-left: 10px;
   width: 100%;
-  padding-bottom: 0px;
-  padding-top: 0px;;
+  min-width: 666px;
 }
 
 /* Title */
 .section .section-header {
   margin-top: 0;
   margin-bottom: 5px;
-  border: 1px solid #F2F2F2;
-  box-shadow: 0px 4px 6px 0px rgb(44 44 44 / 4%);
   background-color: #fff ;
   padding: 10px;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
+  border-radius: 16px;
+  box-shadow: 0 .5rem .5rem rgba(0,0,0,.15)
 }
 
 .section .section-title {
@@ -432,12 +428,12 @@ ol {
   position: relative;
   width: 100%;
   min-width: 666px;
-  border-radius: 4px;
+  border-radius: 16px;
   border: 1px solid #F2F2F2;
   box-sizing: border-box;
-  box-shadow: 0px 4px 6px 0px rgb(44 44 44 / 4%);
   background-color: #fff;
   margin-bottom: 10px;
+  box-shadow: 0 .5rem .5rem rgba(0,0,0,.15);
 }
 
 .post-listing .post-item .info-img {
@@ -557,13 +553,18 @@ ol {
   margin-top: 5px;
   margin-left: 5px;
   padding: 4px 7px;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   display: inline-block;
   float: right;
   color: #fff;
   background: #009BA1;
   border: 1px solid #009BA1;
+}
+
+.post-listing .post-item .btn-quick-zalo:hover{
+  background: #037a81;
+  border: 1px solid #037a81;
 }
 
 .contact-info{

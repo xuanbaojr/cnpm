@@ -1,7 +1,7 @@
 <template>
     <div class="section" >
               <!-- Title -->
-              <div class="section-header" style="background-color: transparent;box-shadow: none;border-bottom:solid 2px #ccc ;margin-bottom: 10px;">
+              <div class="section-header" style="background-color: #fff ;margin-bottom: 15px;">
                 <span class="section-title" style="font-size: 25px;">Danh sách tin của bạn</span>
               </div>
               <!-- Sort -->
@@ -9,7 +9,7 @@
                 <div class="post-item clearfix" v-for="post in posts" :key="post.id">
                   <div class="info-img">
                     <div class="mainimg">
-                      <img :src="'/storage/' + post.image_01" alt="" width="100%" height="100%" style = "height: 214px;">
+                      <img :src="'/storage/' + post.image_01" alt="" width="100%" height="100%" style="height: 214px;">
                     </div>
                     <div class="sideimg">
                       <img :src="'/storage/'+ post.image_03" alt="" width="100%" height="100%" style="width: 100%;">
@@ -53,32 +53,12 @@
 
               </div>
       </div>
-             <!-- End: Main content
-            <div class="pagination">
-              <button class="button" id="startBtn" disabled>
-                <i class="fa-solid fa-angles-left"></i>
-              </button>
-              <button class="button prevNext" id="prev" disabled>
-                <i class="fa-solid fa-angle-left"></i>
-              </button>
-              <div class="links">
-                <a href="#" class="page-link active">1</a>
-                <a href="#" class="page-link">2</a>
-                <a href="#" class="page-link">3</a>
-                <a href="#" class="page-link">4</a>
-                <a href="#" class="page-link">5</a>
-              </div>
-              <button class="button prevNext" id="next">
-                <i class="fa-solid fa-angle-right"></i>
-              </button>
-              <button class="button" id="endBtn">
-                <i class="fa-solid fa-angles-right"></i>
-              </button>
-            </div>
-          -->
+             
+            <Pagination />
+          
 </template>
 <script setup>
-
+import Pagination from '@/Components/Pagination.vue';
 const props = defineProps({
     user: {
         type: Object,
