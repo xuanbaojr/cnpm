@@ -22,6 +22,7 @@ class ProfileController extends Controller
         'user' => Auth::user(),
         'profile' => Auth::user()->profile,
         'posts' => Auth::user()->posts,
+        'user_me' => Auth::user(),
     ]);
 }
 
@@ -32,6 +33,7 @@ class ProfileController extends Controller
     public function edit(Request $request): Response
     {
         return Inertia::render('Profile/Edit', [
+            'profile' => Auth::user()->profile,
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
         ]);
@@ -54,7 +56,7 @@ class ProfileController extends Controller
     */
         $profile->save();
 
-        return Redirect::route('profile.edit');
+        return Redirect::to('/profile/me');
     }
 
     /**
@@ -88,6 +90,7 @@ class ProfileController extends Controller
         $profile = $user->profile;
         $posts = $user->posts;
         return Inertia::render('Profile/Show',[
+            'user_me' => auth()->user(),
             'user' => $user,
             'profile'=> $profile,
             'posts' => $posts

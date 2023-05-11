@@ -20,6 +20,7 @@ class Profile extends Model
         'univer',
         'gioi_tinh',
         'description',
+        'sdt',
         
     ];
 

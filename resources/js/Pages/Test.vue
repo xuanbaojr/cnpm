@@ -1,10 +1,11 @@
 <template>
- 
-    ABC
+ {{user}} {{profile }} {{ posts }}
 </template>
 
 <script setup>
-defineProps(
-    {user:Object}
-)
+ defineProps({
+        user:Object,
+        profile:Object,
+        posts:Object,
+    })
 </script>

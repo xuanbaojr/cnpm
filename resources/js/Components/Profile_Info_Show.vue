@@ -7,7 +7,7 @@
               <li class="info-items">Họ và Tên: {{profile.fullname}}</li>
               <li class="info-items">Ngày sinh: {{profile.birth}}</li>
               <li class="info-items">Giới tính: {{profile.gioi_tinh}}</li>
-              <li class="info-items">Nghề nghiệp: Sinh viên</li>
+              <li class="info-items">Nghề nghiệp: {{ profile.univer }}</li>
               <li class="info-items"><Link :href="route('dashboard')">Chỉnh sửa thông tin chi tiết</Link></li>
             </ul>
 </div>
