@@ -65,7 +65,11 @@ class PostsController extends Controller
 
 
     public function index(\App\Models\Post $post){
-        return view('posts.post_show',['post'=> $post]);
+        return view('posts.post_show',[
+            'posts'=> $post,
+            'user' => $post->user,
+            'profile' => $post->user->profile,
+        ]);
         
     }
 
@@ -124,7 +128,9 @@ class PostsController extends Controller
     
     public function show(\App\Models\Post $post){
         return Inertia::render('Post/Post_Show',[
-            'post' => $post
+            'posts' => $post,
+            'user' => $post->user,
+            'profile' => $post->user->profile,
 
         ]);
     }
