@@ -93,7 +93,7 @@
                                     <img src="" alt="member-item" class="">
                                     <a :href="`/profile/${result.user.id}`">{{result.user.username}}</a>
                                 </div>
-                                <a :href="'/post/post_show/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+                                <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                             </div>
                         </div>
                     </div>

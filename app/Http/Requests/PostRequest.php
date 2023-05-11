@@ -22,14 +22,14 @@ class PostRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'title' => 'required',
-            'dien_tich' => 'required',
-            'gia_phong' => 'required',
-            'description' => 'required',
-            'city' => 'required',
-            'district' => 'required',
-            'ward' => 'required',
-            'image_01' => 'sometimes|required|image'
+            'title' => '',
+            'dien_tich' => '',
+            'gia_phong' => '',
+            'description' => '',
+            'city' => '',
+            'district' => '',
+            'ward' => '',
+            'image_01' => 'sometimes|image'
         ];
     
         return $rules;

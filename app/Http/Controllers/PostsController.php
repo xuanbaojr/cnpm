@@ -65,7 +65,11 @@ class PostsController extends Controller
 
 
     public function index(\App\Models\Post $post){
-        return view('posts.post_show',['post'=> $post]);
+        return view('posts.post_show',[
+            'posts'=> $post,
+            'user' => $post->user,
+            'profile' => $post->user->profile,
+        ]);
         
     }
 
@@ -77,38 +81,56 @@ class PostsController extends Controller
     }
 
     public function update1(\App\Models\Post $post, PostRequest $request)
-{
+ {
+//     $data = [];
+//     $data = $request->validated();
+
+//     $data['title'] = $post-> title;
+//     $data['dien_tich'] = $post-> dien_tich;
+//     $data['gia_phong'] = $post-> gia_phong;
+//     $data['description'] = $post-> description;
+//     $data['city'] = $post-> city;
+//     $data['district'] = $post-> district;
+//     $data['ward'] = $post-> ward;
+//     if($request->hasFile('title')){
+//         ;
+//     }
     $data = $request->validated();
-\Log::info('Data after validation:', ['data' => $data]);
 
 
-    if ($request->hasFile('image_01')) {
-        ;
-        // Debug: Check if the request contains the image file
-        \Log::info('Image file found in request');
+// \Log::info('Data after validation:', ['data' => $data]);
 
-        // Delete the old image if it exists
-        if ($post->image_01) {
-            Storage::disk('public')->delete($post->image_01);
-        }
 
-        // Store the new image
-        $image_01 = $request->file('image_01');
-        $imagePath_01 = $image_01->store('uploads', 'public');
-        $data['image_01'] = $imagePath_01;
+//     if ($request->hasFile('image_01')) {
+//         ;
+//         // Debug: Check if the request contains the image file
+//         \Log::info('Image file found in request');
 
-        // Debug: Check the new image path
-        \Log::info('New image path:', ['imagePath_01' => $imagePath_01]);
-    }
+//         // Delete the old image if it exists
+//         if ($post->image_01) {
+//             Storage::disk('public')->delete($post->image_01);
+//         }
+
+//         // Store the new image
+//         $image_01 = $request->file('image_01');
+//         $imagePath_01 = $image_01->store('uploads', 'public');
+//         $data['image_01'] = $imagePath_01;
+
+//         // Debug: Check the new image path
+//         \Log::info('New image path:', ['imagePath_01' => $imagePath_01]);
+//     }
 
     $post->fill($data);
     $post->save();
+    return Redirect::to('/profile/me');
 }
 
     
     public function show(\App\Models\Post $post){
         return Inertia::render('Post/Post_Show',[
-            'post' => $post
+            'posts' => $post,
+            'user' => $post->user,
+            'profile' => $post->user->profile,
 
         ]);
     }
@@ -123,7 +145,7 @@ class PostsController extends Controller
     public function destroy(\App\Models\Post $post){
         
         $post->delete();
-        return Inertia::render('Profile/Show');
+        return Redirect::to('/profile/me');
     }
     
 }
