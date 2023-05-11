@@ -10,12 +10,15 @@
 </template>
 <script setup>
 import { useForm } from '@inertiajs/vue3';
+const props = defineProps({
+    profile:Object,
+});
 
 const form = useForm({
-    fullname:'',
-    birth:'',
-    univer:'',
-    gioi_tinh:'',
-    description:'',
+    fullname:props.profile.fullname,
+    birth:props.profile.birth,
+    univer:props.profile.univer,
+    gioi_tinh:props.profile.gioi_tinh,
+    description:props.profile.description,
 })
 </script>
