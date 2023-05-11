@@ -25,5 +25,7 @@ class Post extends Model
         'city',
         'district',
         'ward',
+        'title',
+        'description',
     ];
 }

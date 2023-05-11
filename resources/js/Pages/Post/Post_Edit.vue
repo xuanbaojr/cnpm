@@ -2,7 +2,7 @@
   <AuthenticatedLayout>
     <template #default>
         
-     <form @submit.prevent="form.put(route('post1.update','1'))" enctype="multipart/form-data">
+     <form @submit.prevent="form.put(route('post1.update', post.id ))" enctype="multipart/form-data">
          <input type="text" placeholder="title" v-model.trim="form.title">
          <input type="text" placeholder="dien_tich" v-model.trim="form.dien_tich">
          <input type="text" placeholder="gia_phong" v-model.trim="form.gia_phong">
@@ -68,6 +68,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 
 // DIA CHI
 import { computed } from 'vue';
+defineProps({
+  post:Object
+})
   
 
   const cities = ref(null);
