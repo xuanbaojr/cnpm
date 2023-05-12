@@ -1,6 +1,8 @@
 <template>
     
     <!--FILTER IA CHI main quan-->
+    {{ posts1 }}
+   
     <div class="row">
 
     <div class="col">
@@ -60,7 +62,7 @@
                 <div class="post-listing">
                     <div v-if="results.length">
                         <h1> 0Null</h1>
-                        <div class="post-item clearfix" v-for="result in results" :key="result.id">
+                        <div class="post-item clearfix" v-for="result in results.data" :key="result.data">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -105,7 +107,7 @@
 
                     <div v-else>
                         <h1>Null</h1>
-                        <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
+                        <div class="post-item clearfix" v-for="result in posts1.data" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -154,7 +156,9 @@
                 
             </div>
             <!-- End: Main content -->
-            <Pagination />
+            <Pagination :links="posts1.links">
+
+            </Pagination>
         </div>
         <div class="column-mr-1-5">
             <div class="cost-filter">
@@ -318,6 +322,39 @@ fetch("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/dat
 const checkCity = ref(null)
 const checkDistrict = ref(null)
 const checkWard = ref(null)
+
+const districts = computed(()=> {
+    if(!checkCity.value) return [];
+    const city1 = cities.value.find((city) => city.Name === checkCity.value)
+    return  city1 ? city1.Districts : []
+});
+
+const wards = computed(()=>{
+    if(!checkDistrict.value) return [];
+    const district1 = districts.value.find((district) => district.Name === checkDistrict.value)
+    return district1 ? district1.Wards :[]
+});
+
+
+
+watch(checkCity, dia_chiC)
+function dia_chiC(newCity, oldCity){
+    console.log('this is:' + results);
+    
+ results.value = results.length ? results.value.filter((item) => item.city == newCity): props.posts1.data.filter((item) => item.city == newCity);
+}
+
+watch(checkDistrict, dia_chiD)
+function dia_chiD(newCity, oldCity){
+  results.value = posts.value.filter((item) => item.district == newCity);
+}
+
+watch(checkWard, dia_chiW)
+function dia_chiW(newCity, oldCity){
+  results.value = posts.value.filter((item) => item.ward == newCity);
+}
+
+
 const checkCost = ref(null)
 
 
@@ -342,36 +379,6 @@ function price() {
   else if (checkCost.value === 6) {
     results.value = results.length ? results.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000): props.posts1.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000);
   }
-}
-
-const districts = computed(()=> {
-    if(!checkCity.value) return [];
-    const city1 = cities.value.find((city) => city.Name === checkCity.value)
-    return  city1 ? city1.Districts : []
-});
-
-const wards = computed(()=>{
-    if(!checkDistrict.value) return [];
-    const district1 = districts.value.find((district) => district.Name === checkDistrict.value)
-    return district1 ? district1.Wards :[]
-});
-
-
-
-watch(checkCity, dia_chiC)
-function dia_chiC(newCity, oldCity){
-    console.log('this is:' + results);
- results.value = results.length ? results.value.filter((item) => item.city == newCity): props.posts1.filter((item) => item.city == newCity);
-}
-
-watch(checkDistrict, dia_chiD)
-function dia_chiD(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.district == newCity);
-}
-
-watch(checkWard, dia_chiW)
-function dia_chiW(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.ward == newCity);
 }
 
 
