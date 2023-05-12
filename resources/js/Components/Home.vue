@@ -1,6 +1,9 @@
 <template>
+    {{ posts1 }}
+    <Search_Test>
 
-
+    </Search_Test>
+    
     <!--FILTER IA CHI main quan-->
     <div class="row">
 
@@ -59,7 +62,7 @@
 
                 <!-- Sort -->
                 <div class="post-listing">
-                    <div class="post-item clearfix" v-for="result in results" :key="result.id">
+                    <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -93,7 +96,7 @@
                             <div class="contact-info">
                                 <div class="post-author">
                                     <img src="" alt="member-item" class="">
-                                    <a :href="`/profile/${result.user.id}`">{{result.user.username}}</a>
+                                    <a :href="'/profile/' + result.user_id">{{result.user.username}}</a>
                                 </div>
                                 <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                             </div>
@@ -204,9 +207,10 @@ import Footer from './footer.vue'
 import Pagination from './Pagination.vue'
 import TakeCare from './TakeCare.vue'
 import Introduction from './Introduction.vue'
+import Search_Test from './Test/Search_Test.vue';
 
 const props = defineProps({
-    posts: Array,
+    posts1: Object,
 });
 
 const users = ref([]);

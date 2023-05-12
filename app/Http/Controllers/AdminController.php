@@ -29,7 +29,7 @@ class AdminController extends Controller
         return Redirect::to('/');
     }
 
-    // show profile
+    // show Post
     public function showPosts(\App\Models\User $user){
         
         return Inertia::render('Admin/Post',[
@@ -38,4 +38,12 @@ class AdminController extends Controller
             'posts' => $user->posts,
         ]);
     }
+
+    //delete Post
+    public function destroyPost(\App\Models\Post $post){
+        $post->delete();
+
+        return Redirect::to('/admin');
+    }
+
 }

@@ -3,9 +3,11 @@
 
     <AuthenticatedLayout>
         <template #header>
+            
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
         </template>
-        <Home :posts="posts" />
+        <Home :posts1="posts" >
+        </Home>
     </AuthenticatedLayout>
 
 </template>
@@ -16,7 +18,10 @@ import { Head } from '@inertiajs/vue3';
 
 import Home from '@/Components/Home.vue';
 
-defineProps({posts:Object})
+defineProps({
+    posts:Object,
+  
+})
 
 </script>
 

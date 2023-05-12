@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 use Inertia\Inertia;
 
@@ -136,9 +137,11 @@ class PostsController extends Controller
     }
 
     public function dashboard() {
-        $post = \App\Models\Post :: all();
+        $user = [];
+        $post = \App\Models\Post :: with('user') -> get();
+        
         return Inertia::render('Dashboard',[
-            'post' => $post
+            'posts' => $post,
         ]);
     }
 
@@ -146,6 +149,25 @@ class PostsController extends Controller
         
         $post->delete();
         return Redirect::to('/profile/me');
+    }
+
+    // search Post
+    public function searchPosts(){
+        $data = request()->validate([
+            'input' => 'required'
+        ]);
+
+        $posts = DB::table('posts')
+            -> where('city', 'like' , '%'.$data['input'].'%')
+            -> orWhere('district', 'like' , '%'.$data['input'].'%')
+            -> orWhere('ward','like' , '%'.$data['input'].'%') -> get();
+
+          
+        
+        // return Inertia::render('Dashboard',[
+        //     'posts' => $posts,
+        // ]);
+        return $posts;
     }
     
 }
