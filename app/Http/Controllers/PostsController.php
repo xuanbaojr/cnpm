@@ -167,7 +167,9 @@ class PostsController extends Controller
         // return Inertia::render('Dashboard',[
         //     'posts' => $posts,
         // ]);
-        return $posts;
+        return Inertia::render('Dashboard_search',[
+            'posts' => $posts
+        ]);
     }
     
 }

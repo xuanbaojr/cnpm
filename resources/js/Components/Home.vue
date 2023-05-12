@@ -96,7 +96,7 @@
                             <div class="contact-info">
                                 <div class="post-author">
                                     <img src="" alt="member-item" class="">
-                                    <a :href="'/profile/' + result.user_id">{{result.user.username}}</a>
+                                    <a :href="'/profile/' + result.user_id">{{result.user_id}}</a>
                                 </div>
                                 <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                             </div>
@@ -213,35 +213,35 @@ const props = defineProps({
     posts1: Object,
 });
 
-const users = ref([]);
+// const users = ref([]);
 
-const results = ref([]);
-const posts = ref([]);
-const isLoading = ref(true);
+// const results = ref([]);
+// const posts = ref([]);
+// const isLoading = ref(true);
 
-onMounted(async () => {
-  try {
-    const response = await axios.get('http://127.0.0.1:8000/api/home');
-    results.value = response.data;
-    posts.value = response.data
-    console.log(response.data);
-    console.log(localStorage.getItem('apiToken'))
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  } finally {
-    isLoading.value = false;
-  }
-});
+// onMounted(async () => {
+//   try {
+//     const response = await axios.get('http://127.0.0.1:8000/api/home');
+//     results.value = response.data;
+//     posts.value = response.data
+//     console.log(response.data);
+//     console.log(localStorage.getItem('apiToken'))
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//   } finally {
+//     isLoading.value = false;
+//   }
+// });
 
-// FILTER
-
-
+// // FILTER
 
 
 
-function dien_tich(begin,end) {
-  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
-}
+
+
+// function dien_tich(begin,end) {
+//   results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
+// }
 
 
 

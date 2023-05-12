@@ -11,6 +11,10 @@ const form = new useForm({
 })
 
 const search = () => {
-    form.post(route('search.posts'));
+    form.post(route('search.posts'),{
+        onSuccess : (response) => {
+            // alert(response);
+        }
+    });
 }
 </script>
