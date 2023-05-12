@@ -231,7 +231,7 @@ const isLoading = ref(true);
 onMounted(async () => {
   try {
     const response = await axios.get('http://127.0.0.1:8000/api/home');
-    results.value = response.data;
+ //   results.value = response.data;
     posts.value = response.data
     console.log(response.data);
     console.log(localStorage.getItem('apiToken'))
@@ -329,7 +329,9 @@ watch(checkS,dien_tich)
 function dien_tich(){
     if(checkS.value === 1) results.value = posts.value.filter((item) => 0 <= item.dien_tich && item.dien_tich <= 20);
     else if(checkS.value === 2) results.value = posts.value.filter((item) => 20 <= item.dien_tich && item.dien_tich <= 25);
-    else if(checkS.value === 3) results.value = posts.value.filter((item) => 25 <= item.dien_tich && item.dien_tich <= 30);
+    else if(checkS.value === 3) {
+        results.value = results ? results.value.filter((item) => 25 <= item.dien_tich && item.dien_tich <= 30) : posts.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
+    } 
     else if(checkS.value === 4) results.value = posts.value.filter((item) => 30 <= item.dien_tich && item.dien_tich <= 35);
     else if(checkS.value === 5) results.value = posts.value.filter((item) => 35 <= item.dien_tich && item.dien_tich <= 40);
     else if(checkS.value === 6) results.value = posts.value.filter((item) => 40 <= item.dien_tich && item.dien_tich <= 45);
@@ -348,7 +350,7 @@ function price() {
     results.value = posts.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
   }
   else if (checkCost.value === 4) {
-    results.value = posts.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
+    results.value = results ? results.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000) : posts.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
   }
   else if (checkCost.value === 5) {
     results.value = posts.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
