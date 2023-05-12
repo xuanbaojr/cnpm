@@ -12,7 +12,7 @@
               <div class="main-post-list">
                 <Post_Box :user="user" :profile="profile" :posts="posts" :user_me="user_me">
                 </Post_Box>
-                <Pagination />
+                <!-- <Pagination /> -->
               </div>
             </div>
         </div>
