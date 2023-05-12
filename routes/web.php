@@ -44,10 +44,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/post1/{post}', [PostsController::class, 'update1']) ->name('post1.update');
     Route::delete('/post/{post}', [PostsController::class, 'destroy']) ->name('post.destroy');
 
-
 });
 Route::get('/post/{post}', [PostsController::class, 'show'])->name('post.show');
 Route::get('/post/{post}/edit', [PostsController::class, 'edit'])->name('post.edit');
+Route::post('/post/{post}', [PostsController::class, 'show'])->name('post.show');
+
+// search Post
+Route::post('/post_search', [PostsController::class, 'searchPosts'])->name('search.posts');
 
 
 
@@ -58,7 +61,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/{user}/posts', [AdminController::class, 'showPosts']) ->name('admin.showPosts');
     Route::delete('/user/{user}', [AdminController::class, 'destroy']) ->name('user.destroy');
-
+    Route::delete('/admin/{post}',[AdminController::class, 'destroyPost']) ->name('admin.destroyPost');
 
 });
 
