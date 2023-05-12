@@ -59,11 +59,11 @@
               </div>
     </div>
 
-    <Pagination />
+
 
 </template>
 <script setup>
-import Pagination from '@/Components/Pagination.vue';
+
 const props = defineProps({
     user: {
         type: Object,

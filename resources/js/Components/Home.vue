@@ -1,9 +1,9 @@
-<template>  
+<template>
 
 
     <!--FILTER IA CHI main quan-->
     <div class="row">
-    
+
     <div class="col">
       <select class="form-select" v-model="checkCity" >
       <option>Tỉnh / Thành Phố</option>
@@ -39,9 +39,7 @@
     </select>
     </div>
 
-  </div>
-
-
+    </div>
 
 
   <div class="content">
@@ -53,8 +51,12 @@
             <div class="section">
                 <!-- Title -->
                 <div class="section-header">
-                    <span class="section-title">Danh sách tin đăng</span>
+                    <span class="section-title">
+                        Danh sách tin đăng
+
+                    </span>
                 </div>
+
                 <!-- Sort -->
                 <div class="post-listing">
                     <div class="post-item clearfix" v-for="result in results" :key="result.id">
@@ -107,27 +109,27 @@
                 <p>Lọc theo khoảng giá</p>
                 <div class="cost-filter-content">
                     <div class="cost-filter-item">
-                        <a class="btn" @click="price(0,1000000)">
+                        <a class="btn" @click="checkCost = 1">
                             <i class='bx bxs-chevrons-right'></i>Dưới 1 triệu </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a class="btn" @click="price(1000000,2000000)">
+                        <a class="btn" @click="checkCost = 2">
                             <i class='bx bxs-chevrons-right'></i> Từ 1 triệu - 2 triệu </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a class="btn" @click="price(2000000,3000000)">
+                        <a class="btn" @click="checkCost = 3">
                             <i class='bx bxs-chevrons-right'></i> Từ 2 triệu - 3 triệu </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a class="btn" @click="price(3000000,4000000)">
+                        <a class="btn" @click="checkCost = 4">
                             <i class='bx bxs-chevrons-right'></i> Từ 3 triệu - 4 triệu </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a class="btn" @click="price(4000000,5000000)">
+                        <a class="btn" @click="checkCost = 5">
                             <i class='bx bxs-chevrons-right'></i> Từ 4 triệu - 5 triệu </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a class="btn" @click="price(5000000,13500000)">
+                        <a class="btn" @click="checkCost = 6">
                             <i class='bx bxs-chevrons-right'></i> Trên 5 triệu </a>
                     </div>
                 </div>
@@ -185,8 +187,13 @@
     <Footer />
 </footer>
 
- 
+
 </template>
+
+<script>
+
+
+</script>
 
 <script setup>
 
@@ -197,6 +204,7 @@ import Footer from './footer.vue'
 import Pagination from './Pagination.vue'
 import TakeCare from './TakeCare.vue'
 import Introduction from './Introduction.vue'
+
 const props = defineProps({
     posts: Array,
 });
@@ -221,15 +229,11 @@ onMounted(async () => {
   }
 });
 
-
-
 // FILTER
 
 
 
-function price(begin,end) {
-  results.value = posts.value.filter((item) => begin <= item.gia_phong && item.gia_phong <= end);
-}
+
 
 function dien_tich(begin,end) {
   results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
@@ -252,25 +256,51 @@ fetch("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/dat
 });
 
 const checkCity = ref(null)
+const checkDistrict = ref(null)
+const checkWard = ref(null)
+const checkCost = ref(null)
+
+
+
+watch(checkCost,price)
+function price() {
+  if (checkCost.value === 1) {
+    results.value = posts.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000);
+  }
+  else if (checkCost.value === 2) {
+    results.value = posts.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
+  }
+  else if (checkCost.value === 3) {
+    results.value = posts.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
+  }
+  else if (checkCost.value === 4) {
+    results.value = posts.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
+  }
+  else if (checkCost.value === 5) {
+    results.value = posts.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
+  }
+  else if (checkCost.value === 6) {
+    results.value = posts.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong);
+  }
+}
+
 const districts = computed(()=> {
     if(!checkCity.value) return [];
     const city1 = cities.value.find((city) => city.Name === checkCity.value)
     return  city1 ? city1.Districts : []
 });
 
-const checkDistrict = ref(null)
 const wards = computed(()=>{
     if(!checkDistrict.value) return [];
     const district1 = districts.value.find((district) => district.Name === checkDistrict.value)
     return district1 ? district1.Wards :[]
 });
 
-const checkWard = ref(null)
 
 
 watch(checkCity, dia_chiC)
 function dia_chiC(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.city == newCity);
+results.value = posts.value.filter((item) => item.city == newCity);
 }
 
 watch(checkDistrict, dia_chiD)
@@ -282,6 +312,7 @@ watch(checkWard, dia_chiW)
 function dia_chiW(newCity, oldCity){
   results.value = posts.value.filter((item) => item.ward == newCity);
 }
+
 
 
 </script>
@@ -314,4 +345,3 @@ function dia_chiW(newCity, oldCity){
  @import '../../css/pagination.css';
 
  </style>
- 

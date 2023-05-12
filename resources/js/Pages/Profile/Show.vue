@@ -17,6 +17,7 @@
           <div class="main-post-list">
             <Post_Box :user="user" :profile="profile" :posts="posts" :user_me="user_me">
             </Post_Box>
+            <Pagination />
           </div>
         </div>
 
@@ -29,6 +30,7 @@
 </AuthenticatedLayout>
 </template>
 <script setup>
+import Pagination from '@/Components/Pagination.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import Post_Box from '@/Components/Post_Box.vue';
 import Profile_Info_Show from '@/Components/Profile_Info_Show.vue'

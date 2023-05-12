@@ -24,7 +24,7 @@
 <script>
 export default {
   mounted() {
-    const startBtn = document.querySelector("#startBtn"),
+  const startBtn = document.querySelector("#startBtn"),
   endBtn = document.querySelector("#endBtn"),
   prevNext = document.querySelectorAll(".prevNext"),
   numbers = document.querySelectorAll(".page-link");
