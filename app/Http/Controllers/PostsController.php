@@ -138,7 +138,7 @@ class PostsController extends Controller
 
     public function dashboard() {
         $user = [];
-        $post = \App\Models\Post :: with('user') -> get();
+        $post = \App\Models\Post :: with('user') -> paginate(1);
         
         return Inertia::render('Dashboard',[
             'posts' => $post,

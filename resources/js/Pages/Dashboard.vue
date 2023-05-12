@@ -1,5 +1,6 @@
 <template>
     <Head title="Dashboard" />
+ 
 
     <AuthenticatedLayout>
         <Home :posts1="posts" >
