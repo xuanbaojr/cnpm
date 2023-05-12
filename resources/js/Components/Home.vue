@@ -1,8 +1,6 @@
 <template>
-
-
-    <!--FILTER IA CHI main quan-->
-    <div class="row">
+<!--FILTER IA CHI main quan-->
+<div class="row">
 
     <div class="col">
       <select class="form-select" v-model="checkCity" >
@@ -15,7 +13,6 @@
     </select>
     </div>
 
-
     <div class="col">
       <select class="form-select" v-model="checkDistrict">.
       <option>Quận / Huyện 01</option>
@@ -26,7 +23,6 @@
       </option>
     </select>
     </div>
-
 
     <div class="col">
       <select class="form-select" v-model="checkWard">
@@ -39,10 +35,20 @@
     </select>
     </div>
 
+    <div class="col">
+  <select class="form-select" disabled style="background-color:#fff">
+    <option value="option1" selected>{{ costValue}}</option>
+  </select>
     </div>
 
-
-  <div class="content">
+    <div class="col">
+        <select class="form-select" disabled style="background-color:#fff">
+            <option value="option1" selected>{{ sValue}}</option>
+          </select>
+    </div>
+    
+</div>
+<div class="content">
     <section class="e-column" id="section2">
         <!-- Begin: Left sidebar -->
         <!-- End: Left sidebar -->
@@ -138,37 +144,37 @@
                 <p>Lọc theo diện tích</p>
                 <div class="cost-filter-content">
                     <div class="cost-filter-item">
-                        <a href="#" class="btn" @click="dien_tich(0,20)">
+                        <a href="#" class="btn" @click="checkS = 1">
                             <i class='bx bxs-chevrons-right'></i>Dưới 20 m <sup>2</sup>
                         </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a href="#" class="btn" @click="dien_tich(20,25)">
+                        <a href="#" class="btn" @click="checkS = 2">
                             <i class='bx bxs-chevrons-right'></i>Từ 20 m <sup>2</sup> - 25 m <sup>2</sup>
                         </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a href="#" class="btn" @click="dien_tich(25,30)">
+                        <a href="#" class="btn" @click="checkS = 3">
                             <i class='bx bxs-chevrons-right'></i>Từ 25 m <sup>2</sup> - 30 m <sup>2</sup>
                         </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a href="#" class="btn" @click="dien_tich(30,35)">
+                        <a href="#" class="btn" @click="checkS = 4">
                             <i class='bx bxs-chevrons-right'></i>Từ 30 m <sup>2</sup> - 35 m <sup>2</sup>
                         </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a href="#" class="btn" @click="dien_tich(35,40)">
+                        <a href="#" class="btn" @click="checkS = 5">
                             <i class='bx bxs-chevrons-right'></i>Từ 35 m <sup>2</sup> - 40 m <sup>2</sup>
                         </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a href="#" class="btn" @click="dien_tich(40,45)">
+                        <a href="#" class="btn" @click="checkS = 6">
                             <i class='bx bxs-chevrons-right'></i>Từ 40 m <sup>2</sup> - 45 m <sup>2</sup>
                         </a>
                     </div>
                     <div class="cost-filter-item">
-                        <a href="#" class="btn" @click="dien_tich(45,10000)">
+                        <a href="#" class="btn" @click="checkS = 7">
                             <i class='bx bxs-chevrons-right'></i>Trên 45 m <sup>2</sup>
                         </a>
                     </div>
@@ -186,18 +192,23 @@
 <footer>
     <Footer />
 </footer>
-
-
 </template>
 
 <script>
-
-
+export default {
+    
+    setup(){
+    
+    return {
+      costValue,
+      sValue,
+    };
+    },
+    
+}
 </script>
 
 <script setup>
-
-
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import Footer from './footer.vue'
@@ -215,6 +226,8 @@ const results = ref([]);
 const posts = ref([]);
 const isLoading = ref(true);
 
+
+
 onMounted(async () => {
   try {
     const response = await axios.get('http://127.0.0.1:8000/api/home');
@@ -229,20 +242,6 @@ onMounted(async () => {
   }
 });
 
-// FILTER
-
-
-
-
-
-function dien_tich(begin,end) {
-  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
-}
-
-
-
-
-// DIA CHI
 import {computed} from 'vue';
 
 const cities = ref(null)
@@ -259,8 +258,18 @@ const checkCity = ref(null)
 const checkDistrict = ref(null)
 const checkWard = ref(null)
 const checkCost = ref(null)
+const checkS = ref(null);
 
-
+watch(checkS,dien_tich)
+function dien_tich(){
+    if(checkS.value === 1) results.value = posts.value.filter((item) => 0 <= item.dien_tich && item.dien_tich <= 20);
+    else if(checkS.value === 2) results.value = posts.value.filter((item) => 20 <= item.dien_tich && item.dien_tich <= 25);
+    else if(checkS.value === 3) results.value = posts.value.filter((item) => 25 <= item.dien_tich && item.dien_tich <= 30);
+    else if(checkS.value === 4) results.value = posts.value.filter((item) => 30 <= item.dien_tich && item.dien_tich <= 35);
+    else if(checkS.value === 5) results.value = posts.value.filter((item) => 35 <= item.dien_tich && item.dien_tich <= 40);
+    else if(checkS.value === 6) results.value = posts.value.filter((item) => 40 <= item.dien_tich && item.dien_tich <= 45);
+    else results.value = posts.value.filter((item) => 45 <= item.dien_tich && item.dien_tich);
+}
 
 watch(checkCost,price)
 function price() {
@@ -313,35 +322,56 @@ function dia_chiW(newCity, oldCity){
   results.value = posts.value.filter((item) => item.ward == newCity);
 }
 
+const costValue = computed(() => {
+  switch (checkCost.value) {
+    case 1:
+      return 'Dưới 1 triệu';
+    case 2:
+      return 'Từ 1 triệu đến 2 triệu';
+    case 3:
+      return 'Từ 2 triệu đến 3 triệu';
+    case 4:
+      return 'Từ 3 triệu đến 4 triệu';
+    case 5:
+      return 'Từ 4 triệu đến 5 triệu';
+    default:
+      return 'Từ 5 triệu đến 6 triệu';
+  }
+});
+const sValue = computed(() =>{
+    switch (checkS.value) {
+        case 1:
+            return 'Dưới 20m2';
+        case 2:
+            return '20m2-25m2';
+        case 3:
+            return '25m2-30m2';
+        case 4:
+            return '30m2</sup>-35m2';
+        case 5:
+            return '35m2-40m2';
+        case 6:
+            return '40m2-45m2';
+        case 7:
+            return 'Trên 45m2';
+    }
+}) 
 
 
 </script>
 
 <style scoped>
-/* Your component-specific CSS here */
-/**
- * Swiper 8.4.4
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * https://swiperjs.com
- *
- * Copyright 2014-2022 Vladimir Kharlampidi
- *
- * Released under the MIT License
- *
- * Released on: October 12, 2022
- */
 
 
 @import url('https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css');
 @import url('https://unicons.iconscout.com/release/v4.0.0/css/line.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css');
- @import '../../css/bootstrap.min.css';
- @import '../../css/swiper-bundle.min.css';
- @import '../../css/index.css';
- @import '../../css/modal.css';
- @import '../../css/slider.css';
- @import '../../css/sidebar.css';
- @import '../../css/searchbar.css';
- @import '../../css/pagination.css';
-
- </style>
+@import '../../css/bootstrap.min.css';
+@import '../../css/swiper-bundle.min.css';
+@import '../../css/index.css';
+@import '../../css/modal.css';
+@import '../../css/slider.css';
+@import '../../css/sidebar.css';
+@import '../../css/searchbar.css';
+@import '../../css/pagination.css';
+</style>
