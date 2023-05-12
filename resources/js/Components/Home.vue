@@ -269,35 +269,6 @@ const props = defineProps({
 });
 
 const results = ref([]);
-
-
-
-// const users = ref([]);
-
-// const results = ref([]);
-// const posts = ref([]);
-// const isLoading = ref(true);
-
-// onMounted(async () => {
-//   try {
-//     const response = await axios.get('http://127.0.0.1:8000/api/home');
-//     results.value = response.data;
-//     posts.value = response.data
-//     console.log(response.data);
-//     console.log(localStorage.getItem('apiToken'))
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//   } finally {
-//     isLoading.value = false;
-//   }
-// });
-
-// // FILTER
-
-
-
-
-
  function dien_tich(begin,end) {
  //  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
    results.value = results.length ? results.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end): props.posts1.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
@@ -322,6 +293,9 @@ fetch("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/dat
 const checkCity = ref(null)
 const checkDistrict = ref(null)
 const checkWard = ref(null)
+//const checkCost = ref(null)
+const checkS = ref(null);
+
 
 const districts = computed(()=> {
     if(!checkCity.value) return [];
@@ -331,9 +305,11 @@ const districts = computed(()=> {
 
 const wards = computed(()=>{
     if(!checkDistrict.value) return [];
+    console.log(checkDistrict.value);
     const district1 = districts.value.find((district) => district.Name === checkDistrict.value)
     return district1 ? district1.Wards :[]
 });
+
 
 
 
@@ -344,15 +320,15 @@ function dia_chiC(newCity, oldCity){
  results.value = results.length ? results.value.filter((item) => item.city == newCity): props.posts1.data.filter((item) => item.city == newCity);
 }
 
-watch(checkDistrict, dia_chiD)
-function dia_chiD(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.district == newCity);
-}
+// watch(checkDistrict, dia_chiD)
+// function dia_chiD(newCity, oldCity){
+//   results.value = posts.value.filter((item) => item.district == newCity);
+// }
 
-watch(checkWard, dia_chiW)
-function dia_chiW(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.ward == newCity);
-}
+// watch(checkWard, dia_chiW)
+// function dia_chiW(newCity, oldCity){
+//   results.value = posts.value.filter((item) => item.ward == newCity);
+// }
 
 
 const checkCost = ref(null)
