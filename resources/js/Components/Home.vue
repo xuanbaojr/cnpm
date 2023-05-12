@@ -269,13 +269,6 @@ const props = defineProps({
 });
 
 const results = ref([]);
- function dien_tich(begin,end) {
- //  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
-   results.value = results.length ? results.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end): props.posts1.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
-
- }
-
-
 
 
 // DIA CHI
@@ -311,13 +304,17 @@ const wards = computed(()=>{
 });
 
 
+// Filter
+
 
 
 watch(checkCity, dia_chiC)
 function dia_chiC(newCity, oldCity){
-    console.log('this is:' + results);
+    console.log(props.posts1.data);
     
- results.value = results.length ? results.value.filter((item) => item.city == newCity): props.posts1.data.filter((item) => item.city == newCity);
+ results.value = results.length ? results.value.filter((item) => item.city == newCity): props.posts1.data.
+ filter((item) => item.city == newCity);
+ console.log(results.value.Target);
 }
 
 // watch(checkDistrict, dia_chiD)
@@ -356,6 +353,12 @@ function price() {
     results.value = results.length ? results.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000): props.posts1.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000);
   }
 }
+
+function dien_tich(begin,end) {
+ //  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
+   results.value = results.length ? results.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end): props.posts1.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
+
+ }
 
 
 
