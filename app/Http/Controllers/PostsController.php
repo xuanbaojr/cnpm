@@ -160,7 +160,7 @@ class PostsController extends Controller
         $posts = DB::table('posts')
             -> where('city', 'like' , '%'.$data['input'].'%')
             -> orWhere('district', 'like' , '%'.$data['input'].'%')
-            -> orWhere('ward','like' , '%'.$data['input'].'%') -> get();
+            -> orWhere('ward','like' , '%'.$data['input'].'%') ->get();
 
           
         

@@ -1,8 +1,4 @@
 <template>
-    {{ posts1 }}
-    <Search_Test>
-
-    </Search_Test>
     
     <!--FILTER IA CHI main quan-->
     <div class="row">
@@ -62,7 +58,9 @@
 
                 <!-- Sort -->
                 <div class="post-listing">
-                    <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
+                    <div v-if="results.length">
+                        <h1> 0Null</h1>
+                        <div class="post-item clearfix" v-for="result in results" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -96,13 +94,64 @@
                             <div class="contact-info">
                                 <div class="post-author">
                                     <img src="" alt="member-item" class="">
-                                    <a :href="'/profile/' + result.user_id">{{result.user_id}}</a>
+                                    <a :href="'/profile/' + result.user_id">xuanbao0{{result.user_id}}</a>
                                 </div>
                                 <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                             </div>
                         </div>
                     </div>
+                    </div>
+
+
+                    <div v-else>
+                        <h1>Null</h1>
+                        <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
+                        <div class="info-img">
+                            <div class="mainimg">
+                                <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
+                            </div>
+                            <div class="sideimg">
+                                <img :src="'/storage/'+ result.image_02" alt="" width="100%" height="100%" style="width: 100%;">
+                                <div class="img-child row" style="margin:0px !important">
+                                    <div class="col" style="padding: 0px !important; height: 100%;width: 100%;">
+                                        <img :src="'/storage/'+ result.image_03" alt="">
+                                    </div>
+                                    <div class="col" style="padding: 0px !important;height: 100%;width: 100%;">
+                                        <img :src="'/storage/'+ result.image_04" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-meta">
+                            <h2 class="post-title">
+                                <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">{{result.title}}</a>
+                            </h2>
+                            <div class="meta-row clearfix">
+                                <span class="post-price">{{result.gia_phong}} triệu / tháng</span>
+                                <span class="post-acreage">{{result.dien_tich}} m <sup>2</sup>
+            </span>
+                                <span class="post-location">
+              <a style="color: #000" href="#">{{result.ward }} - {{result.district}} - {{result.city}}</a>
+            </span>
+                                <span>{{ result.updated_at }}</span>
+                                <p class="post-summary">{{result.description}}</p>
+                            </div>
+                            <div class="contact-info">
+                                <div class="post-author">
+                                    <img src="" alt="member-item" class="">
+                                    <a :href="'/profile/' + result.user_id">xuanbao0{{result.user_id}}</a>
+                                </div>
+                                <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                  
+                
+                    </div>
+                   
                 </div>
+                    
+                
             </div>
             <!-- End: Main content -->
             <Pagination />
@@ -207,11 +256,17 @@ import Footer from './footer.vue'
 import Pagination from './Pagination.vue'
 import TakeCare from './TakeCare.vue'
 import Introduction from './Introduction.vue'
-import Search_Test from './Test/Search_Test.vue';
+
+import {computed} from 'vue';
+
 
 const props = defineProps({
     posts1: Object,
 });
+
+const results = ref([]);
+
+
 
 // const users = ref([]);
 
@@ -239,15 +294,16 @@ const props = defineProps({
 
 
 
-// function dien_tich(begin,end) {
-//   results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
-// }
+ function dien_tich(begin,end) {
+ //  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
+   results.value = results.length ? results.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end): props.posts1.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
+
+ }
 
 
 
 
 // DIA CHI
-import {computed} from 'vue';
 
 const cities = ref(null)
 fetch("https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json")
@@ -269,22 +325,22 @@ const checkCost = ref(null)
 watch(checkCost,price)
 function price() {
   if (checkCost.value === 1) {
-    results.value = posts.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000);
+    results.value =  results.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000)//: props.posts1.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000);
   }
   else if (checkCost.value === 2) {
-    results.value = posts.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
+    results.value = results.length ? results.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000): props.posts1.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
   }
   else if (checkCost.value === 3) {
-    results.value = posts.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
+    results.value = results.length ? results.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000): props.posts1.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
   }
   else if (checkCost.value === 4) {
-    results.value = posts.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
+    results.value = results.length ? results.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000): props.posts1.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
   }
   else if (checkCost.value === 5) {
-    results.value = posts.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
+    results.value = results.length ? results.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000): props.posts1.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
   }
   else if (checkCost.value === 6) {
-    results.value = posts.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong);
+    results.value = results.length ? results.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000): props.posts1.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000);
   }
 }
 
@@ -304,7 +360,8 @@ const wards = computed(()=>{
 
 watch(checkCity, dia_chiC)
 function dia_chiC(newCity, oldCity){
-results.value = posts.value.filter((item) => item.city == newCity);
+    console.log('this is:' + results);
+ results.value = results.length ? results.value.filter((item) => item.city == newCity): props.posts1.filter((item) => item.city == newCity);
 }
 
 watch(checkDistrict, dia_chiD)
