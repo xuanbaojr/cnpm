@@ -7,7 +7,7 @@
     vertical-align: top;
     margin-top: 160px;
     width: 25%;
-
+    
 }
 .room-content{
     display: inline-block;
@@ -35,11 +35,12 @@
 
 .user-detail{
     border: 1px solid #F2F2F2;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 15px;
     margin-bottom: 16px;
     background-color: #fff;
     margin-left:15px;
+    box-shadow: 0 0.5rem 0.5rem rgba(0,0,0,.15);
 }
 
 .user-detail div{
@@ -101,7 +102,7 @@
     font-weight: normal !important;
     letter-spacing: -.2px;
     padding: 13px 15px;
-    border-radius: 8px;
+    border-radius: 16px;
     font-style: normal;
     outline: none;
     display: inline-block;
@@ -127,7 +128,7 @@
     font-weight: normal !important;
     letter-spacing: -.2px;
     padding: 13px 15px;
-    border-radius: 8px;
+    border-radius: 16px;
     font-style: normal;
     outline: none;
     text-align: center;
@@ -171,7 +172,7 @@
     -webkit-box-align: center;
     align-items: center;
     display: flex;
-    margin-right: 15%;
+    margin-right: 60px;
     text-align: center;
 }
 .post-contact,
@@ -189,7 +190,7 @@ table tr:nth-of-type(even) {
     padding: 20px;
     background-color: #fff;
     border: 1px solid #dedede;
-    border-radius: 8px;
+    border-radius: 16px;
     margin-left: 15px;
 }
 .section-title{

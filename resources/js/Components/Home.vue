@@ -61,7 +61,7 @@
                 <div class="post-listing">
                     <!-- Chua thuc hien loc  -->
                     <div v-if="!filtered">
-                        <p> Hiển thị {{ posts1.length }} kết quả phù hợp</p>
+                        <p style="padding-left:20px;"> Hiển thị {{ posts1.length }} kết quả phù hợp</p>
                         <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">

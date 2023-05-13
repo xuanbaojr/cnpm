@@ -1,6 +1,6 @@
 <template>
 
-    <div class="section" >
+    <div class="section" style="margin-left:30px" >
               <!-- Title -->
               <div class="section-header" style="background-color: #fff ;margin-bottom: 15px;">
                 <span class="section-title" style="font-size: 25px;">Danh sách tin của bạn</span>
