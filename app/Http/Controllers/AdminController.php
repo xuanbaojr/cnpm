@@ -12,8 +12,7 @@ class AdminController extends Controller
     //
     public function index(){
         return Inertia::render('Admin/Admin',[
-            'user' => \App\Models\User :: all(),
-            'profile' => \App\Models\Profile :: all(),
+            'user' => \App\Models\User :: with('profile') -> get(),
         ]);
     }
 
