@@ -1,7 +1,7 @@
 <template>
     {{ posts1 }}
-    
-    <!--FILTER IA CHI main quan-->   
+
+    <!--FILTER IA CHI main quan-->
     <div class="row">
 
     <div class="col">
@@ -146,13 +146,13 @@
                             </div>
                         </div>
                     </div>
-                  
-                
+
+
                     </div>
-                   
+
                 </div>
-                    
-                
+
+
             </div>
             <!-- End: Main content -->
             <!-- <Pagination :links="posts1.links">
