@@ -1,13 +1,13 @@
 <template>
    <div class="user-detail">
             <div>
-              <img class="user-ava" src="">
+              <img class="user-ava" src="https://picsum.photos/200">
             </div>
             <p class="postBy_item">Được đăng bởi</p>
             <div class="name-user" title="">
               <a :href="'/profile/' + profile.id " style="color: #2C2C2C;">{{user.username}}</a>
             </div>
-            <a href="" class="see-profile">Xem trang cá nhân </a>
+            <a :href="'/profile/' + profile.id " class="see-profile">Xem trang cá nhân </a>
             <a class="contact-detail" :href="'' +  profile.facebook">Liên hệ</a>
           </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    {{ posts1 }}
+
 
     <!--FILTER IA CHI main quan-->
     <div class="row">
@@ -59,9 +59,10 @@
 
                 <!-- Sort -->
                 <div class="post-listing">
-                    <div v-if="results.length">
-                        <h1> 0Null</h1>
-                        <div class="post-item clearfix" v-for="result in results" :key="result.id">
+                    <!-- Chua thuc hien loc  -->
+                    <div v-if="!filtered">
+                        <p> Hiển thị {{ posts1.length }} kết quả phù hợp</p>
+                        <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -103,22 +104,25 @@
                     </div>
                     </div>
 
+                    <!-- Da Loc -->
+                    <div v-if="filtered" >
+                        <!-- So phong lon hon 0 -->
+                        <div v-if="results.length" >
+                            <p> Hiển thị {{ results.length }} kết quả phù hợp</p>
 
-                    <div v-else>
-                        <h1>Null</h1>
-                        <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
+                            <div class="post-item clearfix" v-for="result in results" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
                             </div>
                             <div class="sideimg">
-                                <img :src="'/storage/'+ result.image_02" alt="" width="100%" height="100%" style="width: 100%;">
+                                <img :src="'/storage/'+ result.image_03" alt="" width="100%" height="100%" style="width: 100%;">
                                 <div class="img-child row" style="margin:0px !important">
                                     <div class="col" style="padding: 0px !important; height: 100%;width: 100%;">
-                                        <img :src="'/storage/'+ result.image_03" alt="">
+                                        <img :src="'/storage/'+ result.image_04" alt="">
                                     </div>
                                     <div class="col" style="padding: 0px !important;height: 100%;width: 100%;">
-                                        <img :src="'/storage/'+ result.image_04" alt="">
+                                        <img :src="'/storage/'+ result.image_02" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -146,6 +150,19 @@
                             </div>
                         </div>
                     </div>
+                        </div>
+                        
+                         <!-- So phong bang 0 -> khong co phong thoa man -->
+                        <div v-else>
+                            <p>Rất tiếc! Hiện chưa có phòng phù hợp với bạn. Vui lòng quay lại sau  <a :href="'/dashboard'">
+                                    <p>Thử lại</p>
+                                </a>
+                               
+                            </p>
+                        </div>
+                       
+
+                       
 
 
                     </div>
@@ -265,9 +282,11 @@ import {computed} from 'vue';
 
 const props = defineProps({
     posts1: Object,
+    count: String,
 });
 
 const results = ref([]);
+const filtered = ref(false);
 
 
 // DIA CHI
@@ -309,18 +328,20 @@ const wards = computed(()=>{
 
 watch(checkCity, dia_chiC)
 function dia_chiC(newCity, oldCity){
-    console.log(results.value);
+    filtered.value = true;
+    console.log(results.value.length);
   results.value = results.value.length ? results.value.filter((item) => item.city == newCity) : props.posts1.filter((item) => item.city == newCity);
+  
 }
 
 watch(checkDistrict, dia_chiD)
 function dia_chiD(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.district == newCity);
+    results.value = results.value.length ? results.value.filter((item) => item.district == newCity) : props.posts1.filter((item) => item.district == newCity);
 }
 
 watch(checkWard, dia_chiW)
 function dia_chiW(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.ward == newCity);
+    results.value = results.value.length ? results.value.filter((item) => item.ward == newCity) : props.posts1.filter((item) => item.ward == newCity);
 }
 
 
@@ -331,27 +352,34 @@ const checkCost = ref(null)
 watch(checkCost,price)
 function price() {
   if (checkCost.value === 1) {
+    filtered.value = true;
     results.value =  results.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000)//: props.posts1.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000);
   }
   else if (checkCost.value === 2) {
+    filtered.value = true;
     results.value = results.value.length ? results.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000): props.posts1.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
   }
   else if (checkCost.value === 3) {
+    filtered.value = true;
     results.value = results.value.length ? results.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000): props.posts1.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
   }
   else if (checkCost.value === 4) {
+    filtered.value = true;
     results.value = results.value.length ? results.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000): props.posts1.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
   }
   else if (checkCost.value === 5) {
+    filtered.value = true;
     results.value = results.value.length ? results.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000): props.posts1.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
   }
   else if (checkCost.value === 6) {
+    filtered.value = true;
     results.value = results.value.length ? results.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000): props.posts1.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000);
   }
 }
 
 function dien_tich(begin,end) {
  //  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
+   filtered.value = true;
    results.value = results.value.length ? results.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end): props.posts1.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
 
  }

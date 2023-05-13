@@ -1,4 +1,5 @@
 <template>
+    
     <Head title="Dashboard" />
  
 
@@ -17,6 +18,7 @@ import Home from '@/Components/Home.vue';
 
 defineProps({
     posts:Object,
+    count: String,
 
 })
 

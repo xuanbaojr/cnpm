@@ -102,11 +102,13 @@ class PostsController extends Controller
     }
 
     public function dashboard() {
-        $user = [];
-        $post = \App\Models\Post :: with('user') ->get();
+          
+        $post = \App\Models\Post :: with('user') ->orderBy('created_at', 'DESC')->get();
+        $count = $post->count();
         
         return Inertia::render('Dashboard',[
             'posts' => $post,
+            'count' => $count,
         ]);
     }
 
