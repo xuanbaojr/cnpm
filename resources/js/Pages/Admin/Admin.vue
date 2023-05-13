@@ -41,13 +41,13 @@
                        {{ user.email }} 
                     </td>
                     <td class="p-4">
-                       {{ profile.gioi_tinh }}
+                       {{ user.profile.gioi_tinh }}
                     </td>
                     <td class="p-4">
-                        {{ profile.created_at }}
+                        {{ user.profile.created_at }}
                     </td>
                     <td class="p-4">
-                        {{ profile.updated_at }}
+                        {{ user.profile.updated_at }}
                     </td>
                  </tr>
                  
