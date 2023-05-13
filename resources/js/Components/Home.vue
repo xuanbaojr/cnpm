@@ -96,8 +96,8 @@
                             <div class="contact-info">
                                 <div class="post-author">
                                     <img src="https://picsum.photos/200" alt="member-item" class="">
-                                    <a :href="'/profile/' + result.user_id">
-                                        <p class="text-black" >xuanbao0{{result.user_id}}</p>
+                                    <a :href="'/profile/' + result.user_id" class="text-black no-underline hover:underline font-mono">
+                                        xuanbao0{{result.user_id}}
                                     </a>
                                 </div>
                                 <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
