@@ -31,11 +31,11 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')" style="border-bottom-width:0px">
+                                    Home
                                 </NavLink>
                             </div>
-                            
+
                             <div class="shrink-0 flex items-center ml-8">
                                 <Search_Test>
 
@@ -61,8 +61,8 @@ const showingNavigationDropdown = ref(false);
                                                 style="width: 50px;
                                                 height: 50px;
                                                 border-radius: 50%;"
-                                            >                                                
-                                                <img src="https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-8.jpg" style="width: 50px ;height: 50px; border-radius: 50%"> 
+                                            >
+                                                <img src="https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-8.jpg" style="width: 50px ;height: 50px; border-radius: 50%">
                                             </button>
                                         </span>
                                     </template>
@@ -77,11 +77,11 @@ const showingNavigationDropdown = ref(false);
                             </div>
                         </div>
 
-                        
+
                     </div>
                 </div>
 
-                
+
             </nav>
 
             <!-- Page Heading -->

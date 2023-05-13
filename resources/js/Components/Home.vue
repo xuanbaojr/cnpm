@@ -153,18 +153,18 @@
                         </div>
                     </div>
                         </div>
-                        
+
                          <!-- So phong bang 0 -> khong co phong thoa man -->
                         <div v-else>
                             <p>Rất tiếc! Hiện chưa có phòng phù hợp với bạn. Vui lòng quay lại sau  <a :href="'/dashboard'">
                                     <p>Thử lại</p>
                                 </a>
-                               
+
                             </p>
                         </div>
-                       
 
-                       
+
+
 
 
                     </div>
@@ -250,7 +250,7 @@
             </div>
         </div>
     </section>
-    <section class="intro" id="section3">
+    <section class="intro" id="section3" style="margin-left:15%;margin-right:10%">
         <Introduction />
     </section>
     <!-- <section class="care container" style="background-color: #fffcf5;border: 7px dashed #e8eefc;padding: 30px;margin-top: 30px;margin-bottom: 50px;">
@@ -333,7 +333,7 @@ function dia_chiC(newCity, oldCity){
     filtered.value = true;
     console.log(results.value.length);
   results.value = results.value.length ? results.value.filter((item) => item.city == newCity) : props.posts1.filter((item) => item.city == newCity);
-  
+
 }
 
 watch(checkDistrict, dia_chiD)
