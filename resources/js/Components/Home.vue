@@ -140,7 +140,7 @@
                             <div class="contact-info">
                                 <div class="post-author">
                                     <img src="" alt="member-item" class="">
-                                    <a :href="'/profile/' + result.user_id">xuanbao0{{result.user_id}}</a>
+                                    <a :href="'/profile/' + result.user_id" style="color:#000">xuanbao0{{result.user_id}}</a>
                                 </div>
                                 <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                             </div>
