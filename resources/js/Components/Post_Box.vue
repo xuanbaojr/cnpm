@@ -41,15 +41,16 @@
                     </div>
                     <div class="contact-info">
                       <div class="post-author">
-                        <img src="" alt="member-item" class="">
-                        <span class="">{{profile.fullname}}</span>
+                        <img src="https://picsum.photos/200" alt="member-item" class="">
+                        <a :href="'profile' + user.id">{{profile.fullname}}</a>
 
                       </div>
 
                     <div v-if="user.id === user_me.id" class="contact-btn">
-                      <a rel="nofollow" :href="'/post/' + post.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+                      
                       <a rel="nofollow" :href="'/post/' + post.id + '/edit'" class="btn-quick-zalo">Edit Post</a>
                     </div>
+                    <a rel="nofollow" :href="'/post/' + post.id" class="btn-quick-zalo">Xem Chi Tiết</a>
 
                     </div>
 

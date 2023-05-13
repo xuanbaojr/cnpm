@@ -1,7 +1,7 @@
 
 <template>
 
-  <div v-if="links.length > 3">
+  <div v-if="links > 3">
       <div class="flex flex-wrap mt-8">
           <template v-for="link in links">
               <div
