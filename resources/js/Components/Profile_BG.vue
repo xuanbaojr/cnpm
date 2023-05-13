@@ -13,7 +13,10 @@
             <div class="func-btn">
                <div v-if="user.id === user_me.id">
                 <Link href="/profile" method="get" style="color: rgb(40, 144, 241);">
-                    <button class="flw-btn">Edit Profile</button>
+                   
+                    <button class="flw-btn">Edit Profile
+                        <i class='bx bx-user' ></i>
+                    </button>
 
                 </Link>
 

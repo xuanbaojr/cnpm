@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('profiles', function (Blueprint $table) {
             //
             $table->string('sdt')->nullable(true);
+            $table->string('facebook')->nullable(true);
             
            
         });

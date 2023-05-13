@@ -4,11 +4,17 @@
               <h3>Giới thiệu</h3>
             </div>
             <ul class="info-user-list">
-              <li class="info-items">Họ và Tên: {{profile.fullname}}</li>
+              <li class="info-items">Họ và tên: {{profile.fullname}}</li>
               <li class="info-items">Ngày sinh: {{profile.birth}}</li>
               <li class="info-items">Giới tính: {{profile.gioi_tinh}}</li>
               <li class="info-items">Nghề nghiệp: {{ profile.univer }}</li>
-              <li class="info-items"><Link :href="route('dashboard')">Chỉnh sửa thông tin chi tiết</Link></li>
+              <li> -----------------------------------------------------</li>
+              Thông tin liên hệ :
+              <i class='bx bxs-phone-call' > {{ profile.sdt }}</i>
+              <i class='bx bx-envelope' > {{ user.email }}</i>
+              <a :href="'' + profile.facebook "><i class='bx bxl-facebook' >{{ profile.facebook }}</i></a>
+             
+
             </ul>
 </div>
 </template>
