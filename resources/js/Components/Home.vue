@@ -108,7 +108,7 @@
                     <div v-if="filtered" >
                         <!-- So phong lon hon 0 -->
                         <div v-if="results.length" >
-                            <p> Hiển thị {{ results.length }} kết quả phù hợp</p>
+                            <p> Hiển thị {{ results.length }} kết quả phù hợp cho: {{ checkCity }} - {{ checkDistrict }} - {{ checkWard }} - {{ checkCost }}000000 VND - {{ checkS }}</p>
 
                             <div class="post-item clearfix" v-for="result in results" :key="result.id">
                         <div class="info-img">
