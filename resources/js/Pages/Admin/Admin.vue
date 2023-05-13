@@ -44,16 +44,10 @@
                        {{ user.profile.gioi_tinh }}
                     </td>
                     <td class="p-4">
-                       {{ user.profile.created_at }}
+                        {{ user.profile.created_at }}
                     </td>
                     <td class="p-4">
                         {{ user.profile.updated_at }}
-                    </td>
-                    <td class="p-4">
-                        {{ user.profile.updated_at }}
-                    </td>
-                    <td class="p-4">
-                        <button class="btn" @click="deleteUser(user.id)" >Xoa User {{user.id}}</button>
                     </td>
                  </tr>
                  
