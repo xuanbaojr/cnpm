@@ -1,4 +1,5 @@
 <template>
+    {{ posts1 }}
     
     <!--FILTER IA CHI main quan-->   
     <div class="row">
