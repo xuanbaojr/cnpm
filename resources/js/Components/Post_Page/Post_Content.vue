@@ -1,6 +1,4 @@
 <template>
-
-<i class='bx bx-dollar'></i>
           <div id="demo" class="carousel slide " data-bs-ride="carousel">
 
                 <!-- Indicators/dots -->
@@ -13,16 +11,16 @@
                 <!-- The slideshow/carousel -->
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img :src="'/storage/' + posts.image_01" alt="Los Angeles" class="d-block w-100">
+                    <img :src="'/storage/' + posts.image_01" class="d-block w-100">
                   </div>
                   <div class="carousel-item">
-                    <img :src="'/storage/' + posts.image_02" alt="New York" class="d-block w-100">
+                    <img :src="'/storage/' + posts.image_02" class="d-block w-100">
                   </div>
                   <div class="carousel-item">
-                    <img :src="'/storage/' + posts.image_03"  alt="New York" class="d-block w-100">
+                    <img :src="'/storage/' + posts.image_03"  class="d-block w-100">
                   </div>
                   <div class="carousel-item">
-                    <img :src="'/storage/' + posts.image_04"  alt="Chicago" class="d-block w-100">
+                    <img :src="'/storage/' + posts.image_04" class="d-block w-100">
                   </div>
                 </div>
 
@@ -35,10 +33,16 @@
                 </button>
           </div>
           <div class="head-detail">
-           
+
             <h2 class="detail-title"> {{posts.title}}</h2>
             <address class="post-address">Địa chỉ: {{posts.ward}} - {{posts.district}} - {{posts.city}}</address>
-            <div class="post-attributes"><div class="item price"> <span style="color: #16c784; font-weight: bold; font-size: 1.5rem"><i class='bx bx-dollar'></i> {{posts.gia_phong}} VND</span></div><div class="item acreage"><i></i><span><i class='bx bx-home'></i>{{posts.dien_tich}}<sup>2</sup></span></div><div class="item published"><i></i><span title="Thứ 7, 22:45 15/04/2023"><i class='bx bx-time-five' ></i>{{posts.updated_at}}</span></div><div class="item hashtag"><i></i><span>603145</span></div></div>
+            <div class="post-attributes">
+              <div class="item price">
+                <span style="color: #16c784; font-weight: bold; font-size: 1rem"><i class='bx bx-dollar'></i> {{posts.gia_phong}} VND</span></div>
+                <div class="item acreage"><i></i><span><i class='bx bx-home'></i>{{posts.dien_tich}}m<sup>2</sup></span></div>
+                <div class="item published"><i></i><span title="Thứ 7, 22:45 15/04/2023"><i class='bx bx-time-five' ></i>{{posts.updated_at}}</span></div>
+
+              </div>
           </div>
           <div class="post-main-detail">
             <section class="section post-main-content">
