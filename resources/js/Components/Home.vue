@@ -1,6 +1,7 @@
 <template>
 <!--FILTER IA CHI main quan-->
 <div class="row">
+    
 
     <div class="col">
       <select class="form-select" v-model="checkCity" >
@@ -65,7 +66,8 @@
 
                 <!-- Sort -->
                 <div class="post-listing">
-                    <div class="post-item clearfix" v-for="result in results" :key="result.id">
+                    <div v-if="results" >
+                    <div class="post-item clearfix" v-for="result in posts" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -105,6 +107,51 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+                    
+                    <div v-else>
+                        <div class="post-item clearfix" v-for="result in posts" :key="result.id">
+                        <div class="info-img">
+                            <div class="mainimg">
+                                <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
+                            </div>
+                            <div class="sideimg">
+                                <img :src="'/storage/'+ result.image_02" alt="" width="100%" height="100%" style="width: 100%;">
+                                <div class="img-child row" style="margin:0px !important">
+                                    <div class="col" style="padding: 0px !important; height: 100%;width: 100%;">
+                                        <img :src="'/storage/'+ result.image_03" alt="">
+                                    </div>
+                                    <div class="col" style="padding: 0px !important;height: 100%;width: 100%;">
+                                        <img :src="'/storage/'+ result.image_04" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-meta">
+                            <h2 class="post-title">
+                                <a style="font-size: 14px;line-height: 20px;letter-spacing: -.2px;color: #2C2C2C;text-transform: uppercase;font-weight: 700;" href="#">{{result.title}}</a>
+                            </h2>
+                            <div class="meta-row clearfix">
+                                <span class="post-price">{{result.gia_phong}} triệu / tháng</span>
+                                <span class="post-acreage">{{result.dien_tich}} m <sup>2</sup>
+            </span>
+                                <span class="post-location">
+              <a style="color: #000" href="#">{{result.ward }} - {{result.district}} - {{result.city}}</a>
+            </span>
+                                <span>{{ result.updated_at }}</span>
+                                <p class="post-summary">{{result.description}}</p>
+                            </div>
+                            <div class="contact-info">
+                                <div class="post-author">
+                                    <img src="" alt="member-item" class="">
+                                    <a :href="`/profile/${result.user.id}`">{{result.user.username}}</a>
+                                </div>
+                                <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
                 </div>
             </div>
             <!-- End: Main content -->
@@ -223,7 +270,7 @@ const props = defineProps({
 const users = ref([]);
 
 const results = ref([]);
-const posts = ref([]);
+
 const isLoading = ref(true);
 
 
@@ -232,7 +279,7 @@ onMounted(async () => {
   try {
     const response = await axios.get('http://127.0.0.1:8000/api/home');
  //   results.value = response.data;
-    posts.value = response.data
+
     console.log(response.data);
     console.log(localStorage.getItem('apiToken'))
   } catch (error) {
@@ -274,6 +321,26 @@ const wards = computed(()=>{
 });
 
 
+
+watch(checkS,dien_tich)
+function dien_tich(){
+    if(checkS.value === 1) results.value = results ? results.value.filter((item) => 0 <= item.dien_tich && item.dien_tich <= 20) : posts.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 20);
+
+    else if(checkS.value === 2) results.value = results ? results.value.filter((item) => 25 <= item.dien_tich && item.dien_tich <= 30) : posts.value.filter((item) => 25 <= item.gia_phong && item.gia_phong <= 30);
+
+    else if(checkS.value === 3) 
+        results.value = results ? results.value.filter((item) => 25 <= item.dien_tich && item.dien_tich <= 30) : posts.value.filter((item) => 25 <= item.gia_phong && item.gia_phong <= 30);
+    
+    else if(checkS.value === 4){
+        results.value = results ? results.value.filter((item) => 30 <= item.dien_tich && item.dien_tich <= 35) : posts.value.filter((item) => 30 <= item.gia_phong && item.gia_phong <= 35);
+    }
+    else if(checkS.value === 5)        results.value = results ? results.value.filter((item) => 35 <= item.dien_tich && item.dien_tich <= 40) : posts.value.filter((item) => 35 <= item.gia_phong && item.gia_phong <= 40);
+
+    else if(checkS.value === 6)        results.value = results ? results.value.filter((item) => 40 <= item.dien_tich && item.dien_tich <= 45) : posts.value.filter((item) => 40 <= item.gia_phong && item.gia_phong <= 45);
+
+    else results.value =         results.value = results ? results.value.filter((item) => 45 <= item.dien_tich && item.dien_tich <= 100) : posts.value.filter((item) => 45 <= item.gia_phong && item.gia_phong <= 100);
+
+}
 
 watch(checkCity, dia_chiC)
 function dia_chiC(newCity, oldCity){
@@ -325,38 +392,27 @@ const sValue = computed(() =>{
     }
 }) 
 
-watch(checkS,dien_tich)
-function dien_tich(){
-    if(checkS.value === 1) results.value = posts.value.filter((item) => 0 <= item.dien_tich && item.dien_tich <= 20);
-    else if(checkS.value === 2) results.value = posts.value.filter((item) => 20 <= item.dien_tich && item.dien_tich <= 25);
-    else if(checkS.value === 3) {
-        results.value = results ? results.value.filter((item) => 25 <= item.dien_tich && item.dien_tich <= 30) : posts.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
-    } 
-    else if(checkS.value === 4) results.value = posts.value.filter((item) => 30 <= item.dien_tich && item.dien_tich <= 35);
-    else if(checkS.value === 5) results.value = posts.value.filter((item) => 35 <= item.dien_tich && item.dien_tich <= 40);
-    else if(checkS.value === 6) results.value = posts.value.filter((item) => 40 <= item.dien_tich && item.dien_tich <= 45);
-    else results.value = posts.value.filter((item) => 45 <= item.dien_tich && item.dien_tich);
-}
+
 
 watch(checkCost,price)
 function price() {
   if (checkCost.value === 1) {
-    results.value = posts.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000);
+    results.value = results ? results.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000) : posts.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000);
   }
   else if (checkCost.value === 2) {
-    results.value = posts.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
+    results.value = results ? results.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000) : posts.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
   }
   else if (checkCost.value === 3) {
-    results.value = posts.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
+    results.value = results ? results.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000) : posts.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
   }
   else if (checkCost.value === 4) {
     results.value = results ? results.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000) : posts.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
   }
   else if (checkCost.value === 5) {
-    results.value = posts.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
+    results.value = results ? results.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000) : posts.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
   }
   else if (checkCost.value === 6) {
-    results.value = posts.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong);
+    results.value = results ? results.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 15000000) : posts.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 15000000);
   }
 }
 
