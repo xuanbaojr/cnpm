@@ -45,12 +45,14 @@
                         <a :href="'profile' + user.id">{{profile.fullname}}</a>
 
                       </div>
+                    <div class="contact-btn">
+                      <div v-if="user.id === user_me.id">
 
-                    <div v-if="user.id === user_me.id" class="contact-btn">
-                      
-                      <a rel="nofollow" :href="'/post/' + post.id + '/edit'" class="btn-quick-zalo">Edit Post</a>
+                        <a rel="nofollow" :href="'/post/' + post.id + '/edit'" class="btn-quick-zalo">Edit Post</a>
+                      </div>
+                      <a rel="nofollow" :href="'/post/' + post.id" class="btn-quick-zalo">Xem Chi Tiết</a>
                     </div>
-                    <a rel="nofollow" :href="'/post/' + post.id" class="btn-quick-zalo">Xem Chi Tiết</a>
+
 
                     </div>
 
