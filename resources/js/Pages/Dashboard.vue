@@ -3,10 +3,6 @@
  
 
     <AuthenticatedLayout>
-        <template #header>
-            
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
-        </template>
         <Home :posts1="posts" >
         </Home>
     </AuthenticatedLayout>
@@ -21,7 +17,7 @@ import Home from '@/Components/Home.vue';
 
 defineProps({
     posts:Object,
-  
+
 })
 
 </script>

@@ -6,14 +6,14 @@
     display: inline-block;
     vertical-align: top;
     margin-top: 160px;
+    width: 25%;
 
 }
 .room-content{
     display: inline-block;
-    width: 728px;
+    width: 75%;
 }
 #demo.carousel{
-    height: 317px;
     width: 100%;
     z-index: 0;
     display:inline-flex ;
@@ -21,6 +21,7 @@
     background-color: #000;
     vertical-align: top;
     justify-content: center;
+    position: relative;
 }
 
 .carousel-inner .carousel-item {
@@ -33,14 +34,10 @@
 }
 
 .user-detail{
-    
-    
     border: 1px solid #F2F2F2;
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 16px;
-    
-    width: 260px;
     background-color: #fff;
     margin-left:15px;
 }
