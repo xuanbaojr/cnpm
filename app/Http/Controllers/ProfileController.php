@@ -57,7 +57,7 @@ class ProfileController extends Controller
     */
         $profile->save();
 
-        return Redirect::to('/profile/me');
+        return Redirect::to('/profile/me')->with('message', 'Category Created Successfully');
     }
 
     /**

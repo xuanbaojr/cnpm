@@ -24,6 +24,7 @@ class ProfileUpdateRequest extends FormRequest
             'gioi_tinh' => ['string', 'max:255'],
             'description' => ['string', 'max:255'],
             'sdt' => ['string'],
+            'facebook' => ['string'],
             
         ];
     }
