@@ -1,13 +1,26 @@
 <template>
-    a
-   {{ posts }}
+    <div v-for="post in posts " :key="posts.id">
+        {{ post }} 
+        <button @click="deletePost(post.id)">Xoa Post {{ post.id }}</button>
+    </div>
 
-   </template>
+</template>
    
-   <script setup>
+<script setup>
+import { useForm } from '@inertiajs/vue3';
+
+    const form = useForm({});
+
     defineProps({
            user:Object,
            profile:Object,
            posts:Object,
        })
-   </script>
+
+    const deletePost = (PostId) => {
+        form.delete(route('admin.destroyPost',PostId),{
+            onSuccess : (response) => alert(response);
+        });
+
+    };
+</script>

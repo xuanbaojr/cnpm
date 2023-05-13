@@ -21,6 +21,7 @@ class Profile extends Model
         'gioi_tinh',
         'description',
         'sdt',
+        'facebook',
         
     ];
 

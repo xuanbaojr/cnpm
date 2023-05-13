@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 use Inertia\Inertia;
 
@@ -82,43 +83,8 @@ class PostsController extends Controller
 
     public function update1(\App\Models\Post $post, PostRequest $request)
  {
-//     $data = [];
-//     $data = $request->validated();
 
-//     $data['title'] = $post-> title;
-//     $data['dien_tich'] = $post-> dien_tich;
-//     $data['gia_phong'] = $post-> gia_phong;
-//     $data['description'] = $post-> description;
-//     $data['city'] = $post-> city;
-//     $data['district'] = $post-> district;
-//     $data['ward'] = $post-> ward;
-//     if($request->hasFile('title')){
-//         ;
-//     }
     $data = $request->validated();
-
-
-// \Log::info('Data after validation:', ['data' => $data]);
-
-
-//     if ($request->hasFile('image_01')) {
-//         ;
-//         // Debug: Check if the request contains the image file
-//         \Log::info('Image file found in request');
-
-//         // Delete the old image if it exists
-//         if ($post->image_01) {
-//             Storage::disk('public')->delete($post->image_01);
-//         }
-
-//         // Store the new image
-//         $image_01 = $request->file('image_01');
-//         $imagePath_01 = $image_01->store('uploads', 'public');
-//         $data['image_01'] = $imagePath_01;
-
-//         // Debug: Check the new image path
-//         \Log::info('New image path:', ['imagePath_01' => $imagePath_01]);
-//     }
 
     $post->fill($data);
     $post->save();
@@ -136,9 +102,11 @@ class PostsController extends Controller
     }
 
     public function dashboard() {
-        $post = \App\Models\Post :: all();
+        $user = [];
+        $post = \App\Models\Post :: with('user') ->get();
+        
         return Inertia::render('Dashboard',[
-            'post' => $post
+            'posts' => $post,
         ]);
     }
 
@@ -147,28 +115,26 @@ class PostsController extends Controller
         $post->delete();
         return Redirect::to('/profile/me');
     }
+
+    // search Post
+    public function searchPosts(){
+        $data = request()->validate([
+            'input' => 'required'
+        ]);
+
+        $posts = DB::table('posts')
+            -> where('city', 'like' , '%'.$data['input'].'%')
+            -> orWhere('district', 'like' , '%'.$data['input'].'%')
+            -> orWhere('ward','like' , '%'.$data['input'].'%') ->get();
+
+          
+        
+        // return Inertia::render('Dashboard',[
+        //     'posts' => $posts,
+        // ]);
+        return Inertia::render('Dashboard_search',[
+            'posts' => $posts
+        ]);
+    }
     
 }
-/*
-  public function update(\App\Models\Post $post, \App\Http\Requests\StorePostRequest $request)
-    {
-        $post->fill($request->validated());
-        $imagePaths = [];
-    
-        // Replace request('images') with $request->file('images')
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imagePaths[] = $image->store('uploads', 'public');
-            }
-    
-            $post->fill([
-                'image_01' => $imagePaths[0] ?? null,
-                'image_02' => $imagePaths[1] ?? null,
-                'image_03' => $imagePaths[2] ?? null,
-                'image_04' => $imagePaths[3] ?? null,
-            ]);
-        }
-    
-        $post->save();
-    }
-    */

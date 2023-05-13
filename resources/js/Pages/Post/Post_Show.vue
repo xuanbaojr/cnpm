@@ -6,7 +6,7 @@
 
                 <!-- End: Header -->
                 <!-- Begin: Content -->
-                <div class="content" style="margin: 0 10%">
+                <div class="content" style="margin: 0 15%">
                   <div class="room-content ">
                     <Post_Content :user="user" :profile="profile" :posts="posts" >
                     </Post_Content>

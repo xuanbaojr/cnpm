@@ -18,7 +18,8 @@ class ProfileController extends Controller
 {
     public function show()
 {
-    return Inertia::render('Profile/Show_me', [
+    
+    return Inertia::render('Profile/Show', [
         'user' => Auth::user(),
         'profile' => Auth::user()->profile,
         'posts' => Auth::user()->posts,
@@ -56,7 +57,7 @@ class ProfileController extends Controller
     */
         $profile->save();
 
-        return Redirect::to('/profile/me');
+        return Redirect::to('/profile/me')->with('message', 'Category Created Successfully');
     }
 
     /**

@@ -1,6 +1,9 @@
 <template>
    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
   <div class="container max-w-screen-lg mx-auto p-6">
+    <div v-if="$page.props.flash.message" class="alert">
+        {{ $page.props.flash.message }}
+      </div>
     <form @submit.prevent="form.patch(route('profile.update'))" class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
       <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
         <div class="text-gray-600">
@@ -33,6 +36,10 @@
               <label for="sdt">Phone Number</label>
               <input type="text" id="sdt" v-model="form.sdt" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="sdt" />
             </div>
+            <div class="md:col-span-5">
+              <label for="facebook">Facebook</label>
+              <input type="text" id="facebook" v-model="form.facebook" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="sdt" />
+            </div>
             <div class="md:col-span-5 text-right">
               <div class="inline-flex items-end">
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
@@ -59,5 +66,6 @@ const form = useForm({
     gioi_tinh:props.profile.gioi_tinh,
     description:props.profile.description,
     sdt:props.profile.sdt,
+    facebook:props.profile.facebook,
 })
 </script>

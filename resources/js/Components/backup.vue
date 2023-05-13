@@ -1,6 +1,8 @@
 <template>
     
-    <!--FILTER IA CHI main quan-->   
+    <!--FILTER IA CHI main quan-->
+    
+   
     <div class="row">
 
     <div class="col">
@@ -59,8 +61,8 @@
                 <!-- Sort -->
                 <div class="post-listing">
                     <div v-if="results.length">
-                        <h1> 0Null</h1>
-                        <div class="post-item clearfix" v-for="result in results" :key="result.id">
+                        
+                        <div class="post-item clearfix" v-for="result in results" :key="result.data">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -104,8 +106,8 @@
 
 
                     <div v-else>
-                        <h1>Null</h1>
-                        <div class="post-item clearfix" v-for="result in posts1" :key="result.id">
+
+                        <div class="post-item clearfix" v-for="result in posts1.data" :key="result.id">
                         <div class="info-img">
                             <div class="mainimg">
                                 <img :src="'/storage/' + result.image_01" alt="" width="100%" height="100%" style="height: 214px;">
@@ -154,9 +156,9 @@
                 
             </div>
             <!-- End: Main content -->
-            <!-- <Pagination :links="posts1.links">
+            <Pagination :links="posts1.links">
 
-            </Pagination> -->
+            </Pagination>
         </div>
         <div class="column-mr-1-5">
             <div class="cost-filter">
@@ -233,9 +235,9 @@
     <section class="intro" id="section3">
         <Introduction />
     </section>
-    <!-- <section class="care container" style="background-color: #fffcf5;border: 7px dashed #e8eefc;padding: 30px;margin-top: 30px;margin-bottom: 50px;">
+    <section class="care container" style="background-color: #fffcf5;border: 7px dashed #e8eefc;padding: 30px;margin-top: 30px;margin-bottom: 50px;">
         <TakeCare />
-    </section> -->
+    </section>
 </div>
 <footer>
     <Footer />
@@ -308,19 +310,18 @@ const wards = computed(()=>{
 
 watch(checkCity, dia_chiC)
 function dia_chiC(newCity, oldCity){
-    console.log(results.value);
-  results.value = results.value.length ? results.value.filter((item) => item.city == newCity) : props.posts1.filter((item) => item.city == newCity);
+results.value = posts.value.filter((item) => item.city == newCity);
 }
 
-watch(checkDistrict, dia_chiD)
-function dia_chiD(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.district == newCity);
-}
+// watch(checkDistrict, dia_chiD)
+// function dia_chiD(newCity, oldCity){
+//   results.value = posts.value.filter((item) => item.district == newCity);
+// }
 
-watch(checkWard, dia_chiW)
-function dia_chiW(newCity, oldCity){
-  results.value = posts.value.filter((item) => item.ward == newCity);
-}
+// watch(checkWard, dia_chiW)
+// function dia_chiW(newCity, oldCity){
+//   results.value = posts.value.filter((item) => item.ward == newCity);
+// }
 
 
 const checkCost = ref(null)
@@ -333,25 +334,25 @@ function price() {
     results.value =  results.value.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000)//: props.posts1.filter((item) => 0 <= item.gia_phong && item.gia_phong <= 1000000);
   }
   else if (checkCost.value === 2) {
-    results.value = results.value.length ? results.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000): props.posts1.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
+    results.value = results.length ? results.value.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000): props.posts1.filter((item) => 1000000 <= item.gia_phong && item.gia_phong <= 2000000);
   }
   else if (checkCost.value === 3) {
-    results.value = results.value.length ? results.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000): props.posts1.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
+    results.value = results.length ? results.value.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000): props.posts1.filter((item) => 2000000 <= item.gia_phong && item.gia_phong <= 3000000);
   }
   else if (checkCost.value === 4) {
-    results.value = results.value.length ? results.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000): props.posts1.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
+    results.value = results.length ? results.value.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000): props.posts1.filter((item) => 3000000 <= item.gia_phong && item.gia_phong <= 4000000);
   }
   else if (checkCost.value === 5) {
-    results.value = results.value.length ? results.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000): props.posts1.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
+    results.value = results.length ? results.value.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000): props.posts1.filter((item) => 4000000 <= item.gia_phong && item.gia_phong <= 5000000);
   }
   else if (checkCost.value === 6) {
-    results.value = results.value.length ? results.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000): props.posts1.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000);
+    results.value = results.length ? results.value.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000): props.posts1.filter((item) => 5000000 <= item.gia_phong && item.gia_phong <= 20000000);
   }
 }
 
 function dien_tich(begin,end) {
  //  results.value = posts.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
-   results.value = results.value.length ? results.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end): props.posts1.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
+   results.value = results.length ? results.value.filter((item) => begin <= item.dien_tich && item.dien_tich <= end): props.posts1.filter((item) => begin <= item.dien_tich && item.dien_tich <= end);
 
  }
 
