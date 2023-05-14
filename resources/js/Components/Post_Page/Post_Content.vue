@@ -38,9 +38,9 @@
             <address class="post-address">Địa chỉ: {{posts.ward}} - {{posts.district}} - {{posts.city}}</address>
             <div class="post-attributes">
               <div class="item price">
-                <span style="color: #16c784; font-weight: bold; font-size: 1rem"><i class='bx bx-dollar'></i> {{posts.gia_phong}} VND</span></div>
-                <div class="item acreage"><i></i><span><i class='bx bx-home'></i>{{posts.dien_tich}}m<sup>2</sup></span></div>
-                <div class="item published"><i></i><span title="Thứ 7, 22:45 15/04/2023"><i class='bx bx-time-five' ></i>{{posts.updated_at}}</span></div>
+                <span style="color: #16c784; font-weight: bold; font-size: 1rem"><i class='bx bx-dollar'></i>Giá: {{posts.gia_phong}} VND</span></div>
+                <div class="item acreage"><i></i><span><i class='bx bx-home'></i>Diện tích: {{posts.dien_tich}}m<sup>2</sup></span></div>
+                <div class="item published"><i></i><span title="Thứ 7, 22:45 15/04/2023"><i class='bx bx-time-five' ></i>Thời gian đăng: {{ moment(posts.updated_at).fromNow() }}</span></div>
 
               </div>
           </div>
@@ -81,7 +81,34 @@
 
 
 </template>
+
+<script>
+export default {
+  methods: {
+    formatDate(datetimeString) {
+      const date = new Date(datetimeString);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const now = new Date();
+      const diffInMilliseconds = now.getTime() - date.getTime();
+      const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+      if (diffInDays === 0) {
+        return 'Hôm nay';
+      } else if (diffInDays === 1) {
+        return 'Hôm qua';
+      } else {
+        return `${day}/${month}/${year}`;
+      }
+    },
+  },
+
+}
+</script>
+
 <script setup>
+import { onMounted } from "vue";
+import moment from 'moment';
 
 const props = defineProps({
     user: {
@@ -95,11 +122,23 @@ const props = defineProps({
         type: Object,
     },
 });
+
+
+function formatDate(datetimeString){
+  const date = new Date(datetimeString);
+  return date.toLocaleDateString();
+}
+
 </script>
+
+
 
 <style scoped>
 @import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
   @import '../../../css/bootstrap.min.css';
   @import '../../../css/index.css';
   @import '../../../css/detail.css';
+  i{
+    margin-right: 5px;
+  }
 </style>

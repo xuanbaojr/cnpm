@@ -25,13 +25,11 @@
         <p class="customer-review">"Trước khi biết website phongtro123, mình phải tốn nhiều công sức và chi phí cho việc đăng tin cho thuê: từ việc phát tờ rơi, dán giấy, và đăng lên các website khác nhưng hiệu quả không cao. Từ khi biết website phongtro123.com, mình đã thử đăng tin lên và đánh giá hiệu quả khá cao trong khi chi phí khá thấp, không còn tình trạng phòng trống kéo dài." </p>
         <p class="customer">Anh Khánh (chủ hệ thống phòng trọ tại Tp.HCM)</p> -->
 
-        
+
 
         <h4>Bạn có phòng muốn cho thuê?</h4>
         <p>Không phải lo tìm người cho thuê, phòng trống kéo dài</p>
-        <button class="button-animation">
-          <a href="#" style="color: #fff;text-decoration: none;">Đăng bài mới</a>
-        </button>
+        <p>Hãy sử dụng dịch vụ của chúng tôi</p>
     </div>
 </template>
 <style scoped>
