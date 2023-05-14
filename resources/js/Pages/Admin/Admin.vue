@@ -17,7 +17,7 @@
                Email
             </th>
             <th class="text-left p-4 font-medium">
-               gioi_tinh
+               Post Manage
             </th>
             <th class="text-left p-4 font-medium">
                 created_at
@@ -26,7 +26,7 @@
                 updated_at
              </th>
              <th class="text-left p-4 font-medium">
-                manageAccount
+                Account Manage
              </th>
          </tr>
       </thead>

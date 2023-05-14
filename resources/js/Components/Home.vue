@@ -92,7 +92,7 @@
                                 <span class="post-location">
               <a style="color: #000" href="#">{{result.ward }} - {{result.district}} - {{result.city}}</a>
             </span>
-                                <span>{{ result.updated_at }}</span>
+                                <span>{{ moment(result.updated_at).fromNow() }}</span>
                                 <p class="post-summary">{{result.description}}</p>
                             </div>
                             <div class="contact-info">
@@ -142,12 +142,12 @@
                                 <span class="post-location">
               <a style="color: #000" href="#">{{result.ward }} - {{result.district}} - {{result.city}}</a>
             </span>
-                                <span>{{ result.updated_at }}</span>
+                                <span>{{ moment(result.updated_at).fromNow() }}</span>
                                 <p class="post-summary">{{result.description}}</p>
                             </div>
                             <div class="contact-info">
                                 <div class="post-author">
-                                    <img src="" alt="member-item" class="">
+                                    <img src="https://picsum.photos/200" alt="member-item" class="">
                                     <a :href="'/profile/' + result.user_id" style="color:#000">xuanbao0{{result.user_id}}</a>
                                 </div>
                                 <a :href="'/post/' + result.id" class="btn-quick-zalo">Xem Chi Tiết</a>
@@ -159,7 +159,7 @@
                          <!-- So phong bang 0 -> khong co phong thoa man -->
                         <div v-else>
                             <p>Rất tiếc! Hiện chưa có phòng phù hợp với bạn. Vui lòng quay lại sau  <a :href="'/dashboard'">
-                                    <p>Thử lại</p>
+                                    <p style="color:#000;text-decoration: underline;">Thử lại</p>
                                 </a>
 
                             </p>
@@ -283,6 +283,7 @@ import TakeCare from './TakeCare.vue'
 import Introduction from './Introduction.vue'
 
 import {computed} from 'vue';
+import moment from 'moment';
 
 
 const props = defineProps({

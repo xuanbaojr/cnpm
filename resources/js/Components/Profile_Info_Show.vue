@@ -8,12 +8,12 @@
               <li class="info-items">Ngày sinh: {{profile.birth}}</li>
               <li class="info-items">Giới tính: {{profile.gioi_tinh}}</li>
               <li class="info-items">Nghề nghiệp: {{ profile.univer }}</li>
-              <li> -----------------------------------------------------</li>
+              <hr>
               
-              <li><i class='bx bxs-phone-call ' > <span class="font-semibold text-base dl-3"> {{ profile.sdt }}</span></i></li>
-              <li><i class='bx bx-envelope' > {{ user.email }}</i></li>
-              <a :href="'' + profile.facebook " class="text-black"><i class='bx bxl-facebook' >{{ profile.facebook }}</i></a>
-             
+              <li><i class='bx bxs-phone-call ' ></i><span class="font-semibold text-base dl-3"> {{ profile.sdt }}</span></li>
+              <li><i class='bx bx-envelope' ></i>{{ user.email }}</li> 
+              <li><i class='bx bxl-facebook' ></i><a :href="'' + profile.facebook " class="text-black">{{ profile.facebook }}</a>
+             </li>
 
             </ul>
 
@@ -42,4 +42,8 @@ const props = defineProps({
 @import '../../css/bootstrap.min.css';
 @import '../../css/user-detail.css';
 @import '../../css/index.css';
+i{
+  margin-right: 10px;
+  transform: translateY(3px);
+}
 </style>

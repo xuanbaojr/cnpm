@@ -1,8 +1,8 @@
 <template>
-    <form @submit.prevent="form.delete(route('profile.destroy'))">
+    <!-- <form @submit.prevent="form.delete(route('profile.destroy'))">
         <p>Tôi muốn xóa tài khoản</p>
         <button class="btn btn-primary" type="submit">Xác Nhận</button>
-    </form><!-- component -->
+    </form>component -->
 
 </template>
 <script setup>
