@@ -57,8 +57,10 @@ defineProps({
                 </div>
               </nav>
               <div class="text-content">
-                <h2>Learn To Enjoy,<br>Every Moment Of Your Life</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum facere in nam, officiis aspernatur consectetur aliquid sequi possimus et. Sint.</p>
+                <h2>2223II_INT2208_2</h2>
+                <p>Phan Xuân Bảo - 21020053</p>
+                <p>Phùng Lê Anh Quân - 21020384</p>
+                <p>Lê Quốc Nhật Quang - 21020381</p>
               </div>
               <div class="play-button">
                 <span class="play">Welc</span>
