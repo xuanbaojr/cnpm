@@ -1,7 +1,7 @@
 <template>
 <div class="side-infomation">
             <div class="side-title">
-              <h3>Giới thiệu</h3>
+              <h3>Profile</h3>
             </div>
             <ul class="info-user-list">
               <li class="info-items">Họ và tên: {{profile.fullname}}</li>
@@ -9,10 +9,10 @@
               <li class="info-items">Giới tính: {{profile.gioi_tinh}}</li>
               <li class="info-items">Nghề nghiệp: {{ profile.univer }}</li>
               <li> -----------------------------------------------------</li>
-              Thông tin liên hệ :
-              <i class='bx bxs-phone-call' > {{ profile.sdt }}</i>
-              <i class='bx bx-envelope' > {{ user.email }}</i>
-              <a :href="'' + profile.facebook "><i class='bx bxl-facebook' >{{ profile.facebook }}</i></a>
+              
+              <li><i class='bx bxs-phone-call ' > <span class="font-semibold text-base dl-3"> {{ profile.sdt }}</span></i></li>
+              <li><i class='bx bx-envelope' > {{ user.email }}</i></li>
+              <a :href="'' + profile.facebook " class="text-black"><i class='bx bxl-facebook' >{{ profile.facebook }}</i></a>
              
 
             </ul>

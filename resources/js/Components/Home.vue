@@ -1,6 +1,8 @@
 <template>
 
-
+<svg class="animate-bounce w-6 h-6 ...">
+  <!-- ... -->
+</svg>
     <!--FILTER IA CHI main quan-->
     <div class="row">
 
@@ -256,6 +258,7 @@
     <!-- <section class="care container" style="background-color: #fffcf5;border: 7px dashed #e8eefc;padding: 30px;margin-top: 30px;margin-bottom: 50px;">
         <TakeCare />
     </section> -->
+
 </div>
 <footer>
     <Footer />
