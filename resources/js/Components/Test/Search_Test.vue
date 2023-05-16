@@ -2,7 +2,7 @@
 
     <form class="search" @submit.prevent="search">
         
-        <input type="text" class="search_input" placeholder="Type your text" v-model="form.input">
+        <input type="text" class="search_input" placeholder="Tìm phòng ở Hà Nội ?" v-model="form.input">
         <button class="search_button">
             <svg class="search_icon" aria-hidden="true" viewBox="0 0 24 24">
                 <g>

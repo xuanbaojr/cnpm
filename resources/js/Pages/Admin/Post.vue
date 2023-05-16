@@ -43,16 +43,17 @@
                {{ post.title }} 
             </td>
             <td class="p-4">
-                {{ post.created_at }}
+                
+                {{formatDate(post.created_at)}}
             </td>
             <td class="p-4">
-                {{ post.updated_at }}
+               {{formatDate(post.updated_at)}}
             </td>
             <td class="p-4" style="text-decoration: underline;">
              <a :href="'/post/' + post.id">Xem</a>
             </td>
             <td class="p-4">
-             <button @click="deletePost(post.id)"  style="text-decoration: underline;">Xoa Post {{ post.id }}</button>
+             <button class="btn btn-danger" @click="deletePost(post.id)" >Xoa Post {{ post.id }}</button>
             </td>
          </tr>
     </tbody>
@@ -68,6 +69,31 @@
       </template>
    </Authenticated>
 </template>
+
+<script>
+export default {
+  methods: {
+    formatDate(datetimeString) {
+      const date = new Date(datetimeString);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const now = new Date();
+      const diffInMilliseconds = now.getTime() - date.getTime();
+      const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+      if (diffInDays === 0) {
+        return 'Hôm nay';
+      } else if (diffInDays === 1) {
+        return 'Hôm qua';
+      } else {
+        return `${day}/${month}/${year}`;
+      }
+    },
+  },
+
+}
+
+</script>
    
 <script setup>
 import { useForm } from '@inertiajs/vue3';

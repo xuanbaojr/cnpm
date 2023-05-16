@@ -71,7 +71,7 @@
                     </tr>
                     <tr>
                       <td class="name">Facebook</td>
-                      <td> {{profile.facebook}}</td>
+                      <td><a :href="''+ profile.facebook" style="color:#000">{{profile.facebook}}</a> </td>
                     </tr>
                   </tbody>
                 </table>
@@ -82,29 +82,7 @@
 
 </template>
 
-<script>
-export default {
-  methods: {
-    formatDate(datetimeString) {
-      const date = new Date(datetimeString);
-      const year = date.getFullYear();
-      const month = date.getMonth() + 1;
-      const day = date.getDate();
-      const now = new Date();
-      const diffInMilliseconds = now.getTime() - date.getTime();
-      const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
-      if (diffInDays === 0) {
-        return 'Hôm nay';
-      } else if (diffInDays === 1) {
-        return 'Hôm qua';
-      } else {
-        return `${day}/${month}/${year}`;
-      }
-    },
-  },
 
-}
-</script>
 
 <script setup>
 import { onMounted } from "vue";

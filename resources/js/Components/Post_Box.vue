@@ -3,7 +3,7 @@
     <div class="section" style="margin-left:30px" >
               <!-- Title -->
               <div class="section-header" style="background-color: #fff ;margin-bottom: 15px;">
-                <span class="section-title" style="font-size: 25px;">Danh sách tin của bạn</span>
+                <span class="section-title" style="font-size: 25px;">Danh sách tin ( {{ posts.length }} )</span>
               </div>
               <!-- Sort -->
               <div class="post-listing">
@@ -36,13 +36,13 @@
                         <a style="color: #000" href="#">{{post.district}} - </a>
                         <a style="color: #000" href="#">{{post.city}} </a>
                       </span>
-                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023"> <a style="color: #000" href="#">{{post.updated_at}} </a></time>
+                      <time class="post-time" title="Chủ Nhật, 15:59 12/03/2023"> <a style="color: #000" href="#">{{ moment(post.updated_at).fromNow() }} </a></time>
                       <p class="post-summary"> <a style="color: #000" href="#">{{post.description}} </a></p>
                     </div>
                     <div class="contact-info">
                       <div class="post-author">
                         <img src="https://picsum.photos/200" alt="member-item" class="">
-                        <a :href="'profile' + user.id">{{profile.fullname}}</a>
+                        <a :href="'profile' + user.id" style="color: #000">{{profile.fullname}}</a>
 
                       </div>
                     <div class="contact-btn">
@@ -66,6 +66,7 @@
 
 </template>
 <script setup>
+import moment from 'moment';
 
 const props = defineProps({
     user: {

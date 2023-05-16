@@ -16,15 +16,16 @@
             <th class="text-left p-4 font-medium">
                Email
             </th>
-            <th class="text-left p-4 font-medium">
-               Post Manage
-            </th>
+            
             <th class="text-left p-4 font-medium">
                 created_at
              </th>
              <th class="text-left p-4 font-medium">
                 updated_at
              </th>
+             <th class="text-left p-4 font-medium">
+               Post Manage
+            </th>
              <th class="text-left p-4 font-medium">
                 Account Manage
              </th>
@@ -41,18 +42,20 @@
             <td class="p-4">
                {{ user.email }} 
             </td>
-            <td class="p-4">
-             <a :href="'/admin/' + user.id + '/posts'">Xem Post</a> 
-            </td>
+            
            
             <td class="p-4">
-                {{ user.profile.created_at }}
+               
+                {{formatDate(user.profile.created_at)}}
             </td>
             <td class="p-4">
-                {{ user.profile.updated_at }}
+               {{formatDate(user.profile.updated_at)}}
             </td>
             <td class="p-4">
-             <button class="btn" @click="deleteUser(user.id)" >Xoa User {{user.id}}</button>
+             <a :href="'/admin/' + user.id + '/posts'" style="text-decoration: underline;">Xem Post </a> 
+            </td>
+            <td class="p-4">
+             <button class="btn btn-danger" @click="deleteUser(user.id)" >Xoa User {{user.id}}</button>
             </td>
          </tr>
          <div>
@@ -70,6 +73,31 @@
    
  
 </template>
+
+<script>
+export default {
+  methods: {
+    formatDate(datetimeString) {
+      const date = new Date(datetimeString);
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const now = new Date();
+      const diffInMilliseconds = now.getTime() - date.getTime();
+      const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+      if (diffInDays === 0) {
+        return 'Hôm nay';
+      } else if (diffInDays === 1) {
+        return 'Hôm qua';
+      } else {
+        return `${day}/${month}/${year}`;
+      }
+    },
+  },
+
+}
+
+</script>
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 import Authenticated from '@/Layouts/AuthenticatedLayout.vue'
